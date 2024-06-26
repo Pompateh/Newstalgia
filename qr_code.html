@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="qr_content.css">
+</head>
+<body>
+    <div class="qr-container">
+        <button class="close-button" id="close-button" title="Close">&times;</button>
+        <header class="qr-header">
+            <img src="./assets/logo-01.png" alt="Logo" class="logo">
+        </header>
+        <div class="qr-content">
+            <img src="./assets/image/QR_code.png" alt="QR Code" class="qr-image">
+            <form id="email-form">
+                <input type="email" id="email-input" class="qr-email" placeholder="Enter your email" required>
+                <textarea id="order-details" class="order-details" placeholder="Enter order details"></textarea>
+                <button type="submit" class="send-button">Submit</button>
+            </form>
+        </div>
+        <footer class="qr-footer">
+            <p>Fill in your email to receive your file.</p>
+            <p>We will send the file after receiving your payment.</p>
+            <p>(Please send the screen shot of digital payment)</p>
+        </footer>
+    </div>
+    <script src="script_qr.js"></script>
+</body>
+</html>

@@ -1,0 +1,925 @@
+*{
+    margin: 5px;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+   
+.header_demo{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0%;
+}
+
+.header_demo .logo img{
+    max-width: 400px;
+    height: auto;
+    padding-top: 30px;
+    
+    
+}
+
+.header_demo nav ul li a {
+    display: inline-block;
+    color: #000;
+    border: 3px solid transparent;
+    transition: 0.2s;
+b}
+
+.hamburger{
+    display: none;
+}
+
+.nav-bar ul{
+    display: flex;
+}
+
+.nav-bar ul li a{
+    display: block;
+    font-size: 25px;
+    padding: 10px 30px;
+    border-radius: 50%;
+    transition: 0.2s;
+    margin: 0 10px;
+    color: black;
+}
+
+.nav-bar ul li a:hover{
+    color: white;
+    background-color: black;
+}
+
+.nav-bar ul li a.active{
+    color: white;
+    background-color: black;
+}
+
+@media only screen and (max-width: 1320px) {
+    .header_demo{
+        padding: 10 10px;
+    }   
+}
+@media only screen and (max-width: 1100px) {
+    .header_demo{
+        padding: 0 30px;
+    }   
+}
+@media only screen and (max-width: 900px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;}
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 0;
+    }
+
+    .nav-bar {
+        
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: white;
+        transition: 0.5s;
+        overflow: hidden;
+    } 
+
+    .nav-bar.active {
+        height: 600px; /* Or an appropriate height for your menu */
+        display: block; /* Ensure it is visible */
+        opacity: 1; /* Make it fully opaque */
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: 80px auto 0 auto;
+        text-align: center;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1; /* Make the list items visible */
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        color: white; /* Ensure the text is visible on the black background */
+        margin-bottom: 12px;
+        text-decoration: none; /* Ensure links are styled properly */
+    }
+}
+
+
+.row{
+    padding : 20px 20px 0 0;
+    align-items:center;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+
+.mainimg{
+    flex-basis: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    object-fit: contain;
+}
+    
+
+
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between the two title blocks */
+    gap: 40px; /* Optional: Adds spacing between the title blocks */
+    width: 98%; /* Ensures full-width alignment */
+    flex-wrap: wrap; /* Wraps to the next line on smaller screens */
+}
+
+.title1, .title2 {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 50px; /* Space between h1/h2 and p within each block */
+}
+
+.title1 h1, .title2 h2 {
+    margin: 0;
+    font-size: 6em;
+    font-weight: bold;
+    line-height: 0.8;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-top: 30px;
+    font-family: "Bebas Neue", sans-serif;
+    
+}
+
+.title1 p, .title2 p {
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: 16px;
+    padding-top: 30px;
+}
+
+.title1 p{
+    padding-left: 20px;
+    
+}
+
+
+/* Brand CSS*/
+.img-container1,
+.img-container2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 100%;
+    font-family: "Literata", serif;
+    gap: 20px; /* Adds space between cards */
+    padding: 0 10px; /* Adds padding for better alignment */
+}
+
+/* Base styling for cards */
+.card {
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, and minimum width for responsive layout */
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    background: #fff; /* Background color for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    transition: transform 0.2s; /* Animation for hover effect */
+    cursor: pointer;
+}
+
+/* Hover effect for cards */
+.card:hover {
+    transform: translateY(-10px); /* Moves card slightly upward */
+}
+
+/* Image styling within cards */
+.card img {
+    width: 100%;
+    height: auto; /* Keeps image aspect ratio */
+    display: block;
+    object-fit: cover; /* Ensures image covers its container */
+}
+
+/* Content styling within cards */
+.card-content {
+    padding: 16px;
+}
+
+/* Heading within card content */
+.card-content h1 {
+    font-size: 1.75em; /* Use em for responsive font size */
+    margin: 0;
+    text-align: center; /* Centers the text */
+    font-weight: 300; /* Uses lighter font weight */
+}
+
+
+.img-deg{
+    width: 1200px;
+    float: left;
+    margin-right: 30px;
+    margin-top: 0%;
+    height: 450px;
+    
+}
+
+.Typeface-box{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+}
+
+.text h1 {
+    font-size: 50px;
+}
+
+.text p {
+    font-size: 30px;
+    padding-top: 75px;
+}
+
+.text h3 {
+    float: right;
+    padding-top: 95px;
+
+}
+
+.flexbox-container{
+    display: grid;
+    grid-template-rows: (3, 1fr);
+    justify-content: center;
+    align-items: center;
+    width: 100%;;
+    height: 100%;
+    font-family: "Literata", serif;
+    margin: 0;
+    padding-top: 15px;
+    ;
+    
+}
+.flexbox-img{
+    box-sizing: border-box;
+}
+flex
+.feature-img img{
+    width: 100%;
+    max-height: auto;
+    padding-top: 15px;
+   
+    
+}
+
+.middle-img{
+    margin: 0 15px;
+    margin-bottom: 5px;
+
+}
+
+/*typeface media*/
+/* Adjustments for screens smaller than 1200px */
+@media only screen and (max-width: 1200px) {
+    .text h1 {
+        font-size: 40px;
+    }
+
+    .text p {
+        font-size: 24px;
+        padding-top: 60px;
+    }
+
+    .text h3 {
+        padding-top: 80px;
+        font-size: 20px;
+    }
+
+    .flexbox-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+    }
+}
+
+/* Adjustments for screens smaller than 900px */
+@media only screen and (max-width: 900px) {
+    .text h1 {
+        font-size: 36px;
+    }
+
+    .text p {
+        font-size: 22px;
+        padding-top: 50px;
+    }
+
+    .text h3 {
+        padding-top: 70px;
+        font-size: 18px;
+    }
+
+    .flexbox-container {
+        grid-template-columns: 1fr; /* Single column for small screens */
+    }
+
+    .text h3 {
+        float: none;
+        text-align: center;
+    }
+}
+
+/* Adjustments for screens smaller than 600px */
+@media only screen and (max-width: 600px) {
+    .text h1 {
+        font-size: 30px;
+    }
+
+    .text p {
+        font-size: 20px;
+        padding-top: 40px;
+    }
+
+    .text h3 {
+        padding-top: 60px;
+        font-size: 16px;
+    }
+
+    .flexbox-container {
+        padding: 0 10px; /* Adjust padding */
+    }
+}
+
+
+
+.get_btn a{
+    background-color: black;
+    color: white;
+    width: 100%;
+    border-radius: 50%;
+    text-decoration: none;
+    padding: 10px 20px;
+    
+}
+
+.get_btn a:hover {
+    color: bisque;
+}
+
+nav ul li a:hover{
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+
+.static_brand a{
+    background-color: grey;
+    color: greenyellow;
+    border-radius: 50%;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+.static_typeface a{
+    background-color: grey;
+    color: greenyellow;
+    border-radius: 50%;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.intro_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.intro_img img{
+    max-width: 20%;
+    height: auto;
+}
+
+.head1{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.intro_p{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    padding: 0 10px;
+    
+}
+.about_img{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+    
+}
+
+.about_img img{
+    max-width: 100%;
+    height: auto;
+    
+}
+
+.whatwedo, .contact_info {
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    margin-top: 15px;
+    padding: 0 10px;
+    
+
+}
+.jobs {
+    display: flex;
+    justify-content: center;
+    gap: 2%; /* Adjust spacing between items */
+    margin-top: 10px;
+    
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+.job, .address {
+    font-size: larger;
+    padding: 15px 20px;
+    text-align: center;
+    font-family: "Literata", serif;
+    width: 100%;
+    max-width: 45%;
+    box-sizing: border-box;
+    flex: 1 1 200px;
+    min-width: 200px;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-right: 0;
+
+}
+
+.addresse{
+    display: flex;
+    justify-content: space-around;
+    gap: 200px; /* Adjust spacing between items */
+    margin-top: 10px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    box-sizing: border-box;
+    
+}
+
+.clients_cons{
+    text-align: center;
+    margin-top: 50px;
+    font-family: "Bebas Neue", sans-serif;
+    padding: 0 10px;
+}
+.clients {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2%; /* Adjust spacing between items */
+    margin-top: 20px;
+    padding: 0 10px;
+}
+.client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px; /* Adjust width of each client box */
+    text-align: center;
+    box-sizing: border-box;
+}
+.client img {
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.end_img{
+    width: 100%;
+    height: a;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 80px 0px;
+}
+
+.end_img img{
+    max-width: 20%;
+    height: auto;
+}
+
+
+
+.back_btn_1, .shop_back {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.back_btn_1 a, .shop_back a{
+    color: white;
+}
+.back_btn_1 svg, .shop_back svg {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+.back_btn_1:hover, .shop_back:hover {
+    background-color: greenyellow;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.back_btn_1:active, .shop_back:active {
+    background-color: green;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.detail_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 10px 0 10px;
+    text-align: center;
+    font-size: 1em;
+    font-family: "Literata", serif;
+
+    
+}
+.product_name a{
+    font-size: 1.5em;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.detail_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+.detail_img img{
+    max-width: 100%;
+    max-height: auto
+    ;
+}
+
+/*shoppingbag section*/
+.cartTab{
+    width: 450px;
+    background-color: white;
+    color: black;
+    position: fixed;
+    inset: 0 -480px 0 auto;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: .5s;
+    font-family: "Bebas Neue", sans-serif;
+    z-index: 90;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+body.showCart .cartTab{
+    inset: 0 0 0 auto;
+}
+
+body.showCart .product-layout{
+    transform: translateX(-250px) ;
+}
+
+
+.cartTab h1{
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.cartTab .btn{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab .btn button{
+    background-color: black;
+    color: white;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.cartTab .shopbtn .close{
+    background-color: bisque;
+}
+
+
+.listProduct .item img{
+    width: 90%;
+}
+
+.listProduct {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.listProduct .item{
+    
+    border-radius: 20px;
+    position: relative;
+}
+
+.listProduct .item h2{
+    font-size: large;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.listProduct .item .price{
+    letter-spacing: 5px;
+    font-size: small;
+    
+;
+}
+
+.listProduct .item button{
+    background-color: white;
+    color: black;
+    padding: 5px 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.listProduct .item button:hover{
+    background-color: aquamarine;
+    color: yellow;
+}
+
+
+
+.product-name {
+    position: absolute;
+    top: 26px; /* Adjust vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.5em 1em;
+    border-radius: 50%; /* Ellipse shape */
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 10;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: padding 0.3s, font-size 0.3s;
+    cursor: pointer;
+}
+
+.product-name:hover {
+    color: green;
+    background-color: bisque;
+}
+
+.product-buy {
+    position: absolute;
+    bottom: 50px; /* Adjust vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5em 1em;
+    border-radius: 50%; /* Ellipse shape */
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 10;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    transition: padding 0.3s, font-size 0.3s;
+    cursor: pointer;
+}
+
+.product-name, .product-buy{
+    z-index: 10;
+}
+
+
+/* Base styling for the shop front */
+.shop_front {
+    height: 100%;
+    width: 100%; /* Ensures full width */
+    margin: 0; /* Removes any default margin */
+    padding: 0;
+    text-align: center;
+    padding: 20px 0; /* Padding top and bottom only */
+    box-sizing: border-box; /* Includes padding in width */
+}
+
+/* SVG styling */
+.svg {
+    width: 30px; /* Fixed width for SVG */
+    height: auto; /* Keeps aspect ratio */
+    display: inline-block; /* Allows centering */
+    margin: 0 auto; /* Centers the SVG */
+}
+
+/* Header styling */
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Centers items horizontally */
+    padding: 20px 20px;
+    flex-wrap: wrap; /* Wraps items for smaller screens */
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 900px) {
+    .header {
+        padding: 15px 0; /* Adjust padding for smaller screens */
+        gap: 15px; /* Adjust gap for smaller screens */
+    }
+
+    .shop_front {
+        padding: 15px 5px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        flex-direction: column; /* Stacks items vertically */
+        gap: 10px; /* Reduces gap for smallest screens */
+    }
+}
+
+.header .shop_btn a{
+    color: black;
+    padding-right: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 7px;
+    font-size: larger;
+}
+
+.icon_cart{
+    position: relative;
+}
+.icon_cart span{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: rebeccapurple;
+    justify-content: center;
+    align-items: center;
+    color: wheat;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: -10px;
+
+}
+
+.shop_btn, .product_name{
+    font-size: 3em;
+    font-weight: bolder;
+    
+}
+
+.shoptext{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: 400 ;
+    margin-bottom: 50px;
+    font-family: "Literata", serif;
+}
+
+
+
+
+
+.shop_end, .detail_end{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 30px 60px 30px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.cartTab .listCart .item img{
+    width: 100%;
+
+}
+
+.cartTab .listCart .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center ;
+}
+.listCart .quantity {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-right: 20px;
+}
+.listCart .quantity span{
+    display: inline-flex;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    
+}
+
+.listCart .quantity span:nth-child(2){
+    background-color: transparent;
+    color: black;
+}
+
+.listCart{
+    overflow: auto;
+
+}
+.listCart::-webkit-scrollbar{
+    width: 0;
+}
+
+@media screen and (max-width: 992px){
+    .listProduct{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .listProduct {
+        grid-template-columns: 1fr; 
+    }
+}
