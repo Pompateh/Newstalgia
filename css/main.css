@@ -506,12 +506,43 @@
         align-items: stretch;        /* Stretch items to full width */
     }
 
+    .Typeface-box{
+        display: block;
+        width: 100%;
+        height: auto;
+        padding-top: 40px;
+        padding-left: 0px;
+        
+    }
+
     .flexbox-container a {
         width: 100%;                 /* Full width */
     }
+    
+    .text h1 {
+        font-size: 30px;             /* Adjust font size */
+    }
+
+    .text p {
+        font-size: 20px;             /* Adjust font size */
+        padding-top: 20px;           /* Adjust padding */
+    }
+
+    .text h3 {
+        font-size: 16px;             /* Adjust font size */
+        padding-top: 15px;           /* Adjust padding */
+        text-align: center;          /* Center text */
+    }
+
+    .img-deg {
+        max-width: 100%;             /* Full width */
+        height: auto;                /* Maintain aspect ratio */
+        float: none;                 /* Disable float */
+        margin: 0;                   /* No margin */
+    }
 }
 
-/* Medium screens (tablets and small desktops) */
+
 @media (min-width: 577px) and (max-width: 992px) {
     .flexbox-container {
         justify-content: space-around; /* Space around items */
@@ -521,6 +552,20 @@
         flex: 0 1 45%;               /* Take up 45% of the width, flexibly */
         margin-bottom: 10px;         /* Margin between items */
     }
+
+    .text h1 {
+        font-size: 36px;             /* Adjust font size */
+    }
+
+    .text p {
+        font-size: 22px;             /* Adjust font size */
+        padding-top: 30px;           /* Adjust padding */
+    }
+
+    .text h3 {
+        font-size: 18px;             /* Adjust font size */
+        padding-top: 20px;           /* Adjust padding */
+    }
 }
 
 /* Large screens (desktops) */
@@ -528,60 +573,24 @@
     .flexbox-container a {
         flex: 0 1 30%;               /* Take up 30% of the width, flexibly */
     }
-}
 
-
-
-/*typeface media*/
-/* Adjustments for screens smaller than 1200px */
-@media only screen and (max-width: 1200px) {
     .text h1 {
-        font-size: 40px;
+        font-size: 40px;             /* Adjust font size */
     }
 
     .text p {
-        font-size: 24px;
-        padding-top: 60px;
+        font-size: 24px;             /* Adjust font size */
+        padding-top: 40px;           /* Adjust padding */
     }
 
     .text h3 {
-        padding-top: 50px;
-        font-size: 20px;
-    }
-
-    .flexbox-container {
-        grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
-    }
-}
-
-/* Adjustments for screens smaller than 900px */
-@media only screen and (max-width: 900px) {
-    .text h1 {
-        font-size: 36px;
-    }
-
-    .text p {
-        font-size: 22px;
-        padding-top: 50px;
-    }
-
-    .text h3 {
-        padding-top: 70px;
-        font-size: 18px;
-    }
-
-    .flexbox-container {
-        grid-template-columns: 1fr; /* Single column for small screens */
-    }
-
-    .text h3 {
-        float: none;
-        text-align: center;
+        font-size: 20px;             /* Adjust font size */
+        padding-top: 30px;           /* Adjust padding */
     }
 }
 
 /* Adjustments for screens smaller than 600px */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 450px) {
     .text h1 {
         font-size: 30px;
     }
@@ -597,7 +606,17 @@
     }
 
     .flexbox-container {
-        padding: 0px; /* Adjust padding */
+        padding: 0px;
+        margin: 0; /* Adjust padding */
+    }
+
+    .img-deg{
+        max-width: 80%;
+        height: auto;
+        float: left;
+        margin-right: 30px;
+        margin-top: 0%;
+        height: 450px;
     }
 }
 
