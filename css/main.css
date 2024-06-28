@@ -548,6 +548,15 @@
         justify-content: space-around; /* Space around items */
     }
 
+    .Typeface-box{
+        display: block;
+        width: 100%;
+        height: auto;
+        padding-top: 40px;
+        padding-left: 0px;
+        
+    }
+
     .flexbox-container a {
         flex: 0 1 45%;               /* Take up 45% of the width, flexibly */
         margin-bottom: 10px;         /* Margin between items */
@@ -1092,6 +1101,19 @@ body.showCart .product-layout{
     .header {
         flex-direction: column; /* Stacks items vertically */
         gap: 10px; /* Reduces gap for smallest screens */
+    }
+}
+@media (max-width: 768px) {
+    .header {
+        flex-direction: row; /* Stack items vertically */
+        align-items: flex-start; /* Align items to start */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+   
+
+    .header > div:last-child {
+        margin-bottom: 0; /* Remove margin from the last item */
     }
 }
 
