@@ -845,7 +845,6 @@ nav ul li a:hover{
     transition: background-color 0.3s, box-shadow 0.3s;
     cursor: pointer;
     text-align: center;
-    margin-top: 20px;
     margin-left: 20px;
 }
 .back_btn_1 a, .shop_back a{
@@ -1332,24 +1331,13 @@ body.showCart .product-layout{
         padding: 10px; /* Adjust padding for smaller screens */
     }
 
-    .cartTab{
-        width: 150px;
-        background-color: white;
-        color: black;
-        position: fixed;
-        inset: 0 -480px 0 auto;
-        display: grid;
-        grid-template-rows: 70px 1fr 70px;
-        transition: .5s;
-        font-family: "Bebas Neue", sans-serif;
-        z-index: 90;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    @media (max-width: 450px) {
+        .cartTab {
+            width: 60%; /* Adjust width to fit smaller screens */
+            
+        }
     }
     
-
-
- 
-
     .shop_btn a {
         font-size: 1.2em; /* Smaller font size for buttons */
         padding-right: 10px; /* Adjust padding for smaller buttons */
@@ -1385,17 +1373,17 @@ body.showCart .product-layout{
 
     .listProduct {
         grid-template-columns: 1fr; /* Single column for products */
-        padding-left: 30; /* Remove left padding */
+        padding-left: 30px; /* Remove left padding */
         gap: 15px; /* Adjust gap between items */
     }
 
     .listProduct .item {
         justify-content: center;
-        padding-left: 10px; /* Adjust padding */
+        padding-left: 15px; /* Adjust padding */
     }
 
     .footer {
-        flex-direction: column; /* Stack footer items vertically */
+        flex-direction: row; /* Stack footer items vertically */
         align-items: center; /* Center items */
         padding: 10px 5px; /* Adjust padding */
     }
