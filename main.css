@@ -1147,6 +1147,7 @@ body.showCart .product-layout{
     position: absolute;
     top: 50%;
     right: -10px;
+    transform: translateY(-50%);
 
 }
 
@@ -1173,7 +1174,7 @@ body.showCart .product-layout{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 40px 30px 60px 30px;
+    margin: 40px 30px 60px ;
     text-align: center;
     font-size: 25px;
 }
@@ -1224,8 +1225,8 @@ body.showCart .product-layout{
     width: 0;
 }
 
-@media screen and (max-width: 992px){
-    .listProduct{
+@media screen and (max-width: 992px) {
+    .listProduct {
         grid-template-columns: repeat(2, 1fr);
         padding-left: 50px;
     }
@@ -1234,8 +1235,52 @@ body.showCart .product-layout{
 @media screen and (max-width: 767px) {
     .listProduct {
         grid-template-columns: 1fr; 
+        padding-left: 0; /* Remove left padding on smaller screens */
+    }
+
+    .header {
+        flex-direction: row; /* Stack items vertically */
+        align-items: flex-start; /* Align items to start */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .listProduct .item{
+        justify-content: center;
+        padding-left: 70px;
+    }
+
+   
+
+    .header > div:last-child {
+        margin-bottom: 0; /* Remove margin from the last item */
     }
 }
+
+
+    .shoptext {
+        font-size: 24px; /* Adjust font size for smaller screens */
+        margin-bottom: 20px; /* Adjust bottom margin for spacing */
+    }
+
+    .shop_btn, .product_name {
+        font-size: 3em; /* Adjust font size for smaller screens */
+    }
+
+    .shop_end, .detail_end {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center; /* Center text */
+        margin: 20px 10px; /* Adjust margins for smaller screens */
+    }
+    
+    .footer {
+        flex-direction: row; /* Stack footer items vertically */
+        align-items: center; /* Center items */
+    }
+
+    .footer_btn a {
+        margin-bottom: 10px; /* Space between footer links */
+    }
+
 
 
 .footer {
@@ -1278,6 +1323,102 @@ body.showCart .product-layout{
     height: 100%;
     
 }
+
+/* Responsive Design for Mobile Screens (450px and Below) */
+@media screen and (max-width: 450px) {
+    .header {
+        flex-direction: row; /* Stack items vertically */
+        align-items: flex-start; /* Align items to start */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    @media (max-width: 450px) {
+        .cartTab {
+            width: 100%; /* Adjust width to fit smaller screens */
+            inset: 0 0 0 0; /* Adjust position */
+        }
+    }
+    
+
+
+ 
+
+    .shop_btn a {
+        font-size: 1.2em; /* Smaller font size for buttons */
+        padding-right: 10px; /* Adjust padding for smaller buttons */
+        letter-spacing: 5px; /* Reduce letter spacing */
+    }
+
+    .icon_cart svg {
+        width: 40px; /* Adjust icon size */
+        height: 40px;
+    }
+
+    .icon_cart span {
+        width: 20px; /* Smaller badge */
+        height: 20px;
+        font-size: 12px; /* Smaller text size */
+        right: -30px; /* Adjust position */
+    }
+
+    .shoptext {
+        font-size: 20px; /* Adjust font size for smaller screens */
+        margin-bottom: 15px; /* Adjust bottom margin */
+    }
+
+    .shop_btn, .product_name {
+        font-size: 2em; /* Adjust font size for smaller screens */
+    }
+
+    .shop_end, .detail_end {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center; /* Center text */
+        margin: 15px 10px; /* Adjust margins for smaller screens */
+    }
+
+    .listProduct {
+        grid-template-columns: 1fr; /* Single column for products */
+        padding-left: 20px; /* Remove left padding */
+        gap: 15px; /* Adjust gap between items */
+    }
+
+    .listProduct .item {
+        justify-content: center;
+        padding-left: 10px; /* Adjust padding */
+    }
+
+    .footer {
+        flex-direction: column; /* Stack footer items vertically */
+        align-items: center; /* Center items */
+        padding: 10px 5px; /* Adjust padding */
+    }
+
+    .footer_btn a {
+        margin-bottom: 5px; /* Space between footer links */
+        font-size: 1em; /* Smaller font size */
+        padding: 5px 10px; /* Adjust padding */
+    }
+
+    .cartTab .listCart .item {
+        grid-template-columns: 50px 100px 30px 1fr; /* Adjust columns */
+        gap: 5px; /* Adjust gap */
+    }
+
+    .cartTab .listCart .item img {
+        width: 80%; /* Adjust image size */
+    }
+
+    .listCart .quantity span {
+        width: 40px; /* Smaller quantity buttons */
+        height: 20px;
+        font-size: 10px; /* Adjust font size */
+    }
+
+    .shop_background {
+        padding: 5px; /* Adjust padding */
+    }
+}
+
 
 
 
