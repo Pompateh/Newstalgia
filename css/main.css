@@ -431,7 +431,7 @@
     height: auto;
     padding-top: 40px;
     padding-left: 20px;
-    
+    padding-right: 20px;
 }
 
 .text h1 {
@@ -503,7 +503,7 @@
 @media (max-width: 576px) {
     .flexbox-container {
         flex-direction: column;      /* Stack items vertically */
-        align-items: stretch;        /* Stretch items to full width */
+        align-items: stretch;         /* Stretch items to full width */
     }
 
     .Typeface-box{
@@ -512,6 +512,7 @@
         height: auto;
         padding-top: 40px;
         padding-left: 0px;
+        padding-right: 0px;
         
     }
 
@@ -535,7 +536,7 @@
     }
 
     .img-deg {
-        max-width: 100%;             /* Full width */
+        width : 100%;             /* Full width */
         height: auto;                /* Maintain aspect ratio */
         float: none;                 /* Disable float */
         margin: 0;                   /* No margin */
@@ -620,12 +621,10 @@
     }
 
     .img-deg{
-        max-width: 80%;
+        width: auto;
         height: auto;
-        float: left;
-        margin-right: 30px;
         margin-top: 0%;
-        height: 450px;
+        height: 380px;
     }
 }
 
@@ -1329,11 +1328,12 @@ body.showCart .product-layout{
         flex-direction: row; /* Stack items vertically */
         align-items: flex-start; /* Align items to start */
         padding: 10px; /* Adjust padding for smaller screens */
+        margin-right: 20px;
     }
 
     @media (max-width: 450px) {
         .cartTab {
-            width: 60%; /* Adjust width to fit smaller screens */
+            width: 65%; /* Adjust width to fit smaller screens */
             
         }
     }
@@ -1354,6 +1354,7 @@ body.showCart .product-layout{
         height: 20px;
         font-size: 12px; /* Smaller text size */
         right: -30px; /* Adjust position */
+        margin-right: 20px;
     }
 
     .shoptext {
@@ -1395,16 +1396,16 @@ body.showCart .product-layout{
     }
 
     .cartTab .listCart .item {
-        grid-template-columns: 50px 100px 30px 1fr; /* Adjust columns */
+        grid-template-columns: 50px 50px 30px 1fr; /* Adjust columns */
         gap: 5px; /* Adjust gap */
     }
 
     .cartTab .listCart .item img {
-        width: 80%; /* Adjust image size */
+        width: 100%; /* Adjust image size */
     }
 
     .listCart .quantity span {
-        width: 40px; /* Smaller quantity buttons */
+        width: 20px; /* Smaller quantity buttons */
         height: 20px;
         font-size: 10px; /* Adjust font size */
     }
