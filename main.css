@@ -1,0 +1,1283 @@
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+   
+.header_demo{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_demo .logo img{
+    max-width: 400px;
+    height: auto;
+    padding-top: 40px;
+    margin: 20px;
+    
+}
+
+.header_demo nav ul li a {
+    margin-top: 20px;
+    display: inline-block;
+    color: #000;
+    border: 3px solid transparent;
+    transition: 0.2s;
+}
+
+.hamburger{
+    display: none;
+}
+
+.nav-bar ul{
+    display: flex;
+    font-family: "Literata", serif;
+    font-weight: 500;
+}
+
+.nav-bar ul li a{
+    display: block;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 50%;
+    transition: 0.2s;
+    margin: 0 px;
+    color: black;
+}
+
+.nav-bar ul li a:hover{
+    color: white;
+    background-color: black;
+}
+
+.nav-bar ul li a.active{
+    color: white;
+    background-color: black;
+}
+
+@media only screen and (max-width: 1440px) {
+    .header_demo{
+        padding-top: 10px;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;}
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 25px;
+    }
+
+    .nav-bar {
+        margin-top: 30px;
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: white;
+        transition: 0.5s;
+        overflow: hidden;
+    } 
+
+    .nav-bar.active {
+        height: 710px; /* Or an appropriate height for your menu */
+        display: block; /* Ensure it is visible */
+        opacity: 1;
+        margin-top: 20px; /* Make it fully opaque */
+        
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: -5px auto 0 auto;
+        text-align: center;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1; /* Make the list items visible */
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        color: white; /* Ensure the text is visible on the black background */
+        margin-bottom: 12px;
+        text-decoration: none; /* Ensure links are styled properly */
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .header_demo{
+        padding-top: 10px;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;}
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 25px;
+    }
+
+    .nav-bar {
+        margin-top: 30px;
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: white;
+        transition: 0.5s;
+        overflow: hidden;
+    } 
+
+    .nav-bar.active {
+        height: 710px; /* Or an appropriate height for your menu */
+        display: block; /* Ensure it is visible */
+        opacity: 1; /* Make it fully opaque */
+        
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: -5px auto 0 auto;
+        text-align: center;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1; /* Make the list items visible */
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        color: white; /* Ensure the text is visible on the black background */
+        margin-bottom: 12px;
+        text-decoration: none; /* Ensure links are styled properly */
+    }
+}
+@media only screen and (max-width: 900px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;}
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 5px;
+    }
+
+    .nav-bar {
+        margin-top: 30px;
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: white;
+        transition: 0.5s;
+        overflow: hidden;
+    } 
+
+    .nav-bar.active {
+        height: 600px; /* Or an appropriate height for your menu */
+        display: block; /* Ensure it is visible */
+        opacity: 1; /* Make it fully opaque */
+        
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: -5px auto 0 auto;
+        text-align: center;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1; /* Make the list items visible */
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        color: white; /* Ensure the text is visible on the black background */
+        margin-bottom: 12px;
+        text-decoration: none; /* Ensure links are styled properly */
+    }
+}
+
+.mainimg {
+    width: 100%;                /* Responsive width */
+    height: 750px;               /* Maintain aspect ratio */
+    object-fit: cover;          /* Cover container, better for visual appeal */
+    box-sizing: border-box;     /* Include padding and border in the width and height */
+    padding: 45px 15px 0 15px;  /* Initial padding */
+    margin-bottom: 0;
+    
+}
+
+/* Remove padding on smaller screens */
+@media (max-width: 768px) {
+    .mainimg {
+        width: 100%;            /* Full width */
+        height: auto;           /* Maintain aspect ratio */
+        object-fit: contain;    /* Contain within container */
+        padding: 0;             /* No padding */
+        margin-top: 30px;              /* Remove margin */
+    }
+    .header_demo .logo img{
+        max-width: 250px;
+        height: auto;
+        padding-top: 20px;
+        margin: 5px;
+        
+    }
+}
+@media (max-width: 1440px) {
+    .mainimg {
+        width: 100%;            /* Full width */
+        height: auto;           /* Maintain aspect ratio */
+        object-fit: contain;    /* Contain within container */
+        padding: 0;             /* No padding */
+        margin-top: 30px;              /* Remove margin */
+    }
+}
+@media (max-width: 1240px) {
+    .mainimg {
+        width: 100%;            /* Full width */
+        height: auto;           /* Maintain aspect ratio */
+        object-fit: contain;    /* Contain within container */
+        padding: 0;             /* No padding */
+        margin-top: 30px;            /* Remove margin */
+    }
+    .header_demo .logo img{
+        max-width: 300px;
+        height: auto;
+        padding-top: 20px;
+        margin: 5px;
+        
+    }
+}
+
+    
+
+
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px; /* Space between .title1 and .title2 */
+    width: 100%; /* Ensure full-width alignment */
+    flex-wrap: wrap; /* Wraps to the next line on smaller screens */
+    box-sizing: border-box; /* Include padding and border in the element's width and height */
+    padding: 0 ; /* Optional padding to prevent content from touching edges */
+}
+
+.title1, .title2 {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px; /* Space between h1/h2 and p within each block */
+    width: 48%; /* Make blocks responsive; adjust percentage as needed */
+    box-sizing: border-box; /* Include padding and border in the element's width and height */
+}
+
+.title1 h1, .title2 h2 {
+    margin: 0;
+    font-size: 6em; /* Exact font size provided */
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-top: 30px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    word-spacing: 5px;
+}
+
+.title1 p, .title2 p {
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: 15px;
+    padding-top: 50px;
+    font-family: "Literata", serif;
+}
+
+.title1 p, .title2 p {
+    padding-left: 10px; /* Padding for paragraph in title1 */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .title {
+        justify-content: center; /* Center content on smaller screens */
+    }
+
+    .title1, .title2 {
+        width: 100%; /* Full width on smaller screens */
+        flex-direction: column; /* Stack heading and paragraph vertically */
+        gap: 0px; /* Reduced gap for vertical stacking */
+        margin-bottom: 0px; /* Space between stacked blocks */
+    }
+
+    .title1 p, .title2 p {
+        padding-left: 20px; /* Padding for paragraph in title1 */
+        padding-top: 0px;
+    }
+}
+@media (max-width: 950px) {
+    .title {
+        justify-content: center; /* Center content on smaller screens */
+    }
+
+    .title1, .title2 {
+        width: 100%; /* Full width on smaller screens */
+        flex-direction: column; /* Stack heading and paragraph vertically */
+        gap: 0px; /* Reduced gap for vertical stacking */
+        margin-bottom: 0px; /* Space between stacked blocks */
+    }
+
+    .title1 p, .title2 p {
+        padding-left: 20px; /* Padding for paragraph in title1 */
+        padding-top: 0px;
+    }
+}
+
+/* Brand CSS*/
+.img-container1,
+.img-container2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: 100%;
+    font-family: "Literata", serif;
+    gap: 20px; /* Adds space between cards */
+    padding: 0 10px; /* Adds padding for better alignment */
+}
+
+/* Base styling for cards */
+.card {
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, and minimum width for responsive layout */
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px;
+    background: #fff; /* Background color for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    transition: transform 0.2s; /* Animation for hover effect */
+    cursor: pointer;
+}
+
+/* Hover effect for cards */
+.card:hover {
+    transform: translateY(-10px); /* Moves card slightly upward */
+}
+
+/* Image styling within cards */
+.card img {
+    width: 100%;
+    height: auto; /* Keeps image aspect ratio */
+    display: block;
+    object-fit: cover; /* Ensures image covers its container */
+}
+
+/* Content styling within cards */
+.card-content {
+    padding: 16px;
+}
+
+/* Heading within card content */
+.card-content h1 {
+    font-size: 1.75em; /* Use em for responsive font size */
+    margin: 0;
+    text-align: center; /* Centers the text */
+    font-weight: 300; /* Uses lighter font weight */
+}
+
+
+.img-deg{
+    max-width: 100%;
+    width: 1200px;
+    float: left;
+    margin-right: 30px;
+    margin-top: 0%;
+    height: 450px;
+}
+
+.Typeface-box{
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-top: 40px;
+    padding-left: 20px;
+    
+}
+
+.text h1 {
+    font-size: 50px;
+}
+
+.text p {
+    font-size: 30px;
+    padding-top: 75px;
+}
+
+.text h3 {
+    float: right;
+    padding-top: 95px;
+
+}
+
+/* Container for the flexbox layout */
+.flexbox-container {
+    display: flex;                   /* Use flexbox */
+    justify-content: space-between;  /* Space between images */
+    width: 100%;                     /* Full width */
+    margin: 0 auto;                  /* Center the container */
+    padding-top: 15px;                   /* Padding at the top */
+    height: auto;                    /* Allow height to adjust based on content */
+    align-items: center;             /* Center items vertically */
+    flex-wrap: wrap;                 /* Allow wrapping on smaller screens */
+    gap: 10px;                       /* Space between items */
+}
+
+/* Anchor styling inside the flexbox */
+.flexbox-container a {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+    cursor: pointer;
+    background: #fff;
+    display: block;                   /* Ensure block layout */
+    width: 100%;                      /* Full width */
+    max-width: 100%;                  /* Ensure max width */
+}
+
+/* Hover effect for anchor */
+.flexbox-container a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Image container styling */
+.flexbox-img {
+    box-sizing: border-box;
+    overflow: hidden;
+    flex: 1;                         /* Ensure all images have equal width */
+    max-width: 100%;                 /* Constrain max width */
+}
+
+/* Image styling */
+.flexbox-img img {
+    width: 100%;                     /* Make images responsive */
+    height: auto;                    /* Maintain aspect ratio */
+    display: block;
+    object-fit: cover;               /* Cover container area */
+}
+
+/* Media queries for responsiveness */
+
+/* Small screens (mobile devices) */
+@media (max-width: 576px) {
+    .flexbox-container {
+        flex-direction: column;      /* Stack items vertically */
+        align-items: stretch;        /* Stretch items to full width */
+    }
+
+    .Typeface-box{
+        display: block;
+        width: 100%;
+        height: auto;
+        padding-top: 40px;
+        padding-left: 0px;
+        
+    }
+
+    .flexbox-container a {
+        width: 100%;                 /* Full width */
+    }
+    
+    .text h1 {
+        font-size: 30px;             /* Adjust font size */
+    }
+
+    .text p {
+        font-size: 20px;             /* Adjust font size */
+        padding-top: 20px;           /* Adjust padding */
+    }
+
+    .text h3 {
+        font-size: 16px;             /* Adjust font size */
+        padding-top: 15px;           /* Adjust padding */
+        text-align: center;          /* Center text */
+    }
+
+    .img-deg {
+        max-width: 100%;             /* Full width */
+        height: auto;                /* Maintain aspect ratio */
+        float: none;                 /* Disable float */
+        margin: 0;                   /* No margin */
+    }
+}
+
+
+@media (min-width: 577px) and (max-width: 992px) {
+    .flexbox-container {
+        justify-content: space-around; /* Space around items */
+    }
+
+    .Typeface-box{
+        display: block;
+        width: 100%;
+        height: auto;
+        padding-top: 40px;
+        padding-left: 0px;
+        
+    }
+
+    .flexbox-container a {
+        flex: 0 1 45%;               /* Take up 45% of the width, flexibly */
+        margin-bottom: 10px;         /* Margin between items */
+    }
+
+    .text h1 {
+        font-size: 36px;             /* Adjust font size */
+    }
+
+    .text p {
+        font-size: 22px;             /* Adjust font size */
+        padding-top: 30px;           /* Adjust padding */
+    }
+
+    .text h3 {
+        font-size: 18px;             /* Adjust font size */
+        padding-top: 20px;           /* Adjust padding */
+    }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 993px) {
+    .flexbox-container a {
+        flex: 0 1 30%;               /* Take up 30% of the width, flexibly */
+    }
+
+    .text h1 {
+        font-size: 40px;             /* Adjust font size */
+    }
+
+    .text p {
+        font-size: 24px;             /* Adjust font size */
+        padding-top: 40px;           /* Adjust padding */
+    }
+
+    .text h3 {
+        font-size: 20px;             /* Adjust font size */
+        padding-top: 30px;           /* Adjust padding */
+    }
+}
+
+/* Adjustments for screens smaller than 600px */
+@media only screen and (max-width: 450px) {
+    .text h1 {
+        font-size: 30px;
+    }
+
+    .text p {
+        font-size: 20px;
+        padding-top: 40px;
+    }
+
+    .text h3 {
+        padding-top: 30px;
+        font-size: 16px;
+    }
+
+    .flexbox-container {
+        padding: 0px;
+        margin: 0; /* Adjust padding */
+    }
+
+    .img-deg{
+        max-width: 80%;
+        height: auto;
+        float: left;
+        margin-right: 30px;
+        margin-top: 0%;
+        height: 450px;
+    }
+}
+
+
+
+.get_btn a{
+    background-color: black;
+    color: white;
+    width: 100%;
+    border-radius: 50%;
+    text-decoration: none;
+    padding: 10px 20px;
+    
+}
+
+.get_btn a:hover {
+    color: bisque;
+}
+
+nav ul li a:hover{
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+
+.static_brand a{
+    background-color: grey;
+    color: greenyellow;
+    border-radius: 50%;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+.static_typeface a{
+    background-color: grey;
+    color: greenyellow;
+    border-radius: 50%;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.intro_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.intro_img img{
+    max-width: 20%;
+    height: auto;
+}
+
+.head1{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.intro_p{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0 10px;
+    font-family: "Literata", serif;
+    
+}
+.about_img{
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+    
+}
+
+.about_img img{
+    max-width: 100%;
+    height: auto;
+    
+}
+
+/* General Styles */
+.whatwedo, .contact_info, .clients_cons {
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    margin-top: 15px;
+    padding: 0 10px;
+}
+
+/* Job and Address Sections */
+.jobs, .addresse, .clients {
+    display: flex;
+    justify-content: center;
+    gap: 2%; /* Adjust spacing between items */
+    margin-top: 10px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-family: "Literata", serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+/* Individual Job and Address Boxes */
+.job, .address, .client {
+    font-size: larger;
+    padding: 15px 20px;
+    text-align: center;
+    font-family: "Literata", serif;
+    width: 100%;
+    box-sizing: border-box;
+    flex: 1 1 200px;
+    min-width: 200px;
+    max-width: 45%; /* Allow up to 45% width on larger screens */
+    margin: 0 0 10px 0; /* Margin bottom for spacing */
+}
+
+.client {
+    max-width: 200px; /* Adjust width of each client box */
+}
+
+/* Client Image Styling */
+.client img {
+    max-width: 100%;
+    height: auto;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* End Image Section */
+.end_img {
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 80px 0;
+}
+
+.end_img img {
+    max-width: 20%;
+    height: auto;
+}
+
+/* Media queries for responsiveness */
+
+/* Small screens (mobile devices) */
+@media (max-width: 576px) {
+    .whatwedo, .contact_info, .clients_cons {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+    
+    .jobs, .addresse, .clients {
+        justify-content: space-around; /* Space around items */
+        font-size: 16px;
+    }
+
+    .job, .address, .client {
+        max-width: 100%; /* Full width */
+    }
+
+    .end_img img {
+        max-width: 80%; /* Larger image width on small screens */
+    }
+}
+
+/* Medium screens (tablets and small desktops) */
+@media (min-width: 577px) and (max-width: 992px) {
+    .whatwedo, .contact_info, .clients_cons {
+        font-size: 32px; /* Adjust font size for medium screens */
+    }
+    
+    .jobs, .addresse, .clients {
+        justify-content: space-between; /* Space between items */
+    }
+
+    .job, .address, .client {
+        max-width: 45%; /* Adjust to 45% width */
+    }
+
+    .end_img img {
+        max-width: 50%; /* Moderate image width on medium screens */
+    }
+}
+
+
+
+
+.back_btn_1, .shop_back {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.back_btn_1 a, .shop_back a{
+    color: white;
+}
+.back_btn_1 svg, .shop_back svg {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+.back_btn_1:hover, .shop_back:hover {
+    background-color: greenyellow;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.back_btn_1:active, .shop_back:active {
+    background-color: green;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.detail_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 10px 0 10px;
+    text-align: center;
+    font-size: 1em;
+    font-family: "Literata", serif;
+
+    
+}
+.product_name a{
+    font-size: 1.5em;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.detail_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+.detail_img img{
+    max-width: 100%;
+    max-height: auto
+    ;
+}
+
+/*shoppingbag section*/
+.cartTab{
+    width: 450px;
+    background-color: white;
+    color: black;
+    position: fixed;
+    inset: 0 -480px 0 auto;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: .5s;
+    font-family: "Bebas Neue", sans-serif;
+    z-index: 90;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+body.showCart .cartTab{
+    inset: 0 0 0 auto;
+}
+
+body.showCart .product-layout{
+    transform: translateX(-250px) ;
+}
+
+
+.cartTab h1{
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.cartTab .btn{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab .btn button{
+    background-color: black;
+    color: white;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.cartTab .shopbtn .close{
+    background-color: bisque;
+}
+
+
+.listProduct .item img{
+    width: 90%;
+    justify-content: center;
+}
+
+.listProduct {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 50px;
+}
+
+.listProduct .item{
+    
+    border-radius: 20px;
+    position: relative;
+}
+
+.listProduct .item h2{
+    font-size: large;
+    font-weight: 500;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.listProduct .item .price{
+    letter-spacing: 5px;
+    font-size: small;
+    
+;
+}
+
+.listProduct .item button{
+    background-color: white;
+    color: black;
+    padding: 5px 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.listProduct .item button:hover{
+    background-color: aquamarine;
+    color: yellow;
+}
+
+
+
+.product-name {
+    position: absolute;
+    top: 26px; /* Adjust vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.5em 1em;
+    border-radius: 50%; /* Ellipse shape */
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 10;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: padding 0.3s, font-size 0.3s;
+    cursor: pointer;
+}
+
+.product-name:hover {
+    color: green;
+    background-color: bisque;
+}
+
+.product-buy {
+    position: absolute;
+    bottom: 50px; /* Adjust vertical position */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5em 1em;
+    border-radius: 50%; /* Ellipse shape */
+    color: black;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 10;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+    transition: padding 0.3s, font-size 0.3s;
+    cursor: pointer;
+}
+
+.product-name, .product-buy{
+    z-index: 10;
+}
+
+
+.shop_front::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 20px 10px;
+    background-color: azure;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 0 !important;
+    z-index: -1;}
+
+/* Ensure .shop_front content is positioned correctly */
+.shop_front {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+
+/* SVG styling */
+.svg {
+    width: 30px;
+    height: auto;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+/* Header styling */
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+    flex-wrap: wrap;
+    position: relative;
+}
+/* Responsive adjustments */
+@media only screen and (max-width: 900px) {
+    .header {
+        padding: 15px 0; /* Adjust padding for smaller screens */
+        gap: 15px; /* Adjust gap for smaller screens */
+    }
+
+    .shop_front {
+        padding: 15px 5px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        flex-direction: column; /* Stacks items vertically */
+        gap: 10px; /* Reduces gap for smallest screens */
+    }
+}
+@media (max-width: 768px) {
+    .header {
+        flex-direction: row; /* Stack items vertically */
+        align-items: flex-start; /* Align items to start */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .listProduct .item{
+        justify-content: center;
+        padding-left: 70px;
+    }
+
+   
+
+    .header > div:last-child {
+        margin-bottom: 0; /* Remove margin from the last item */
+    }
+}
+
+.header .shop_btn a{
+    color: black;
+    padding-right: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 7px;
+    font-size: larger;
+}
+
+.icon_cart{
+    position: relative;
+}
+.icon_cart span{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: rebeccapurple;
+    justify-content: center;
+    align-items: center;
+    color: wheat;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: -10px;
+
+}
+
+.shop_btn, .product_name{
+    font-size: 3em;
+    font-weight: bolder;
+    
+}
+
+.shoptext{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: 400 ;
+    margin-bottom: 50px;
+    font-family: "Literata", serif;
+}
+
+
+
+
+
+.shop_end, .detail_end{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 30px 60px 30px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.cartTab .listCart .item img{
+    width: 100%;
+
+}
+
+.cartTab .listCart .item{
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center ;
+}
+.listCart .quantity {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-right: 20px;
+}
+.listCart .quantity span{
+    display: inline-flex;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 1;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    
+}
+
+.listCart .quantity span:nth-child(2){
+    background-color: transparent;
+    color: black;
+}
+
+.listCart{
+    overflow: auto;
+
+}
+.listCart::-webkit-scrollbar{
+    width: 0;
+}
+
+@media screen and (max-width: 992px){
+    .listProduct{
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 50px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .listProduct {
+        grid-template-columns: 1fr; 
+    }
+}
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    bottom: 0;
+    width: 100%;
+    background-color: azure;
+    border-radius: 30px;
+    
+}
+
+.footer_btn {
+    font-family: "Literata", serif;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 500;
+}
+
+.footer_btn a {
+    text-decoration: none;
+    color: black;
+    padding: 0 20px;
+    padding-bottom: 20px;
+    border-radius: 50px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.footer_btn a:hover {
+    background-color: red;
+    color: white;
+}
+
+.shop_background{
+    background-color: azure;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    
+}
+
+
+
