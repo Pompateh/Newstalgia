@@ -28,7 +28,7 @@
     color: #000;
     border: 3px solid transparent;
     transition: 0.2s;
-b}
+}
 
 .hamburger{
     display: none;
@@ -36,15 +36,17 @@ b}
 
 .nav-bar ul{
     display: flex;
+    font-family: "Literata", serif;
+    font-weight: 500;
 }
 
 .nav-bar ul li a{
     display: block;
-    font-size: 25px;
+    font-size: 20px;
     padding: 10px 30px;
     border-radius: 50%;
     transition: 0.2s;
-    margin: 0 10px;
+    margin: 0 px;
     color: black;
 }
 
@@ -61,7 +63,7 @@ b}
 @media only screen and (max-width: 1320px) {
     .header_demo{
         padding: 10 10px;
-    }   
+    }
 }
 @media only screen and (max-width: 1100px) {
     .header_demo{
@@ -165,6 +167,8 @@ b}
     padding-left: 10px;
     padding-top: 30px;
     font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    word-spacing: 5px;
     
 }
 
@@ -172,8 +176,9 @@ b}
     margin: 0;
     font-weight: bold;
     line-height: 1.2;
-    font-size: 16px;
+    font-size: 15px;
     padding-top: 30px;
+    font-family: "Literata", serif;
 }
 
 .title1 p{
@@ -237,12 +242,12 @@ b}
 
 
 .img-deg{
+    max-width: 100%;
     width: 1200px;
     float: left;
     margin-right: 30px;
     margin-top: 0%;
     height: 450px;
-    
 }
 
 .Typeface-box{
@@ -250,6 +255,7 @@ b}
     width: 100%;
     height: auto;
     padding-top: 20px;
+    
 }
 
 .text h1 {
@@ -268,35 +274,38 @@ b}
 }
 
 .flexbox-container{
-    display: grid;
-    grid-template-rows: (3, 1fr);
-    justify-content: center;
+    display: flex;                   /* Use flexbox */
+    justify-content: space-between;  /* Space between images */
+    width: calc(100% - 10px);        /* Full width minus the left and right margin */
+    margin: 0 auto;                  /* Center the container */
+    padding-top: 15px;             /* 5px left and right margin, 15px padding at the top */
+    height: 100%;                    /* Full height */
     align-items: center;
-    width: 100%;;
-    height: 100%;
-    font-family: "Literata", serif;
-    margin: 0;
-    padding-top: 15px;
-    ;
-    
+    ;  
+}
+.flexbox-container a{
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    transition: transform 0.2s; /* Animation for hover effect */
+    cursor: pointer;
+    background: #fff;
+}
+.flexbox-container a:hover{
+    transform: translateY(-10px);
 }
 .flexbox-img{
     box-sizing: border-box;
+    overflow: hidden;
+    flex: 1;                         /* Ensure all images have equal width */ 
 }
-flex
-.feature-img img{
-    width: 100%;
-    max-height: auto;
-    padding-top: 15px;
-   
-    
+.flexbox-img img{
+    width: 100%;                     /* Make images responsive */
+    height: auto;                    /* Maintain aspect ratio */
+    display: block;
+    object-fit: cover;                  /* Remove space below images */
 }
 
-.middle-img{
-    margin: 0 15px;
-    margin-bottom: 5px;
-
-}
 
 /*typeface media*/
 /* Adjustments for screens smaller than 1200px */
@@ -441,8 +450,9 @@ nav ul li a:hover{
     margin-top: 25px;
     text-align: center;
     font-weight: bold;
-    font-size: large;
+    font-size: 20px;
     padding: 0 10px;
+    font-family: "Literata", serif;
     
 }
 .about_img{
@@ -464,6 +474,7 @@ nav ul li a:hover{
 .whatwedo, .contact_info {
     text-align: center;
     font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
     margin-top: 15px;
     padding: 0 10px;
     
@@ -474,7 +485,9 @@ nav ul li a:hover{
     justify-content: center;
     gap: 2%; /* Adjust spacing between items */
     margin-top: 10px;
-    
+    font-family: "Literata", serif;
+    font-weight: 600;
+    font-size: 20px;
     flex-wrap: wrap;
     padding: 0 10px;
 }
@@ -502,6 +515,9 @@ nav ul li a:hover{
     flex-wrap: wrap;
     padding: 0 10px;
     box-sizing: border-box;
+    font-family: "Literata", serif;
+    font-weight: 600;
+    font-size: 20px;
     
 }
 
@@ -509,6 +525,7 @@ nav ul li a:hover{
     text-align: center;
     margin-top: 50px;
     font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
     padding: 0 10px;
 }
 .clients {
@@ -538,7 +555,6 @@ nav ul li a:hover{
 
 .end_img{
     width: 100%;
-    height: a;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -764,23 +780,36 @@ body.showCart .product-layout{
 }
 
 
-/* Base styling for the shop front */
-.shop_front {
+.shop_front::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
-    width: 100%; /* Ensures full width */
-    margin: 0; /* Removes any default margin */
-    padding: 0;
-    text-align: center;
-    padding: 20px 0; /* Padding top and bottom only */
-    box-sizing: border-box; /* Includes padding in width */
+    width: 100%;
+    padding: 20px 0;
+    background-color: azure;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 0 !important;
+    z-index: -1;}
+
+/* Ensure .shop_front content is positioned correctly */
+.shop_front {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    
 }
 
 /* SVG styling */
 .svg {
-    width: 30px; /* Fixed width for SVG */
-    height: auto; /* Keeps aspect ratio */
-    display: inline-block; /* Allows centering */
-    margin: 0 auto; /* Centers the SVG */
+    width: 30px;
+    height: auto;
+    display: inline-block;
+    margin: 0 auto;
 }
 
 /* Header styling */
@@ -788,11 +817,11 @@ body.showCart .product-layout{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Centers items horizontally */
+    justify-content: space-between;
     padding: 20px 20px;
-    flex-wrap: wrap; /* Wraps items for smaller screens */
+    flex-wrap: wrap;
+    position: relative;
 }
-
 /* Responsive adjustments */
 @media only screen and (max-width: 900px) {
     .header {
@@ -923,3 +952,48 @@ body.showCart .product-layout{
         grid-template-columns: 1fr; 
     }
 }
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    bottom: 0;
+    width: 100%;
+    background-color: azure;
+    border-radius: 30px;
+    
+}
+
+.footer_btn {
+    font-family: "Literata", serif;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 500;
+}
+
+.footer_btn a {
+    text-decoration: none;
+    color: black;
+    padding: 0 20px;
+    padding-bottom: 20px;
+    border-radius: 50px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.footer_btn a:hover {
+    background-color: red;
+    color: white;
+}
+
+.shop_background{
+    background-color: azure;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    
+}
+
+
+

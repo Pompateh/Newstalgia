@@ -148,7 +148,7 @@ const initApp = () => {
 
 // Event listener for checkout button
 checkoutButton.addEventListener('click', () => {
-    window.location.href = 'checkOut_demo.html'; // Navigate to the checkout page
+    window.location.href = 'check_out.html'; // Navigate to the checkout page
 });
 
 // Initialize the application

@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Literata", serif;
     background-color: #f8f9fa;
     height: 100vh;
     display: flex;
@@ -59,16 +59,19 @@ body::before {
 }
 
 .logo {
-    width: 60%; /* Adjust for responsive scaling */
+    max-width: 65%;
     height: auto;
-    margin-top: 50px;
+    margin : 0;
     transition: width 0.3s; /* Smooth transition */
+    
 }
 
-.checkout-container h1, .qr-container h1 {
-    font-weight: 400;
+ h1{
+    font-weight: 600;
     font-size: large;
     font-family: "Literata", serif;
+    margin-top: 10px;
+    
 }
 
 /* Table container styling */
@@ -83,12 +86,22 @@ body::before {
     border-collapse: collapse;
     margin: 0; /* No margin to ensure full width */
     table-layout: auto; /* Adjusts to content */
+    font-family: "Bebas Neue", sans-serif;
+    font-size: x-large;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    
+}
+
+#cart-items{
+    font-family: "Literata", serif;
+    font-weight: 400;
 }
 
 .cart-table th,
 .cart-table td {
-    border: 1px solid black;
-    border-left: none;
+    border: 2px solid black;
+    
     padding: 10px;
     text-align: center;
 }
@@ -114,9 +127,10 @@ body::before {
     text-align: center;
     margin-top: auto; /* Push footer to the bottom */
     padding: 30px 20px; /* Adjust padding to align with content padding */
+
 }
 
-.purchase-button, .close-button {
+.purchase-button {
     background-color: black;
     color: white;
     border: none;
@@ -125,12 +139,13 @@ body::before {
     border-radius: 50%;
     cursor: pointer;
     font-family: "Literata", serif;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .checkout-footer p, .qr-footer p {
     padding-bottom: 20px;
     font-family: "Literata", serif;
+    font-weight: 600;
 }
 
 .purchase-button:hover {
@@ -139,13 +154,29 @@ body::before {
 
 .close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 30px;
+    right: 20px;
     background: none;
     border: none;
-    font-size: 35px;
+    font-size: 15px;
     cursor: pointer;
     color: #333; /* Adjust color as needed */
+    font-family: "Literata", serif;
+    font-weight: 600;
+}
+
+.back-button{
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    color: #333; /* Adjust color as needed */
+    font-family: "Literata", serif;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 /* Responsive adjustments */
@@ -214,116 +245,7 @@ body::before {
     z-index: -1; /* Position it behind other content */
 }
 
-/* Container for the QR page */
-.qr-container {
-    width: 90%;
-    max-width: 500px;
-    height: 90%;
-    max-height: 800px;
-    display: flex;
-    flex-direction: column;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    position: relative;
-    z-index: 1; /* Ensure it's above the blurred background */
-    overflow: hidden;
-}
 
-/* Flex grow the main content */
-.qr-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-}
 
-/* Header section */
-.qr-header {
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-}
 
-.qr-header h1 {
-    font-size: 1.5rem;
-    font-family: "Literata", serif;
-    margin-bottom: 10px;
-}
 
-.logo {
-    width: 250px;
-    height: auto;
-}
-
-.qr-image {
-    width: 300px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.qr-email {
-    width: 80%;
-    max-width: 400px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-.send-button {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-family: "Literata", serif;
-    font-weight: 300;
-    margin-bottom: 50px;
-}
-
-.send-button:hover {
-    background-color: #0056b3;
-}
-
-/* Footer section */
-.qr-footer {
-    text-align: center;
-    font-size: 0.875rem;
-    padding-top: 10px;
-}
-
-.qr-footer p {
-    margin: 5px 0;
-    font-family: "Literata", serif;
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #333; /* Adjust color as needed */
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .qr-container {
-        width: 80%;
-        height: 80%;
-    }
-
-    .qr-email {
-        width: 90%;
-    }
-}

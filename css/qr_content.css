@@ -84,30 +84,19 @@ body::before {
     
 }
 
-.qr-email {
+.qr-email, .order-details {
     width: 100%;
     max-width: 400px;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid black;
     border-radius: 4px;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     border-top: none;
     border-left: none;
     border-right: none;
     text-align: center;
-}
-
-.order-details {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1.5rem;
-    text-align: center;
-    
+    font-family: "Literata", serif;
 }
 
 .send-button {
@@ -153,13 +142,58 @@ body::before {
     line-height: 1;
 }
 
+/* Loading Indicator */
+.loading-indicator {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000; /* Ensure it's on top of other elements */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 80%; /* Responsive width */
+    word-wrap: break-word;
+}
+
+/* Toast Notification */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 90%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1001; /* Ensure it's above other elements */
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    opacity: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .qr-container {
         width: 90%;
     }
 
-    .qr-email {
+    .qr-email, .order-details {
         width: 90%;
     }
 }
@@ -177,7 +211,13 @@ body::before {
         gap: 10px; /* Reduce gap for small screens */
     }
 
-    .qr-email {
+    .qr-email, .order-details {
         width: 100%;
+    }
+
+    .toast {
+        bottom: 15%;
+        font-size: 0.875rem;
+        padding: 12px;
     }
 }
