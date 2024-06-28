@@ -91,7 +91,8 @@
     .nav-bar.active {
         height: 710px; /* Or an appropriate height for your menu */
         display: block; /* Ensure it is visible */
-        opacity: 1; /* Make it fully opaque */
+        opacity: 1;
+        margin-top: 20px; /* Make it fully opaque */
         
     }
 
@@ -428,7 +429,8 @@
     display: block;
     width: 100%;
     height: auto;
-    padding-top: 20px;
+    padding-top: 40px;
+    padding-left: 20px;
     
 }
 
@@ -447,38 +449,87 @@
 
 }
 
-.flexbox-container{
+/* Container for the flexbox layout */
+.flexbox-container {
     display: flex;                   /* Use flexbox */
     justify-content: space-between;  /* Space between images */
-    width: calc(100% - 10px);        /* Full width minus the left and right margin */
+    width: 100%;                     /* Full width */
     margin: 0 auto;                  /* Center the container */
-    padding-top: 15px;             /* 5px left and right margin, 15px padding at the top */
-    height: 100%;                    /* Full height */
-    align-items: center;
-    ;  
+    padding-top: 15px;                   /* Padding at the top */
+    height: auto;                    /* Allow height to adjust based on content */
+    align-items: center;             /* Center items vertically */
+    flex-wrap: wrap;                 /* Allow wrapping on smaller screens */
+    gap: 10px;                       /* Space between items */
 }
-.flexbox-container a{
+
+/* Anchor styling inside the flexbox */
+.flexbox-container a {
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
-    transition: transform 0.2s; /* Animation for hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
     cursor: pointer;
     background: #fff;
+    display: block;                   /* Ensure block layout */
+    width: 100%;                      /* Full width */
+    max-width: 100%;                  /* Ensure max width */
 }
-.flexbox-container a:hover{
-    transform: translateY(-10px);
+
+/* Hover effect for anchor */
+.flexbox-container a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
-.flexbox-img{
+
+/* Image container styling */
+.flexbox-img {
     box-sizing: border-box;
     overflow: hidden;
-    flex: 1;                         /* Ensure all images have equal width */ 
+    flex: 1;                         /* Ensure all images have equal width */
+    max-width: 100%;                 /* Constrain max width */
 }
-.flexbox-img img{
+
+/* Image styling */
+.flexbox-img img {
     width: 100%;                     /* Make images responsive */
     height: auto;                    /* Maintain aspect ratio */
     display: block;
-    object-fit: cover;                  /* Remove space below images */
+    object-fit: cover;               /* Cover container area */
 }
+
+/* Media queries for responsiveness */
+
+/* Small screens (mobile devices) */
+@media (max-width: 576px) {
+    .flexbox-container {
+        flex-direction: column;      /* Stack items vertically */
+        align-items: stretch;        /* Stretch items to full width */
+    }
+
+    .flexbox-container a {
+        width: 100%;                 /* Full width */
+    }
+}
+
+/* Medium screens (tablets and small desktops) */
+@media (min-width: 577px) and (max-width: 992px) {
+    .flexbox-container {
+        justify-content: space-around; /* Space around items */
+    }
+
+    .flexbox-container a {
+        flex: 0 1 45%;               /* Take up 45% of the width, flexibly */
+        margin-bottom: 10px;         /* Margin between items */
+    }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 993px) {
+    .flexbox-container a {
+        flex: 0 1 30%;               /* Take up 30% of the width, flexibly */
+    }
+}
+
 
 
 /*typeface media*/
@@ -494,7 +545,7 @@
     }
 
     .text h3 {
-        padding-top: 80px;
+        padding-top: 50px;
         font-size: 20px;
     }
 
@@ -645,81 +696,48 @@ nav ul li a:hover{
     
 }
 
-.whatwedo, .contact_info {
+/* General Styles */
+.whatwedo, .contact_info, .clients_cons {
     text-align: center;
     font-family: "Bebas Neue", sans-serif;
     font-size: 40px;
     margin-top: 15px;
     padding: 0 10px;
-    
-
 }
-.jobs {
+
+/* Job and Address Sections */
+.jobs, .addresse, .clients {
     display: flex;
     justify-content: center;
     gap: 2%; /* Adjust spacing between items */
     margin-top: 10px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    box-sizing: border-box;
     font-family: "Literata", serif;
     font-weight: 600;
     font-size: 20px;
-    flex-wrap: wrap;
-    padding: 0 10px;
 }
-.job, .address {
+
+/* Individual Job and Address Boxes */
+.job, .address, .client {
     font-size: larger;
     padding: 15px 20px;
     text-align: center;
     font-family: "Literata", serif;
     width: 100%;
-    max-width: 45%;
     box-sizing: border-box;
     flex: 1 1 200px;
     min-width: 200px;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin-right: 0;
-
+    max-width: 45%; /* Allow up to 45% width on larger screens */
+    margin: 0 0 10px 0; /* Margin bottom for spacing */
 }
 
-.addresse{
-    display: flex;
-    justify-content: space-around;
-    gap: 200px; /* Adjust spacing between items */
-    margin-top: 10px;
-    flex-wrap: wrap;
-    padding: 0 10px;
-    box-sizing: border-box;
-    font-family: "Literata", serif;
-    font-weight: 600;
-    font-size: 20px;
-    
-}
-
-.clients_cons{
-    text-align: center;
-    margin-top: 50px;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 40px;
-    padding: 0 10px;
-}
-.clients {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2%; /* Adjust spacing between items */
-    margin-top: 20px;
-    padding: 0 10px;
-}
 .client {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    width: 100%;
     max-width: 200px; /* Adjust width of each client box */
-    text-align: center;
-    box-sizing: border-box;
 }
+
+/* Client Image Styling */
 .client img {
     max-width: 100%;
     height: auto;
@@ -727,18 +745,61 @@ nav ul li a:hover{
     margin-bottom: 10px;
 }
 
-.end_img{
+/* End Image Section */
+.end_img {
     width: 100%;
     display: flex;
     align-content: center;
     justify-content: center;
-    margin: 80px 0px;
+    margin: 80px 0;
 }
 
-.end_img img{
+.end_img img {
     max-width: 20%;
     height: auto;
 }
+
+/* Media queries for responsiveness */
+
+/* Small screens (mobile devices) */
+@media (max-width: 576px) {
+    .whatwedo, .contact_info, .clients_cons {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+    
+    .jobs, .addresse, .clients {
+        justify-content: space-around; /* Space around items */
+        font-size: 16px;
+    }
+
+    .job, .address, .client {
+        max-width: 100%; /* Full width */
+    }
+
+    .end_img img {
+        max-width: 80%; /* Larger image width on small screens */
+    }
+}
+
+/* Medium screens (tablets and small desktops) */
+@media (min-width: 577px) and (max-width: 992px) {
+    .whatwedo, .contact_info, .clients_cons {
+        font-size: 32px; /* Adjust font size for medium screens */
+    }
+    
+    .jobs, .addresse, .clients {
+        justify-content: space-between; /* Space between items */
+    }
+
+    .job, .address, .client {
+        max-width: 45%; /* Adjust to 45% width */
+    }
+
+    .end_img img {
+        max-width: 50%; /* Moderate image width on medium screens */
+    }
+}
+
 
 
 
