@@ -950,11 +950,13 @@ body.showCart .product-layout{
 
 .listProduct .item img{
     width: 90%;
+    justify-content: center;
 }
 
 .listProduct {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    padding-left: 50px;
 }
 
 .listProduct .item{
@@ -1050,7 +1052,7 @@ body.showCart .product-layout{
     left: 0;
     height: 100%;
     width: 100%;
-    padding: 20px 0;
+    padding: 20px 10px;
     background-color: azure;
     box-sizing: border-box;
     border-radius: 10px;
@@ -1110,6 +1112,11 @@ body.showCart .product-layout{
         padding: 10px; /* Adjust padding for smaller screens */
     }
 
+    .listProduct .item{
+        justify-content: center;
+        padding-left: 70px;
+    }
+
    
 
     .header > div:last-child {
@@ -1140,6 +1147,7 @@ body.showCart .product-layout{
     position: absolute;
     top: 50%;
     right: -10px;
+    transform: translateY(-50%);
 
 }
 
@@ -1166,7 +1174,7 @@ body.showCart .product-layout{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 40px 30px 60px 30px;
+    margin: 40px 30px 60px ;
     text-align: center;
     font-size: 25px;
 }
@@ -1217,17 +1225,62 @@ body.showCart .product-layout{
     width: 0;
 }
 
-@media screen and (max-width: 992px){
-    .listProduct{
+@media screen and (max-width: 992px) {
+    .listProduct {
         grid-template-columns: repeat(2, 1fr);
+        padding-left: 50px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .listProduct {
         grid-template-columns: 1fr; 
+        padding-left: 0; /* Remove left padding on smaller screens */
+    }
+
+    .header {
+        flex-direction: row; /* Stack items vertically */
+        align-items: flex-start; /* Align items to start */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .listProduct .item{
+        justify-content: center;
+        padding-left: 70px;
+    }
+
+   
+
+    .header > div:last-child {
+        margin-bottom: 0; /* Remove margin from the last item */
     }
 }
+
+
+    .shoptext {
+        font-size: 24px; /* Adjust font size for smaller screens */
+        margin-bottom: 20px; /* Adjust bottom margin for spacing */
+    }
+
+    .shop_btn, .product_name {
+        font-size: 3em; /* Adjust font size for smaller screens */
+    }
+
+    .shop_end, .detail_end {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center; /* Center text */
+        margin: 20px 10px; /* Adjust margins for smaller screens */
+    }
+    
+    .footer {
+        flex-direction: row; /* Stack footer items vertically */
+        align-items: center; /* Center items */
+    }
+
+    .footer_btn a {
+        margin-bottom: 10px; /* Space between footer links */
+    }
+
 
 
 .footer {
