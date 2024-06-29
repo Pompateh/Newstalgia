@@ -954,12 +954,13 @@ body.showCart .product-layout{
     width: 90%;
     justify-content: center;
     
+    
 }
 
 .listProduct {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding-right: 50px;
+    padding-left: 40px;
 }
 
 .listProduct .item{
@@ -1001,7 +1002,8 @@ body.showCart .product-layout{
 .product-name {
     position: absolute;
     top: 26px; /* Adjust vertical position */
-    left: 50%;
+    left: 46%;
+
     transform: translateX(-50%);
     background: white;
     padding: 0.5em 1em;
@@ -1027,7 +1029,7 @@ body.showCart .product-layout{
 .product-buy {
     position: absolute;
     bottom: 50px; /* Adjust vertical position */
-    left: 50%;
+    left: 46%;
     transform: translateX(-50%);
     padding: 0.5em 1em;
     border-radius: 50%; /* Ellipse shape */
@@ -1113,6 +1115,9 @@ body.showCart .product-layout{
         flex-direction: row; /* Stack items vertically */
         align-items: flex-start; /* Align items to start */
         padding: 10px; /* Adjust padding for smaller screens */
+    }
+    .header .shop_btn{
+        padding-left: 40px;
     }
 
     .listProduct .item{
