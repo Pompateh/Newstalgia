@@ -60,7 +60,7 @@
     background-color: black;
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1250px) {
     .header_demo{
         padding-top: 10px;
     }
@@ -295,7 +295,7 @@
 .title1, .title2 {
     display: flex;
     align-items: flex-start;
-    gap: 30px; /* Space between h1/h2 and p within each block */
+    gap: 10px; /* Space between h1/h2 and p within each block */
     width: 48%; /* Make blocks responsive; adjust percentage as needed */
     box-sizing: border-box; /* Include padding and border in the element's width and height */
 }
@@ -311,6 +311,7 @@
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     word-spacing: 5px;
+    white-space: nowrap;
 }
 
 .title1 p, .title2 p {
@@ -320,47 +321,119 @@
     font-size: 15px;
     padding-top: 50px;
     font-family: "Literata", serif;
+    white-space: nowrap;
 }
+
+
+
+
 
 .title1 p, .title2 p {
     padding-left: 10px; /* Padding for paragraph in title1 */
 }
 
 /* Responsive design for smaller screens */
-@media (max-width: 768px) {
+
+@media (max-width: 1750px) and (min-width: 1100px) {
     .title {
-        justify-content: center; /* Center content on smaller screens */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px; /* Space between .title1 and .title2 */
+        width: 75%; /* Ensure full-width alignment */
+        flex-wrap: wrap; /* Wraps to the next line on smaller screens */
+        box-sizing: border-box; /* Include padding and border in the element's width and height */
+        padding: 0 ; /* Optional padding to prevent content from touching edges */
     }
-
+    
     .title1, .title2 {
-        width: 100%; /* Full width on smaller screens */
-        flex-direction: column; /* Stack heading and paragraph vertically */
-        gap: 0px; /* Reduced gap for vertical stacking */
-        margin-bottom: 0px; /* Space between stacked blocks */
+        display: flex;
+        align-items: flex-start;
+        gap: 10px; /* Space between h1/h2 and p within each block */
+        width: 48%; /* Make blocks responsive; adjust percentage as needed */
+        box-sizing: border-box; /* Include padding and border in the element's width and height */
     }
-
+    
+    .title1 h1, .title2 h2 {
+        margin: 0;
+        font-size: 6em; /* Exact font size provided */
+        font-weight: bold;
+        line-height: 1;
+        text-transform: uppercase;
+        padding-left: 10px;
+        padding-top: 30px;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        word-spacing: 5px;
+        white-space: nowrap;
+    }
+    
     .title1 p, .title2 p {
-        padding-left: 20px; /* Padding for paragraph in title1 */
-        padding-top: 0px;
+        margin: 0;
+        font-weight: bold;
+        line-height: 1.2;
+        font-size: 15px;
+        padding-top: 50px;
+        font-family: "Literata", serif;
+        white-space: nowrap;
+    }
+    
+    
+    
+    
+    
+    .title1 p, .title2 p {
+        padding-left: 10px; /* Padding for paragraph in title1 */
     }
 }
-@media (max-width: 950px) {
+@media (max-width: 700px) {
     .title {
-        justify-content: center; /* Center content on smaller screens */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px; /* Space between .title1 and .title2 */
+        width: 100%; /* Ensure full-width alignment */
+        flex-wrap: wrap; /* Wraps to the next line on smaller screens */
+        box-sizing: border-box; /* Include padding and border in the element's width and height */
+        padding: 0 ; /* Optional padding to prevent content from touching edges */
+        margin-bottom: 0;
     }
-
+    
     .title1, .title2 {
-        width: 100%; /* Full width on smaller screens */
-        flex-direction: column; /* Stack heading and paragraph vertically */
-        gap: 0px; /* Reduced gap for vertical stacking */
-        margin-bottom: 0px; /* Space between stacked blocks */
+        display: flex;
+        flex-direction: column;
+        gap: 5px; /* Reduced space between h1/h2 and p within each block */
+        width: 100%; /* Make blocks responsive; adjust percentage as needed */
+        box-sizing: border-box; /* Include padding and border in the element's width and height */
     }
-
-    .title1 p, .title2 p {
-        padding-left: 20px; /* Padding for paragraph in title1 */
+    
+    .title1 h1, .title2 h2 {
+        margin: 0;
+        font-size: 5em; /* Exact font size provided */
+        font-weight: bold;
+        line-height: 0.9;
+        text-transform: uppercase;
+        padding-left: 0px;
         padding-top: 0px;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        word-spacing: 5px;
+        white-space: nowrap;
+    }
+    
+    .title1 p, .title2 p {
+        margin: 0;
+        font-weight: bold;
+        line-height: 1.2;
+        font-size: 15px;
+        padding-top: 0;
+        padding-left: 0px; /* Padding for paragraph in title1 */
+        font-family: "Literata", serif;
+        white-space: normal;
+        flex-wrap: wrap;
     }
 }
+
 
 /* Brand CSS*/
 .img-container1,
@@ -418,7 +491,7 @@
 
 .img-deg{
     max-width: 100%;
-    width: 1200px;
+    width: 1130px;
     float: left;
     margin-right: 30px;
     margin-top: 0%;
@@ -431,7 +504,7 @@
     height: auto;
     padding-top: 40px;
     padding-left: 20px;
-    
+    padding-right: 20px;
 }
 
 .text h1 {
@@ -451,29 +524,56 @@
 
 /* Container for the flexbox layout */
 .flexbox-container {
-    display: flex;                   /* Use flexbox */
-    justify-content: space-between;  /* Space between images */
-    width: 100%;                     /* Full width */
-    margin: 0 auto;                  /* Center the container */
-    padding-top: 15px;                   /* Padding at the top */
-    height: auto;                    /* Allow height to adjust based on content */
-    align-items: center;             /* Center items vertically */
-    flex-wrap: wrap;                 /* Allow wrapping on smaller screens */
-    gap: 10px;                       /* Space between items */
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 15px;
+    height: auto;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjusted gap */
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent overflow */
 }
 
-/* Anchor styling inside the flexbox */
 .flexbox-container a {
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
     background: #fff;
-    display: block;                   /* Ensure block layout */
-    width: 100%;                      /* Full width */
-    max-width: 100%;                  /* Ensure max width */
+    display: block;
+    flex-grow: 1;
+    flex-basis: calc(33.33% - 20px); /* Adjusted basis */
+    max-width: calc(33.33% - 20px); /* Ensure max width */
+    padding: 0;
+    box-sizing: border-box;
 }
+
+.flexbox-container a img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: inherit;
+    object-fit: cover;
+}
+
+@media (max-width: 700px) {
+    .flexbox-container a {
+        flex-basis: calc(50% - 20px); /* Adjusted basis for smaller screens */
+        max-width: calc(50% - 20px); /* Ensure max width */
+    }
+}
+
+@media (max-width: 400px) {
+    .flexbox-container a {
+        flex-basis: calc(100% - 20px); /* Full width for very small screens */
+        max-width: calc(100% - 20px); /* Ensure max width */
+    }
+}
+
 
 /* Hover effect for anchor */
 .flexbox-container a:hover {
@@ -503,7 +603,7 @@
 @media (max-width: 576px) {
     .flexbox-container {
         flex-direction: column;      /* Stack items vertically */
-        align-items: stretch;        /* Stretch items to full width */
+        align-items: stretch;         /* Stretch items to full width */
     }
 
     .Typeface-box{
@@ -512,6 +612,7 @@
         height: auto;
         padding-top: 40px;
         padding-left: 0px;
+        padding-right: 0px;
         
     }
 
@@ -535,7 +636,7 @@
     }
 
     .img-deg {
-        max-width: 100%;             /* Full width */
+        width : 100%;             /* Full width */
         height: auto;                /* Maintain aspect ratio */
         float: none;                 /* Disable float */
         margin: 0;                   /* No margin */
@@ -620,12 +721,10 @@
     }
 
     .img-deg{
-        max-width: 80%;
+        width: auto;
         height: auto;
-        float: left;
-        margin-right: 30px;
         margin-top: 0%;
-        height: 450px;
+        height: 380px;
     }
 }
 
@@ -834,7 +933,7 @@ nav ul li a:hover{
 .back_btn_1, .shop_back {
     display: inline-flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: black;
     border: none;
     border-radius: 50%;
@@ -845,9 +944,12 @@ nav ul li a:hover{
     transition: background-color 0.3s, box-shadow 0.3s;
     cursor: pointer;
     text-align: center;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 30px;
 }
+.shop_back{
+    margin-left: 0px;
+}
+
 .back_btn_1 a, .shop_back a{
     color: white;
 }
@@ -951,12 +1053,14 @@ body.showCart .product-layout{
 .listProduct .item img{
     width: 90%;
     justify-content: center;
+    
+    
 }
 
 .listProduct {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding-left: 50px;
+    padding-left: 40px;
 }
 
 .listProduct .item{
@@ -998,7 +1102,8 @@ body.showCart .product-layout{
 .product-name {
     position: absolute;
     top: 26px; /* Adjust vertical position */
-    left: 50%;
+    left: 46%;
+
     transform: translateX(-50%);
     background: white;
     padding: 0.5em 1em;
@@ -1024,7 +1129,7 @@ body.showCart .product-layout{
 .product-buy {
     position: absolute;
     bottom: 50px; /* Adjust vertical position */
-    left: 50%;
+    left: 46%;
     transform: translateX(-50%);
     padding: 0.5em 1em;
     border-radius: 50%; /* Ellipse shape */
@@ -1045,7 +1150,18 @@ body.showCart .product-layout{
 }
 
 
-.shop_front::before {
+.shop_background{
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.shop_background::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1053,20 +1169,26 @@ body.showCart .product-layout{
     height: 100%;
     width: 100%;
     padding: 20px 10px;
-    background-color: azure;
-    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     margin: 0 !important;
+    filter: blur(10px);
     z-index: -1;}
 
 /* Ensure .shop_front content is positioned correctly */
 .shop_front {
-    position: relative;
-    z-index: 1;
-    background-color: transparent;
+    width: 100%;
+    max-width: 1800px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     padding: 20px;
-    border-radius: 10px;
-    
+    position: relative;
+    z-index: 1; /* Ensure it's above the blurred background */
+    overflow: hidden;
+
 }
 
 /* SVG styling */
@@ -1110,6 +1232,9 @@ body.showCart .product-layout{
         flex-direction: row; /* Stack items vertically */
         align-items: flex-start; /* Align items to start */
         padding: 10px; /* Adjust padding for smaller screens */
+    }
+    .header .shop_btn{
+        padding-left: 40px;
     }
 
     .listProduct .item{
@@ -1317,11 +1442,14 @@ body.showCart .product-layout{
 }
 
 .shop_background{
-    background-color: azure;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
     height: 100%;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 /* Responsive Design for Mobile Screens (450px and Below) */
@@ -1330,19 +1458,16 @@ body.showCart .product-layout{
         flex-direction: row; /* Stack items vertically */
         align-items: flex-start; /* Align items to start */
         padding: 10px; /* Adjust padding for smaller screens */
+        margin-right: 20px;
     }
 
     @media (max-width: 450px) {
         .cartTab {
-            width: 100%; /* Adjust width to fit smaller screens */
-            inset: 0 0 0 0; /* Adjust position */
+            width: 65%; /* Adjust width to fit smaller screens */
+            
         }
     }
     
-
-
- 
-
     .shop_btn a {
         font-size: 1.2em; /* Smaller font size for buttons */
         padding-right: 10px; /* Adjust padding for smaller buttons */
@@ -1359,6 +1484,7 @@ body.showCart .product-layout{
         height: 20px;
         font-size: 12px; /* Smaller text size */
         right: -30px; /* Adjust position */
+        margin-right: 20px;
     }
 
     .shoptext {
@@ -1378,17 +1504,17 @@ body.showCart .product-layout{
 
     .listProduct {
         grid-template-columns: 1fr; /* Single column for products */
-        padding-left: 20px; /* Remove left padding */
+        padding-left: 30px; /* Remove left padding */
         gap: 15px; /* Adjust gap between items */
     }
 
     .listProduct .item {
         justify-content: center;
-        padding-left: 10px; /* Adjust padding */
+        padding-left: 15px; /* Adjust padding */
     }
 
     .footer {
-        flex-direction: column; /* Stack footer items vertically */
+        flex-direction: row; /* Stack footer items vertically */
         align-items: center; /* Center items */
         padding: 10px 5px; /* Adjust padding */
     }
@@ -1400,16 +1526,16 @@ body.showCart .product-layout{
     }
 
     .cartTab .listCart .item {
-        grid-template-columns: 50px 100px 30px 1fr; /* Adjust columns */
+        grid-template-columns: 50px 50px 30px 1fr; /* Adjust columns */
         gap: 5px; /* Adjust gap */
     }
 
     .cartTab .listCart .item img {
-        width: 80%; /* Adjust image size */
+        width: 100%; /* Adjust image size */
     }
 
     .listCart .quantity span {
-        width: 40px; /* Smaller quantity buttons */
+        width: 20px; /* Smaller quantity buttons */
         height: 20px;
         font-size: 10px; /* Adjust font size */
     }
