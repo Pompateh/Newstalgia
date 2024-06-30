@@ -60,7 +60,7 @@
     background-color: black;
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1250px) {
     .header_demo{
         padding-top: 10px;
     }
@@ -295,7 +295,7 @@
 .title1, .title2 {
     display: flex;
     align-items: flex-start;
-    gap: 30px; /* Space between h1/h2 and p within each block */
+    gap: 10px; /* Space between h1/h2 and p within each block */
     width: 48%; /* Make blocks responsive; adjust percentage as needed */
     box-sizing: border-box; /* Include padding and border in the element's width and height */
 }
@@ -311,6 +311,7 @@
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     word-spacing: 5px;
+    white-space: nowrap;
 }
 
 .title1 p, .title2 p {
@@ -320,7 +321,10 @@
     font-size: 15px;
     padding-top: 50px;
     font-family: "Literata", serif;
+    white-space: nowrap;
 }
+
+
 
 .title1 p, .title2 p {
     padding-left: 10px; /* Padding for paragraph in title1 */
@@ -1050,7 +1054,18 @@ body.showCart .product-layout{
 }
 
 
-.shop_front::before {
+.shop_background{
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.shop_background::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1058,20 +1073,26 @@ body.showCart .product-layout{
     height: 100%;
     width: 100%;
     padding: 20px 10px;
-    background-color: azure;
-    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     margin: 0 !important;
+    filter: blur(10px);
     z-index: -1;}
 
 /* Ensure .shop_front content is positioned correctly */
 .shop_front {
-    position: relative;
-    z-index: 1;
-    background-color: transparent;
+    width: 100%;
+    max-width: 1800px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     padding: 20px;
-    border-radius: 10px;
-    
+    position: relative;
+    z-index: 1; /* Ensure it's above the blurred background */
+    overflow: hidden;
+
 }
 
 /* SVG styling */
@@ -1325,11 +1346,14 @@ body.showCart .product-layout{
 }
 
 .shop_background{
-    background-color: azure;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
     height: 100%;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 /* Responsive Design for Mobile Screens (450px and Below) */
