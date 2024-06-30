@@ -352,6 +352,22 @@
         flex-basis: calc(50% - 20px); /* Adjusted basis for smaller screens */
         max-width: calc(50% - 20px); /* Ensure max width */
     }
+
+    .text h1 {
+        font-size: 60px;
+    }
+    
+    .text p {
+        font-size: 30px;
+        padding-top: 75px;
+        white-space: wrap;
+    }
+    
+    .text h3 {
+        float: right;
+        padding-top: 95px;
+    
+    }
 }
 
 @media (max-width: 400px) {
@@ -489,12 +505,12 @@
 /* Adjustments for screens smaller than 600px */
 @media only screen and (max-width: 450px) {
     .text h1 {
-        font-size: 30px;
+        font-size: 50px;
     }
 
     .text p {
         font-size: 20px;
-        padding-top: 40px;
+        padding-top: 20px;
     }
 
     .text h3 {
@@ -513,4 +529,11 @@
         margin-top: 0%;
         height: 380px;
     }
+
+    .header_demo .logo img {
+        max-width: 300px;
+        height: auto;
+        padding-top: 40px;
+        margin: 20px;
+}
 }

@@ -457,7 +457,6 @@
     overflow: hidden;
     margin: 10px;
     background: #fff; /* Background color for cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
     transition: transform 0.2s; /* Animation for hover effect */
     cursor: pointer;
 }
@@ -781,6 +780,13 @@ nav ul li a:hover{
     height: auto;
 }
 
+
+.about_header {
+    display: flex;               /* Use flexbox */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center;         /* Center items vertically */
+    padding: 10px;               /* Add padding for spacing */
+}
 .head1{
     display: flex;
     width: 100%;
@@ -790,7 +796,7 @@ nav ul li a:hover{
     margin-top: 20px;
     font-family: "Bebas Neue", sans-serif;
     text-align: center;
-    padding: 0 10px;
+    padding-right: 100px;
 }
 
 .intro_p{
@@ -930,7 +936,7 @@ nav ul li a:hover{
 
 
 
-.back_btn_1, .shop_back {
+ .shop_back {
     display: inline-flex;
     align-items: center;
     padding: 10px 10px;
@@ -946,11 +952,31 @@ nav ul li a:hover{
     text-align: center;
     margin-left: 30px;
 }
+.back_btn_1{
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 10px;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 15px;
+    flex: 1 1 auto;
+
+}
+.back_btn_1 a{
+    color: black;
+
+}
+
 .shop_back{
     margin-left: 0px;
 }
 
-.back_btn_1 a, .shop_back a{
+.shop_back a{
     color: white;
 }
 .back_btn_1 svg, .shop_back svg {
@@ -959,11 +985,12 @@ nav ul li a:hover{
     height: 20px;
     fill: currentColor;
 }
-.back_btn_1:hover, .shop_back:hover {
-    background-color: greenyellow;
+ .shop_back:hover {
+    background-color: black;
+    color: white;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
-.back_btn_1:active, .shop_back:active {
+.shop_back:active {
     background-color: green;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -1051,7 +1078,7 @@ body.showCart .product-layout{
 
 
 .listProduct .item img{
-    width: 90%;
+    width: 100%;
     justify-content: center;
     
     
@@ -1060,7 +1087,7 @@ body.showCart .product-layout{
 .listProduct {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding-left: 40px;
+    padding: 20px 30px;
 }
 
 .listProduct .item{
@@ -1102,7 +1129,7 @@ body.showCart .product-layout{
 .product-name {
     position: absolute;
     top: 26px; /* Adjust vertical position */
-    left: 46%;
+    left: 50%;
 
     transform: translateX(-50%);
     background: white;
@@ -1129,7 +1156,7 @@ body.showCart .product-layout{
 .product-buy {
     position: absolute;
     bottom: 50px; /* Adjust vertical position */
-    left: 46%;
+    left: 50%;
     transform: translateX(-50%);
     padding: 0.5em 1em;
     border-radius: 50%; /* Ellipse shape */
@@ -1182,8 +1209,7 @@ body.showCart .product-layout{
     display: flex;
     flex-direction: column;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 0px;
     padding: 20px;
     position: relative;
     z-index: 1; /* Ensure it's above the blurred background */
@@ -1251,7 +1277,7 @@ body.showCart .product-layout{
 
 .header .shop_btn a{
     color: black;
-    padding-right: 20px;
+    padding-right: 0px;
     font-family: "Bebas Neue", sans-serif;
     letter-spacing: 7px;
     font-size: larger;
@@ -1412,11 +1438,11 @@ body.showCart .product-layout{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
+    padding: 20px 23px;
     bottom: 0;
     width: 100%;
-    background-color: azure;
-    border-radius: 30px;
+    background-color:white;
+
     
 }
 
@@ -1428,18 +1454,9 @@ body.showCart .product-layout{
 }
 
 .footer_btn a {
-    text-decoration: none;
     color: black;
-    padding: 0 20px;
-    padding-bottom: 20px;
-    border-radius: 50px; /* Rounded corners */
-    transition: background-color 0.3s, color 0.3s;
 }
 
-.footer_btn a:hover {
-    background-color: red;
-    color: white;
-}
 
 .shop_background{
     background-color: #f8f9fa;
