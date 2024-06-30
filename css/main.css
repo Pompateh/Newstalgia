@@ -1,3 +1,228 @@
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+   
+.header_demo{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_demo .logo img{
+    max-width: 400px;
+    height: auto;
+    padding-top: 40px;
+    margin: 20px;
+    
+}
+
+.header_demo nav ul li a {
+    margin-top: 20px;
+    display: inline-block;
+    color: #000;
+    border: 3px solid transparent;
+    transition: 0.2s;
+}
+
+.hamburger{
+    display: none;
+}
+
+.nav-bar ul{
+    display: flex;
+    font-family: "Literata", serif;
+    font-weight: 500;
+}
+
+.nav-bar ul li a{
+    display: block;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 50%;
+    transition: 0.2s;
+    margin: 0 px;
+    color: black;
+}
+
+.nav-bar ul li a:hover{
+    color: white;
+    background-color: black;
+}
+
+.nav-bar ul li a.active{
+    color: white;
+    background-color: black;
+}
+
+@media only screen and (max-width: 1250px) {
+    .header_demo{
+        padding-top: 10px;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;}
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 25px;
+    }
+
+    .nav-bar {
+        margin-top: 30px;
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: white;
+        transition: 0.5s;
+        overflow: hidden;
+    } 
+
+    .nav-bar.active {
+        height: 710px; /* Or an appropriate height for your menu */
+        display: block; /* Ensure it is visible */
+        opacity: 1;
+        margin-top: 20px; /* Make it fully opaque */
+        
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: -5px auto 0 auto;
+        text-align: center;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1; /* Make the list items visible */
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        color: white; /* Ensure the text is visible on the black background */
+        margin-bottom: 12px;
+        text-decoration: none; /* Ensure links are styled properly */
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .header_demo{
+        padding-top: 10px;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;}
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 25px;
+    }
+
+    .nav-bar {
+        margin-top: 30px;
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: white;
+        transition: 0.5s;
+        overflow: hidden;
+    } 
+
+    .nav-bar.active {
+        height: 710px; /* Or an appropriate height for your menu */
+        display: block; /* Ensure it is visible */
+        opacity: 1; /* Make it fully opaque */
+        
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: -5px auto 0 auto;
+        text-align: center;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1; /* Make the list items visible */
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        color: white; /* Ensure the text is visible on the black background */
+        margin-bottom: 12px;
+        text-decoration: none; /* Ensure links are styled properly */
+    }
+}
+@media only screen and (max-width: 900px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;}
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 5px;
+    }
+
+    .nav-bar {
+        margin-top: 30px;
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background-color: white;
+        transition: 0.5s;
+        overflow: hidden;
+    } 
+
+    .nav-bar.active {
+        height: 600px; /* Or an appropriate height for your menu */
+        display: block; /* Ensure it is visible */
+        opacity: 1; /* Make it fully opaque */
+        
+    }
+
+    .nav-bar ul {
+        display: block;
+        width: fit-content;
+        margin: -5px auto 0 auto;
+        text-align: center;
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    .nav-bar.active ul {
+        opacity: 1; /* Make the list items visible */
+    }
+
+    .nav-bar ul li a {
+        display: block;
+        color: white; /* Ensure the text is visible on the black background */
+        margin-bottom: 12px;
+        text-decoration: none; /* Ensure links are styled properly */
+    }
+}
 
 .mainimg {
     width: 100%;                /* Responsive width */
