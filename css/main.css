@@ -1119,13 +1119,6 @@ body.showCart .product-layout{
     cursor: pointer;
 }
 
-.listProduct .item button:hover{
-    background-color: aquamarine;
-    color: yellow;
-}
-
-
-
 .product-name {
     position: absolute;
     top: 26px; /* Adjust vertical position */
@@ -1148,10 +1141,6 @@ body.showCart .product-layout{
     cursor: pointer;
 }
 
-.product-name:hover {
-    color: green;
-    background-color: bisque;
-}
 
 .product-buy {
     position: absolute;
@@ -1178,7 +1167,7 @@ body.showCart .product-layout{
 
 
 .shop_background{
-    background-color: #f8f9fa;
+    background-color: white;
     margin: 0;
     padding: 0;
     height: 100%;
