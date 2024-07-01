@@ -60,11 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const cart = getCartFromLocalStorage();
         const orderDetails = cart.map(item => `${item.quantity}x ${listProducts.find(p => p.id === item.product_id).name}`).join(', ');
         const totalAmount = checkoutTotalPrice.textContent.trim(); // Get total amount from displayed text
-    
+
         // Redirect to QR code page with order details and total amount as URL parameters
         window.location.href = `qr_code.html?order=${encodeURIComponent(orderDetails)}&total=${encodeURIComponent(totalAmount)}`;
     });
-    
 
     closeButton.addEventListener('click', () => {
         window.location.href = 'shop.html'; // Redirect to shop page

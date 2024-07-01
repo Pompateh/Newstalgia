@@ -1,4 +1,3 @@
-// Select DOM elements
 let iconCart = document.querySelector('.icon_cart');
 let closeCart = document.querySelector('.close');
 let body = document.querySelector('body');
@@ -80,9 +79,9 @@ const addCarttoHTML = () => {
     let totalQuantity = 0;
     if (carts.length > 0) {
         carts.forEach(cart => {
-            totalQuantity += cart.quantity;
             let info = listProducts.find(p => p.id == cart.product_id);
             if (info) {
+                totalQuantity += cart.quantity;
                 let newCart = document.createElement('div');
                 newCart.classList.add('item');
                 newCart.innerHTML = `
@@ -93,7 +92,7 @@ const addCarttoHTML = () => {
                         ${info.name}
                     </div>
                     <div class="totalPrice">
-                        ${info.price * cart.quantity}$
+                        ${(info.price * cart.quantity).toFixed(2)}$
                     </div>
                     <div class="quantity">
                         <span class="minus" data-id="${cart.product_id}"><</span>
@@ -102,6 +101,8 @@ const addCarttoHTML = () => {
                     </div>
                 `;
                 listCartHTML.appendChild(newCart);
+            } else {
+                console.warn(`Product not found for id: ${cart.product_id}`);
             }
         });
     }
@@ -139,12 +140,14 @@ const initApp = () => {
             listProducts = data;
             addDatatoHTML();
             if (localStorage.getItem('cart')) {
-                carts = JSON.parse(localStorage.getItem('cart'));
-                addCarttoHTML();
+                let storedCarts = JSON.parse(localStorage.getItem('cart'));
+                carts = storedCarts.filter(cart => listProducts.some(product => product.id == cart.product_id));
             }
+            addCarttoHTML(); // Moved outside the if block to ensure it's called after products are loaded
         })
         .catch(error => console.error('Error loading products:', error));
 }
+
 
 // Event listener for checkout button
 checkoutButton.addEventListener('click', () => {
