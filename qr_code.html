@@ -33,6 +33,14 @@
     </div>
     <div id="toast" class="toast">Your order has been received!</div>
     <div id="loading" class="loading-indicator">Processing...</div>
+    <script src="js/common.js"></script>
+    <script>
+        if (typeof addCarttoHTML === 'undefined') {
+            function addCarttoHTML() {
+                // No-op function to suppress warnings
+            }
+        }
+    </script>
     <script>
         function showToast(message) {
             const toast = document.getElementById('toast');
@@ -77,6 +85,11 @@
                     if (data.result === 'success') {
                         showToast('Thank you! Your order has been received.');
                         form.reset(); // Optionally clear the form
+                        try {
+                            clearCart(); // Clear the cart after a successful submission
+                        } catch (error) {
+                            console.error('Error clearing cart:', error);
+                        }
                     } else {
                         alert('Error: ' + data.error);
                     }
@@ -93,5 +106,6 @@
             });
         });
     </script>
+    
 </body>
 </html>
