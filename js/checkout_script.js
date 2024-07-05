@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cart = JSON.parse(localStorage.getItem('cart'));
         }
         return cart;
-    }
+    };
 
     // Retrieve listProducts from main page's script or another source
     const listProducts = [
@@ -54,8 +54,61 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         checkoutTotalPrice.textContent = totalPrice.toFixed(2) + '$';
-    }
+    };
 
+    // Initialize PayPal Button
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            const cart = getCartFromLocalStorage();
+            const totalAmount = checkoutTotalPrice.textContent.trim().replace('$', '');
+    
+            // Build an array of items from the cart
+            const items = cart.map(item => {
+                const product = listProducts.find(p => p.id === item.product_id);
+                return {
+                    name: product.name,
+                    unit_amount: {
+                        currency_code: 'USD',
+                        value: product.price.toFixed(2) // Assuming product price is in decimal format
+                    },
+                    quantity: item.quantity,
+                    description: product.name // Optional: Description of the item
+                };
+            });
+    
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        currency_code: 'USD',
+                        value: totalAmount,
+                        breakdown: {
+                            item_total: {
+                                currency_code: 'USD',
+                                value: totalAmount // Same as total amount for simplicity
+                            }
+                        }
+                    },
+                    items: items // Include items array in the order details
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            // Function to handle when payment is approved
+            return actions.order.capture().then(function(details) {
+                alert('Transaction completed successfully');
+                localStorage.removeItem('cart'); // Clear cart after successful payment
+                window.location.href = 'confirm.html'; // Redirect to confirmation page
+            });
+        },
+        onError: function(err) {
+            // Function to handle errors during PayPal checkout
+            console.error('PayPal Checkout Error:', err);
+            alert('An error occurred during the transaction. Please try again.');
+        }
+    }).render('#paypal-button-container');
+    
+
+    // Event listener for your purchase button (if it's different from PayPal button)
     purchaseButton.addEventListener('click', () => {
         const cart = getCartFromLocalStorage();
         const orderDetails = cart.map(item => `${item.quantity}x ${listProducts.find(p => p.id === item.product_id).name}`).join(', ');
@@ -69,5 +122,5 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'shop.html'; // Redirect to shop page
     });
 
-    renderCartItems();
+    renderCartItems(); // Call function to render cart items initially
 });
