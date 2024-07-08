@@ -265,9 +265,11 @@ body {
     }
 
     .nav-bar.active {
-        height: auto;
-        opacity: 1;
-        padding-bottom: 10px;
+        height: 100%; /* Or an appropriate height for your menu */
+        width: 110%;
+        display: block; /* Ensure it is visible */
+        opacity: 1; /* Make it fully opaque */
+        
     }
 
     .nav-bar ul {
