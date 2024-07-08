@@ -1,25 +1,40 @@
-*{
-    margin: 0px;
+/* Reset default styles */
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    
 }
-   
-.header_demo{
+
+/* Ensure the body and html take the full viewport height */
+html, body {
+    height: 100%;
+}
+
+/* Flex container for the page */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.header_demo {
     width: 100%;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: white;
 }
 
-.header_demo .logo img{
+.header_demo .logo img {
     max-width: 400px;
     height: auto;
+    margin: 5px;
     padding-top: 40px;
-    margin: 20px;
-    
 }
 
 .header_demo nav ul li a {
@@ -30,151 +45,205 @@
     transition: 0.2s;
 }
 
-.hamburger{
+.hamburger {
     display: none;
 }
 
-.nav-bar ul{
+.nav-bar ul {
     display: flex;
     font-family: "Literata", serif;
     font-weight: 500;
 }
 
-.nav-bar ul li a{
+.nav-bar ul li a {
     display: block;
     font-size: 20px;
     padding: 10px 30px;
     border-radius: 50%;
     transition: 0.2s;
-    margin: 0 px;
     color: black;
 }
 
-.nav-bar ul li a:hover{
+.nav-bar ul li a:hover,
+.nav-bar ul li a.active {
     color: white;
     background-color: black;
 }
 
-.nav-bar ul li a.active{
-    color: white;
-    background-color: black;
+
+/* Main Image Styles */
+.mainimg {
+    width: 100%;
+    height: 74vh;
+    object-fit: cover;
+    box-sizing: border-box;
+    padding-top: 35px; /* Padding to separate from navbar */
+    margin: 0;
 }
 
-@media only screen and (max-width: 1250px) {
-    .header_demo{
+@media (max-width: 768px) {
+    .mainimg {
+        height: auto;
+        object-fit: contain;
         padding-top: 10px;
     }
-    .hamburger {
-        display: block;
-        cursor: pointer;}
 
-    .hamburger .line {
-        width: 30px;
-        height: 3px;
-        background-color: black;
-        margin: 6px 25px;
-    }
-
-    .nav-bar {
-        margin-top: 30px;
-        height: 0;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
-        width: 100vw;
-        background-color: white;
-        transition: 0.5s;
-        overflow: hidden;
-    } 
-
-    .nav-bar.active {
-        height: 710px; /* Or an appropriate height for your menu */
-        display: block; /* Ensure it is visible */
-        opacity: 1;
-        margin-top: 20px; /* Make it fully opaque */
-        
-    }
-
-    .nav-bar ul {
-        display: block;
-        width: fit-content;
-        margin: -5px auto 0 auto;
-        text-align: center;
-        opacity: 0;
-        transition: 0.5s;
-    }
-
-    .nav-bar.active ul {
-        opacity: 1; /* Make the list items visible */
-    }
-
-    .nav-bar ul li a {
-        display: block;
-        color: white; /* Ensure the text is visible on the black background */
-        margin-bottom: 12px;
-        text-decoration: none; /* Ensure links are styled properly */
+    .header_demo .logo img {
+        max-width: 250px;
+        margin: 5px;
+        padding-left: 5px;
     }
 }
-@media only screen and (max-width: 1100px) {
-    .header_demo{
+
+@media (max-width: 1240px) {
+    .mainimg {
+        height: auto;
+        object-fit: contain;
         padding-top: 10px;
     }
-    .hamburger {
-        display: block;
-        cursor: pointer;}
 
-    .hamburger .line {
-        width: 30px;
-        height: 3px;
-        background-color: black;
-        margin: 6px 25px;
+    .header_demo .logo img {
+        max-width: 300px;
+        margin: 5px;
+        padding-top: 0px;
     }
 
-    .nav-bar {
-        margin-top: 30px;
-        height: 0;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
-        width: 100vw;
-        background-color: white;
-        transition: 0.5s;
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        width: 100%;
+        flex-wrap: nowrap;
+        box-sizing: border-box;
+        padding-top: 40px; /* Adjust padding as needed */
+        flex: 0 0 auto; /* Ensure the title doesn't shrink */
+        margin: 0;
         overflow: hidden;
-    } 
-
-    .nav-bar.active {
-        height: 710px; /* Or an appropriate height for your menu */
-        display: block; /* Ensure it is visible */
-        opacity: 1; /* Make it fully opaque */
-        
+    }
+    
+    .title1, .title2 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 48%;
+        box-sizing: border-box;
+    }
+    
+    .title1 h1, .title2 h2 {
+        margin: 0;
+        font-size: 6.4em;
+        font-weight: bold;
+        line-height: 1;
+        text-transform: uppercase;
+        font-family: "Bebas Neue", sans-serif;
+        word-spacing: 5px;
+    }
+    
+    .title1 p, .title2 p {
+        margin: 0;
+        font-weight: bold;
+        line-height: 1.2;
+        font-size: 15px;
+        font-family: "Literata", serif;
     }
 
-    .nav-bar ul {
-        display: block;
-        width: fit-content;
-        margin: -5px auto 0 auto;
-        text-align: center;
-        opacity: 0;
-        transition: 0.5s;
+    
+}
+
+/* Title Styles */
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    padding-top: 20px; /* Adjust padding as needed */
+    flex: 0 0 auto; /* Ensure the title doesn't shrink */
+    margin: 0 5px;
+}
+
+.title1, .title2 {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    width: 48%;
+    box-sizing: border-box;
+}
+
+.title1 h1, .title2 h2 {
+    margin: 0;
+    font-size: 6.4em;
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+    font-family: "Bebas Neue", sans-serif;
+    word-spacing: 5px;
+}
+
+.title1 p, .title2 p {
+    margin: 0;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: 15px;
+    font-family: "Literata", serif;
+}
+
+/* Responsive Title Styles */
+@media (max-width: 1750px) and (min-width: 1100px) {
+    .title {
+        gap: 50px;
+        width: 100%;
     }
 
-    .nav-bar.active ul {
-        opacity: 1; /* Make the list items visible */
+    .title1, .title2 {
+        width: 48%;
     }
 
-    .nav-bar ul li a {
-        display: block;
-        color: white; /* Ensure the text is visible on the black background */
-        margin-bottom: 12px;
-        text-decoration: none; /* Ensure links are styled properly */
+    .title1 h1, .title2 h2 {
+        font-size: 6em;
+    }
+
+    .title1 p, .title2 p {
+        font-size: 14px;
     }
 }
-@media only screen and (max-width: 900px) {
+
+@media (max-width: 700px) {
+    .title {
+        gap: 15px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .title1, .title2 {
+        gap: 5px;
+        width: 100%;
+    }
+
+    .title1 h1, .title2 h2 {
+        font-size: 3em;
+        line-height: 1.1;
+    }
+
+    .title1 p, .title2 p {
+        font-size: 12px;
+    }
+    
+}
+
+/* Responsive Navigation */
+@media (max-width: 1250px) {
+    .header_demo {
+        padding-top: 10px;
+    }
+
     .hamburger {
         display: block;
-        cursor: pointer;}
+        cursor: pointer;
+    }
 
     .hamburger .line {
         width: 30px;
@@ -184,7 +253,6 @@
     }
 
     .nav-bar {
-        margin-top: 30px;
         height: 0;
         position: absolute;
         top: 80px;
@@ -194,222 +262,149 @@
         background-color: white;
         transition: 0.5s;
         overflow: hidden;
-    } 
+    }
 
     .nav-bar.active {
-        height: 600px; /* Or an appropriate height for your menu */
-        display: block; /* Ensure it is visible */
-        opacity: 1; /* Make it fully opaque */
-        
+        height: auto;
+        opacity: 1;
+        padding-bottom: 10px;
     }
 
     .nav-bar ul {
         display: block;
-        width: fit-content;
-        margin: -5px auto 0 auto;
+        margin: 0 auto;
         text-align: center;
-        opacity: 0;
-        transition: 0.5s;
-    }
-
-    .nav-bar.active ul {
-        opacity: 1; /* Make the list items visible */
     }
 
     .nav-bar ul li a {
-        display: block;
-        color: white; /* Ensure the text is visible on the black background */
         margin-bottom: 12px;
-        text-decoration: none; /* Ensure links are styled properly */
+        padding: 10px 0;
+        color: black;
+        text-decoration: none;
+        border-radius: 5px;
     }
 }
 
-.mainimg {
-    width: 100%;                /* Responsive width */
-    height: 750px;               /* Maintain aspect ratio */
-    object-fit: cover;          /* Cover container, better for visual appeal */
-    box-sizing: border-box;     /* Include padding and border in the width and height */
-    padding: 45px 15px 0 15px;  /* Initial padding */
-    margin-bottom: 0;
-    
+@media (max-width: 900px) {
+    .nav-bar {
+        top: 60px;
+    }
+
+    .hamburger .line {
+        margin: 6px 5px;
+    }
 }
 
-/* Remove padding on smaller screens */
-@media (max-width: 768px) {
+/* Fullscreen Adjustment */
+@media (max-width: 900px) {
     .mainimg {
-        width: 100%;            /* Full width */
-        height: auto;           /* Maintain aspect ratio */
-        object-fit: contain;    /* Contain within container */
-        padding: 0;             /* No padding */
-        margin-top: 30px;              /* Remove margin */
-    }
-    .header_demo .logo img{
-        max-width: 250px;
         height: auto;
-        padding-top: 20px;
-        margin: 5px;
-        
     }
-}
-@media (max-width: 1440px) {
-    .mainimg {
-        width: 100%;            /* Full width */
-        height: auto;           /* Maintain aspect ratio */
-        object-fit: contain;    /* Contain within container */
-        padding: 0;             /* No padding */
-        margin-top: 30px;              /* Remove margin */
+    .title{
+        display: inline-block;
+        flex-direction: row;
+        margin: 7px;
     }
-}
-@media (max-width: 1240px) {
-    .mainimg {
-        width: 100%;            /* Full width */
-        height: auto;           /* Maintain aspect ratio */
-        object-fit: contain;    /* Contain within container */
-        padding: 0;             /* No padding */
-        margin-top: 30px;            /* Remove margin */
-    }
-    .header_demo .logo img{
-        max-width: 300px;
-        height: auto;
-        padding-top: 20px;
-        margin: 5px;
-        
-    }
-}
 
-    
-
-
-
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px; /* Space between .title1 and .title2 */
-    width: 100%; /* Ensure full-width alignment */
-    flex-wrap: wrap; /* Wraps to the next line on smaller screens */
-    box-sizing: border-box; /* Include padding and border in the element's width and height */
-    padding: 0 ; /* Optional padding to prevent content from touching edges */
-}
-
-.title1, .title2 {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px; /* Space between h1/h2 and p within each block */
-    width: 48%; /* Make blocks responsive; adjust percentage as needed */
-    box-sizing: border-box; /* Include padding and border in the element's width and height */
-}
-
-.title1 h1, .title2 h2 {
-    margin: 0;
-    font-size: 6em; /* Exact font size provided */
-    font-weight: bold;
-    line-height: 1;
-    text-transform: uppercase;
-    padding-left: 10px;
-    padding-top: 30px;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    word-spacing: 5px;
-    white-space: nowrap;
-}
-
-.title1 p, .title2 p {
-    margin: 0;
-    font-weight: bold;
-    line-height: 1.2;
-    font-size: 15px;
-    padding-top: 50px;
-    font-family: "Literata", serif;
-    white-space: nowrap;
-}
-
-
-
-
-
-.title1 p, .title2 p {
-    padding-left: 10px; /* Padding for paragraph in title1 */
-}
-
-/* Responsive design for smaller screens */
-
-@media (max-width: 1750px) and (min-width: 1100px) {
-    .title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 40px; /* Space between .title1 and .title2 */
-        width: 75%; /* Ensure full-width alignment */
-        flex-wrap: wrap; /* Wraps to the next line on smaller screens */
-        box-sizing: border-box; /* Include padding and border in the element's width and height */
-        padding: 0 ; /* Optional padding to prevent content from touching edges */
-    }
-    
     .title1, .title2 {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px; /* Space between h1/h2 and p within each block */
-        width: 48%; /* Make blocks responsive; adjust percentage as needed */
-        box-sizing: border-box; /* Include padding and border in the element's width and height */
+        display: inline-block;
+        vertical-align: top;
+        flex-direction: row;
+        padding: 5px 0 ;
     }
-    
+
+
     .title1 h1, .title2 h2 {
         margin: 0;
-        font-size: 6em; /* Exact font size provided */
+        font-size: 4.5em;
         font-weight: bold;
         line-height: 1;
         text-transform: uppercase;
-        padding-left: 10px;
-        padding-top: 30px;
         font-family: "Bebas Neue", sans-serif;
-        font-weight: 400;
         word-spacing: 5px;
-        white-space: nowrap;
+        display: inline;
     }
-    
     .title1 p, .title2 p {
-        margin: 0;
         font-weight: bold;
         line-height: 1.2;
-        font-size: 15px;
-        padding-top: 50px;
+        font-size: 13px;
+        padding-top: 0;
+        padding-left: 0px;
         font-family: "Literata", serif;
-        white-space: nowrap;
+        white-space: normal;
+        flex-wrap: wrap;
     }
-    
-    
-    
-    
-    
-    .title1 p, .title2 p {
-        padding-left: 10px; /* Padding for paragraph in title1 */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
     }
+
 }
-@media (max-width: 700px) {
-    .title {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 15px; /* Space between .title1 and .title2 */
-        width: 100%; /* Ensure full-width alignment */
-        flex-wrap: wrap; /* Wraps to the next line on smaller screens */
-        box-sizing: border-box; /* Include padding and border in the element's width and height */
-        padding: 0 ; /* Optional padding to prevent content from touching edges */
-        margin-bottom: 0;
+
+/* Responsive design for smaller screens */
+@media (max-width: 1750px) and (min-width: 1100px) {
+    .mainimg {
+        height: auto;
     }
-    
+    .title{
+        display: flex;
+        flex-direction: row;
+    }
+
     .title1, .title2 {
-        display: flex;
-        flex-direction: column;
-        gap: 5px; /* Reduced space between h1/h2 and p within each block */
-        width: 100%; /* Make blocks responsive; adjust percentage as needed */
-        box-sizing: border-box; /* Include padding and border in the element's width and height */
+        display: inline-block;
+        vertical-align: top;
+        flex-direction: row;
     }
-    
+
+
     .title1 h1, .title2 h2 {
         margin: 0;
-        font-size: 5em; /* Exact font size provided */
+        font-size: 6em;
+        font-weight: bold;
+        line-height: 1;
+        text-transform: uppercase;
+        font-family: "Bebas Neue", sans-serif;
+        word-spacing: 5px;
+        display: inline;
+    }
+    .title1 p, .title2 p {
+        font-weight: bold;
+        line-height: 1.2;
+        font-size: 16px;
+        padding-top: 0;
+        padding-left: 0px;
+        font-family: "Literata", serif;
+        white-space: normal;
+        flex-wrap: wrap;
+    }
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+}
+
+@media (max-width: 700px) {
+    .title {
+        gap: 15px;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .title1, .title2 {
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .title1 h1, .title2 h2 {
+        font-size: 5em;
         font-weight: bold;
         line-height: 0.9;
         text-transform: uppercase;
@@ -420,19 +415,19 @@
         word-spacing: 5px;
         white-space: nowrap;
     }
-    
+
     .title1 p, .title2 p {
-        margin: 0;
         font-weight: bold;
         line-height: 1.2;
         font-size: 15px;
         padding-top: 0;
-        padding-left: 0px; /* Padding for paragraph in title1 */
+        padding-left: 0px;
         font-family: "Literata", serif;
         white-space: normal;
         flex-wrap: wrap;
     }
 }
+
 
 
 /* Brand CSS*/
@@ -955,17 +950,14 @@ nav ul li a:hover{
 .back_btn_1{
     display: inline-flex;
     align-items: center;
-    padding: 10px 10px;
-    border: none;
-    font-size: 20px;
+    padding: 20px 20px;
+    font-size: 1.5em;
     font-weight: 500;
     text-decoration: none;
-    transition: background-color 0.3s, box-shadow 0.3s;
     cursor: pointer;
     text-align: center;
-    margin-left: 15px;
-    flex: 1 1 auto;
-
+    margin-left: 0px;
+    font-family: "Literata", serif;
 }
 .back_btn_1 a{
     color: black;

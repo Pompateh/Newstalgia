@@ -15,12 +15,12 @@
 }
 
 .header_demo .logo img{
-    max-width: 400px;
+    max-width: 300px;
     height: auto;
-    padding-top: 40px;
-    margin: 20px;
+    padding: 25px 25px 0 25px;
     
 }
+
 
 .header_demo nav ul li a {
     margin-top: 20px;
@@ -89,10 +89,10 @@
     } 
 
     .nav-bar.active {
-        height: 710px; /* Or an appropriate height for your menu */
+        height: 100%; /* Or an appropriate height for your menu */
         display: block; /* Ensure it is visible */
         opacity: 1;
-        margin-top: 20px; /* Make it fully opaque */
+        margin-top: 2%; /* Make it fully opaque */
         
     }
 
@@ -145,7 +145,8 @@
     } 
 
     .nav-bar.active {
-        height: 710px; /* Or an appropriate height for your menu */
+        height: 100%; /* Or an appropriate height for your menu */
+        width: 110%;
         display: block; /* Ensure it is visible */
         opacity: 1; /* Make it fully opaque */
         
@@ -197,7 +198,8 @@
     } 
 
     .nav-bar.active {
-        height: 600px; /* Or an appropriate height for your menu */
+        height: 100%; /* Or an appropriate height for your menu */
+        width: 110%;
         display: block; /* Ensure it is visible */
         opacity: 1; /* Make it fully opaque */
         
@@ -315,8 +317,8 @@
     }
 
     .img-deg{
-        max-width: 100%;
-        width: 1060px;
+        max-width: 103%;
+        width: 1022px;
         float: left;
         margin-right: 30px;
         margin-top: 0%;
@@ -330,15 +332,15 @@
         transition: transform 0.2s, box-shadow 0.2s;
         cursor: pointer;
         background: #fff;
-        display: block;
+        display: inline-flex;
         flex-grow: 1;
-        min-width: 520px;
+        min-width: 32%;
         padding: 0;
         box-sizing: border-box;
     }
     
     .flexbox-container a img {
-        width: 100%;
+        width: 103%;
         height: 100%;
         display: block;
         border-radius: inherit;
@@ -367,6 +369,17 @@
         float: right;
         padding-top: 95px;
     
+    }
+    .header_demo .logo img {
+        max-width: 300px;
+        height: auto;
+        padding: 10px 10px 0 10px;
+    }
+    .img-deg {
+        width: auto;
+        height: auto;
+        margin-top: -4%;
+        height: 380px;
     }
 }
 
@@ -406,7 +419,6 @@
 @media (max-width: 576px) {
     .flexbox-container {
         flex-direction: column;      /* Stack items vertically */
-        align-items: stretch;         /* Stretch items to full width */
     }
 
     .Typeface-box{
@@ -439,10 +451,20 @@
     }
 
     .img-deg {
-        width : 100%;             /* Full width */
-        height: auto;                /* Maintain aspect ratio */
-        float: none;                 /* Disable float */
-        margin: 0;                   /* No margin */
+        width: auto;
+        height: auto;
+        margin-top: -6%;
+        height: 380px;
+    }
+
+    .flexbox-container a img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: inherit;
+        object-fit: cover;
+        white-space: nowrap;
+        padding: 5px 10px;
     }
 }
 
@@ -454,7 +476,7 @@
 
     .Typeface-box{
         display: block;
-        width: 100%;
+        width: 110%;
         height: auto;
         padding-top: 40px;
         padding-left: 0px;
@@ -498,7 +520,7 @@
 
     .text h3 {
         font-size: 20px;             /* Adjust font size */
-        padding-top: 30px;           /* Adjust padding */
+        padding-top: 19px;           /* Adjust padding */
     }
 }
 
@@ -514,7 +536,7 @@
     }
 
     .text h3 {
-        padding-top: 30px;
+        padding: 15px;
         font-size: 16px;
     }
 
@@ -523,17 +545,10 @@
         margin: 0; /* Adjust padding */
     }
 
-    .img-deg{
+    .img-deg {
         width: auto;
         height: auto;
-        margin-top: 0%;
+        margin-top: -6%;
         height: 380px;
     }
-
-    .header_demo .logo img {
-        max-width: 300px;
-        height: auto;
-        padding-top: 40px;
-        margin: 20px;
-}
 }
