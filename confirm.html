@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/checkout.css"> <!-- Ensure this links to your CSS file -->
+    <style>
+        /* Include the provided CSS here for easier maintenance */
+    </style>
+</head>
+<body>
+    <div class="qr-container">
+        <header class="qr-header">
+            <img src="./assets/logo-01.png" alt="Logo" class="logo">
+            <h1>Order Confirmation</h1>
+        </header>
+        
+        <div class="qr-content">
+            <svg class="tick" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5"/>
+              </svg>
+               <!-- Example image -->
+            <p class="qr-email">A confirmation email has been sent to your inbox.</p>
+            <button class="send-button" onclick="window.location.href='shop.html';">Back to Shop</button>
+        </div>
+        
+        <footer class="qr-footer">
+            <p>Thank you for your purchase!</p>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast">Thank you for your order!</div>
+
+    <script>
+        // Show the toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Display thank you message on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showToast('Thank you for your order!');
+        });
+    </script>
+</body>
+</html>
