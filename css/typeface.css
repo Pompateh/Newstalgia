@@ -15,9 +15,9 @@
 }
 
 .header_demo .logo img{
-    max-width: 300px;
+    max-width: 400px;
     height: auto;
-    padding: 25px 25px 0 25px;
+    padding: 36px 25px 0 25px;
     
 }
 
@@ -122,7 +122,8 @@
     }
     .hamburger {
         display: block;
-        cursor: pointer;}
+        cursor: pointer;
+        right: 30px ;}
 
     .hamburger .line {
         width: 30px;
@@ -432,7 +433,17 @@
     }
 
     .flexbox-container a {
-        width: 100%;                 /* Full width */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            background: #fff;
+            display: inline-flex;
+            flex-grow: 1;
+            max-width: 100%;
+            padding: 0;
+            box-sizing: border-box;
     }
     
     .text h1 {
@@ -461,10 +472,9 @@
         width: 100%;
         height: auto;
         display: block;
-        border-radius: inherit;
         object-fit: cover;
         white-space: nowrap;
-        padding: 5px 10px;
+        padding: 0px 0px;
     }
 }
 

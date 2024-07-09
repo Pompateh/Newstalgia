@@ -126,7 +126,7 @@ body::before {
 .checkout-footer, .qr-footer {
     text-align: center;
     margin-top: auto; /* Push footer to the bottom */
-    padding: 30px 20px; /* Adjust padding to align with content padding */
+    padding: 0px 20px; /* Adjust padding to align with content padding */
 
 }
 
@@ -140,6 +140,7 @@ body::before {
     cursor: pointer;
     font-family: "Literata", serif;
     font-weight: 500;
+    margin-bottom: 10px;
 }
 
 .checkout-footer p, .qr-footer p {
@@ -244,6 +245,80 @@ body::before {
     filter: blur(10px);
     z-index: -1; /* Position it behind other content */
 }
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    max-width: 90%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1001; /* Ensure it's above other elements */
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    opacity: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .qr-container {
+        width: 90%;
+    }
+
+    .qr-email, .order-details {
+        width: 90%;
+    }
+}
+
+.tick{
+    justify-content: center;
+    align-items: center;
+}
+
+
+.custom-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 0; /* Add some padding to space it from the table */
+    text-align: center;
+}
+
+.custom-fields label {
+    font-family: "Literata", serif;
+    font-weight: 500;
+    font-size: 14px;
+    
+}
+
+.custom-fields input,
+.custom-fields textarea {
+    padding: 0px;
+    border: 2px solid #ccc;
+    font-family: "Literata", serif;
+    font-size: 14px;
+    text-align: center;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.custom-fields textarea{
+    height: 25px;
+}
+
 
 
 

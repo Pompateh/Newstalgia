@@ -28,21 +28,23 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: white;
+    margin: 10px;
 }
 
 .header_demo .logo img {
     max-width: 400px;
     height: auto;
-    margin: 5px;
-    padding-top: 40px;
+    margin: 10px;
+    padding-top: 30px;
 }
 
 .header_demo nav ul li a {
-    margin-top: 20px;
+    margin-top: 31px;
     display: inline-block;
     color: #000;
     border: 3px solid transparent;
     transition: 0.2s;
+    margin-right: 40px;
 }
 
 .hamburger {
@@ -58,11 +60,13 @@ body {
 .nav-bar ul li a {
     display: block;
     font-size: 20px;
-    padding: 10px 30px;
+    padding: 10px 25px;
     border-radius: 50%;
     transition: 0.2s;
     color: black;
 }
+
+
 
 .nav-bar ul li a:hover,
 .nav-bar ul li a.active {
@@ -81,7 +85,7 @@ body {
     margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .mainimg {
         height: auto;
         object-fit: contain;
@@ -90,8 +94,8 @@ body {
 
     .header_demo .logo img {
         max-width: 250px;
-        margin: 5px;
-        padding-left: 5px;
+        margin: 0px;
+        padding-left: 0px;
     }
 }
 
@@ -118,7 +122,6 @@ body {
         box-sizing: border-box;
         padding-top: 40px; /* Adjust padding as needed */
         flex: 0 0 auto; /* Ensure the title doesn't shrink */
-        margin: 0;
         overflow: hidden;
     }
     
@@ -146,9 +149,7 @@ body {
         line-height: 1.2;
         font-size: 15px;
         font-family: "Literata", serif;
-    }
-
-    
+    }    
 }
 
 /* Title Styles */
@@ -162,7 +163,7 @@ body {
     box-sizing: border-box;
     padding-top: 20px; /* Adjust padding as needed */
     flex: 0 0 auto; /* Ensure the title doesn't shrink */
-    margin: 0 5px;
+    margin: 0 15px;
 }
 
 .title1, .title2 {
@@ -194,7 +195,7 @@ body {
 /* Responsive Title Styles */
 @media (max-width: 1750px) and (min-width: 1100px) {
     .title {
-        gap: 50px;
+        gap: 20%;
         width: 100%;
     }
 
@@ -243,6 +244,7 @@ body {
     .hamburger {
         display: block;
         cursor: pointer;
+        padding-right: 20px;
     }
 
     .hamburger .line {
@@ -269,6 +271,7 @@ body {
         width: 110%;
         display: block; /* Ensure it is visible */
         opacity: 1; /* Make it fully opaque */
+        margin-top: 9px;
         
     }
 
@@ -284,6 +287,14 @@ body {
         color: black;
         text-decoration: none;
         border-radius: 5px;
+    }
+    .header_demo nav ul li a {
+        margin-top: 31px;
+        display: inline-block;
+        color: #000;
+        border: 3px solid transparent;
+        transition: 0.2s;
+        margin-right: 9%;
     }
 }
 
@@ -346,7 +357,7 @@ body {
 }
 
 /* Responsive design for smaller screens */
-@media (max-width: 1750px) and (min-width: 1100px) {
+@media (max-width: 1750px) and (min-width: 1300px) {
     .mainimg {
         height: auto;
     }
@@ -388,6 +399,14 @@ body {
         height: 100%;
         overflow-x: hidden; /* Prevent horizontal scrolling */
     }
+    .nav-bar.active {
+        height: 100%; /* Or an appropriate height for your menu */
+        width: 110%;
+        display: block; /* Ensure it is visible */
+        opacity: 1; /* Make it fully opaque */
+        margin-top: 10px;
+        
+    }
 }
 
 @media (max-width: 700px) {
@@ -395,7 +414,6 @@ body {
         gap: 15px;
         width: 100%;
         padding: 0;
-        margin-bottom: 0;
     }
 
     .title1, .title2 {
@@ -428,8 +446,36 @@ body {
         white-space: normal;
         flex-wrap: wrap;
     }
+    .nav-bar.active {
+        height: 100%; /* Or an appropriate height for your menu */
+        width: 110%;
+        display: block; /* Ensure it is visible */
+        opacity: 1; /* Make it fully opaque */
+        margin-top: 20px;
 }
+@media (max-width: 900px) {
+    .mainimg {
+        height: auto;
+        object-fit: contain;
+        padding-top: 10px;
+    }
 
+    .header_demo .logo img {
+        max-width: 250px;
+        margin: 0px;
+        padding-left: 0px;
+    }
+    .header_demo{
+        padding-top: 0px;
+        margin: 0 0 0 10px;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        padding-right: 15px;
+    }
+}
+}
 
 
 /* Brand CSS*/
