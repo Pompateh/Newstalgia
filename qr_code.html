@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/qr_content.css">
-   
 </head>
 <body>
     <div class="qr-container">
@@ -20,8 +19,8 @@
         <div class="qr-content">
             <img src="./assets/image/QR_code.png" alt="QR Code" class="qr-image">
             <form id="email-form">
-                <input type="email" name="email-input" class="qr-email" placeholder="Enter your email" required>
-                <input type="text" class="order-details" name="order-details" placeholder="Enter order details" required>
+                <input type="email" name="email" class="qr-email" placeholder="Enter your email" required>
+                <input type="text" name="order-details" class="order-details" placeholder="Enter order details" required>
                 <input type="submit" value="Submit" class="send-button" id="submit">
             </form>
         </div>
@@ -33,14 +32,8 @@
     </div>
     <div id="toast" class="toast">Your order has been received!</div>
     <div id="loading" class="loading-indicator">Processing...</div>
+    
     <script src="js/common.js"></script>
-    <script>
-        if (typeof addCarttoHTML === 'undefined') {
-            function addCarttoHTML() {
-                // No-op function to suppress warnings
-            }
-        }
-    </script>
     <script>
         function showToast(message) {
             const toast = document.getElementById('toast');
@@ -75,7 +68,7 @@
 
                 const formData = new FormData(form);
 
-                fetch('https://script.google.com/macros/s/AKfycbz2KQ4ZOCckW7xya5rlcuRt0Q8t9QYzuEq0qhV03eEsRWcp90I4d6kghIBKZUQdDHk/exec', {
+                fetch('https://script.google.com/macros/s/AKfycby98xa-011WDiw8ycxQMuunYESZ0ZeqZL89cS2dfHrnwLRNJF8ltLh0SdBx-SQaGEv7/exec', {
                     method: 'POST',
                     body: formData
                 })
@@ -106,6 +99,5 @@
             });
         });
     </script>
-    
 </body>
 </html>
