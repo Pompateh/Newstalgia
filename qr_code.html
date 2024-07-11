@@ -19,8 +19,8 @@
         <div class="qr-content">
             <img src="./assets/image/QR_code.png" alt="QR Code" class="qr-image">
             <form id="email-form">
-                <input type="email" name="email" class="qr-email" placeholder="Enter your email" required>
-                <input type="text" name="order-details" class="order-details" placeholder="Enter order details" required>
+                <input type="email" name="email" id="qr-email" class="qr-email" placeholder="Enter your email" required>
+                <input type="text" name="order-details" id="order-details" class="order-details" placeholder="Enter order details" required>
                 <input type="submit" value="Submit" class="send-button" id="submit">
             </form>
         </div>
@@ -52,15 +52,22 @@
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('email-form');
             const paymentMessage = document.getElementById('paymentMessage');
+            const qrEmailInput = document.getElementById('qr-email');
+            const orderDetailsInput = document.getElementById('order-details');
 
-            // Function to retrieve total amount from URL query parameter
-            const getTotalAmountFromCheckout = () => {
+            // Function to retrieve total amount and other details from URL query parameters
+            const getQueryParam = (param) => {
                 const searchParams = new URLSearchParams(window.location.search);
-                return searchParams.has('total') ? searchParams.get('total') : 'Unknown'; // Default to 'Unknown' if not found
+                return searchParams.has(param) ? searchParams.get(param) : ''; // Default to empty string if not found
             };
 
-            const totalAmount = getTotalAmountFromCheckout();
+            const totalAmount = getQueryParam('total');
+            const email = getQueryParam('email');
+            const orderDetails = getQueryParam('order');
+
             paymentMessage.textContent = `Please pay the total of ${totalAmount} to complete payment`;
+            qrEmailInput.value = email;
+            orderDetailsInput.value = orderDetails;
 
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -84,18 +91,18 @@
                             console.error('Error clearing cart:', error);
                         }
                     } else {
-                        alert('Error: ' + data.error);
+                        showToast('Error: ' + data.error);
                     }
                 })
                 .catch(error => {
                     showLoading(false);
                     console.error('Error:', error);
-                    alert('An error occurred. Please try again.');
+                    showToast('An error occurred. Please try again.');
                 });
             });
 
             document.getElementById('close-button').addEventListener('click', function() {
-                window.location.href = 'shop.html';
+                window.location.href = 'check_out.html';
             });
         });
     </script>
