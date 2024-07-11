@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const gotoQRButton = document.getElementById('gotoqr-button');
     const closeButton = document.getElementById('close-button');
     const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw_2Hbunw2ZwCwc0j43uZDRxiK6B1l85Uzkl3ggsHJR13yHXF5tnhVvDAzmMDr5ft-obA/exec';
+    const customerEmailInput = document.getElementById('customer-email');
     const emailInput = document.getElementById('customer-email');
     const paypalButtonContainer = document.getElementById('paypal-button-container');
 
@@ -54,6 +55,15 @@ document.addEventListener('DOMContentLoaded', function() {
         checkoutTotalPrice.textContent = totalPrice.toFixed(2) + '$';
     };
 
+    const showNotification = (message) => {
+        const notificationContainer = document.getElementById('notification-container');
+        notificationContainer.textContent = message;
+        notificationContainer.className = 'notification show';
+        setTimeout(() => {
+            notificationContainer.className = notificationContainer.className.replace('show', '');
+        }, 3000);
+    };
+
     const sendDataToGoogleScript = (email, orderDetails) => {
         const data = new URLSearchParams();
         data.append('email', email);
@@ -80,22 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('An error occurred. Please try again.');
         });
     };
-
-    // Disable PayPal button container initially
-    paypalButtonContainer.style.pointerEvents = 'none';
-    paypalButtonContainer.style.opacity = '0.5';
-
-    // Function to validate email input
-    function validateEmail() {
-        const email = emailInput.value;
-        if (email) {
-            paypalButtonContainer.style.pointerEvents = 'auto';
-            paypalButtonContainer.style.opacity = '1';
-        } else {
-            paypalButtonContainer.style.pointerEvents = 'none';
-            paypalButtonContainer.style.opacity = '0.5';
-        }
-    }
 
     // Add event listener to email input
     emailInput.addEventListener('input', validateEmail);
@@ -147,18 +141,52 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.error('PayPal SDK not loaded');
     }
+      // Disable Go to QR button and PayPal button initially
+      gotoQRButton.style.pointerEvents = 'none';
+      gotoQRButton.style.opacity = '0.5';
+      paypalButtonContainer.style.pointerEvents = 'none';
+      paypalButtonContainer.style.opacity = '0.5';
+  
+      // Function to validate email input and enable/disable buttons
+      function validateEmail() {
+          const email = customerEmailInput.value;
+          const isValid = email.includes('@');
+  
+          if (isValid) {
+              gotoQRButton.style.pointerEvents = 'auto';
+              gotoQRButton.style.opacity = '1';
+              paypalButtonContainer.style.pointerEvents = 'auto';
+              paypalButtonContainer.style.opacity = '1';
+          } else {
+              gotoQRButton.style.pointerEvents = 'none';
+              gotoQRButton.style.opacity = '0.5';
+              paypalButtonContainer.style.pointerEvents = 'none';
+              paypalButtonContainer.style.opacity = '0.5';
+          }
+      }
+    
+        // Add event listener to email input to validate on input change
+        customerEmailInput.addEventListener('input', validateEmail);
 
-    gotoQRButton.addEventListener('click', () => {
-        const cart = getCartFromLocalStorage();
-        const orderDetails = cart.map(item => `${item.quantity}x ${listProducts.find(p => p.id === item.product_id).name}`).join(', ');
-        const totalAmount = checkoutTotalPrice.textContent.trim();
 
-        window.location.href = `qr_code.html?order=${encodeURIComponent(orderDetails)}&total=${encodeURIComponent(totalAmount)}`;
+        gotoQRButton.addEventListener('click', () => {
+            const customerEmail = customerEmailInput.value;
+            if (!customerEmail.includes('@')) {
+                showNotification('Please enter a valid email address before proceeding.');
+                return;
+            }
+    
+            const cart = getCartFromLocalStorage();
+            const orderDetails = cart.map(item => `${item.quantity}x ${listProducts.find(p => p.id === item.product_id).name}`).join(', ');
+            const totalAmount = checkoutTotalPrice.textContent.trim();
+    
+            window.location.href = `qr_code.html?order=${encodeURIComponent(orderDetails)}&total=${encodeURIComponent(totalAmount)}&email=${encodeURIComponent(customerEmail)}`;
+        });
+    
+        closeButton.addEventListener('click', () => {
+            window.location.href = 'shop.html';
+        });
+    
+        renderCartItems();
+        validateEmail(); // Initial validation to set the correct state of the buttons
     });
-
-    closeButton.addEventListener('click', () => {
-        window.location.href = 'shop.html';
-    });
-
-    renderCartItems();
-});
