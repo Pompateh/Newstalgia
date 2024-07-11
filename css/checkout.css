@@ -49,7 +49,7 @@ body::before {
     display: flex;
     flex-direction: column;
     overflow-y: auto; /* Allow scrolling if content overflows */
-    padding: 0 20px; /* Side padding for the content */
+    padding: 0 ; /* Side padding for the content */
 }
 
 .checkout-header, .qr-header {
@@ -130,18 +130,28 @@ body::before {
 
 }
 
-.purchase-button {
-    background-color: black;
-    color: white;
+.gotoqr-button {
+    width: 100%;
+    background-color: #0070ba; /* PayPal button color */
+    color: #fff;
     border: none;
-    padding: 5px 30px;
-    font-size: 16px;
-    border-radius: 50%;
+    padding: 17px 0; /* Adjust padding for better appearance */
+    font-size: 20px;
+    border-radius: 4px;
     cursor: pointer;
     font-family: "Literata", serif;
     font-weight: 500;
     margin-bottom: 10px;
+    display: inline-block; /* Ensures it behaves like a button */
+    text-decoration: none; /* Remove underline if used in anchor tag */
+    text-align: center; /* Center text */
+    transition: background-color 0.3s ease; /* Smooth transition */
 }
+
+.gotoqr-button:hover {
+    background-color: #005ea6; /* Darker color on hover */
+}
+
 
 .checkout-footer p, .qr-footer p {
     padding-bottom: 20px;
@@ -149,9 +159,6 @@ body::before {
     font-weight: 600;
 }
 
-.purchase-button:hover {
-    background-color: #0056b3;
-}
 
 .close-button {
     position: absolute;
