@@ -60,7 +60,44 @@
     background-color: black;
     padding-top: 10px;
 }
+@media (max-width: 1550px) and (min-width: 1251px) {
+    .header_demo {
+        width: 100%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        margin: 0 7px;
+    }
+    .nav-bar {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-between;
+    }
+    .nav-bar ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .nav-bar ul li {
+        flex: 1;
+        text-align: center;
+    }
+    .nav-bar ul li a {
+        display: block;
+        font-size: 20px;
+        padding: 15px 15px;
+        border-radius: 50%;
+        transition: 0.2s;
+        color: black;
+        white-space: nowrap; /* Prevent text from wrapping */
+    }
 
+}
 @media only screen and (max-width: 1250px) {
     .header_demo{
         padding-top: 10px;
@@ -320,7 +357,7 @@
 
     .img-deg{
         max-width: 103%;
-        width: 1022px;
+        width: 1060px;
         float: left;
         margin-right: 30px;
         margin-top: 0%;
@@ -350,7 +387,11 @@
         white-space: nowrap;
     }
 }
-
+@media (min-width: 994px) and (max-width: 1055px){
+    .flexbox-container{
+        gap: 19px;
+    }
+}
 @media (max-width: 700px) {
     .flexbox-container a {
         flex-basis: calc(50% - 20px); /* Adjusted basis for smaller screens */
@@ -513,7 +554,33 @@
         padding-top: 20px;           /* Adjust padding */
     }
 }
+@media (max-width: 1335px) {
+    .flexbox-container a {
+        flex: 0 1 30%;               /* Take up 30% of the width, flexibly */
+    }
 
+    .text h1 {
+        font-size: 40px;             /* Adjust font size */
+    }
+
+    .text p {
+        font-size: 24px;             /* Adjust font size */
+        padding-top: 40px;           /* Adjust padding */
+    }
+
+    .text h3 {
+        font-size: 20px;             /* Adjust font size */
+        padding-top: 19px;           /* Adjust padding */
+    }
+}
+@media (min-width: 1100px) and (max-width: 1355px){
+    .img-deg {
+        width: 100%;
+        margin-right: 30px;
+        margin-top: 0%;
+        height: 450px;
+    }
+}
 /* Large screens (desktops) */
 @media (min-width: 993px) {
     .flexbox-container a {
