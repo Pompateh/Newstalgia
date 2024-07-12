@@ -1070,8 +1070,9 @@ nav ul li a:hover{
 }
 
 /*shoppingbag section*/
-.cartTab{
-    width: 450px;
+.cartTab {
+    width: 90%; /* Use a percentage width to make it responsive */
+    max-width: 450px; /* Ensure it doesn't exceed the original width */
     background-color: white;
     color: black;
     position: fixed;
@@ -1083,6 +1084,11 @@ nav ul li a:hover{
     z-index: 90;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     margin: 4px;
+}
+@media (min-width: 768px) {
+    .cartTab {
+        width: 450px; /* Set width for larger screens */
+    }
 }
 
 body.showCart .cartTab{
@@ -1099,6 +1105,7 @@ body.showCart .product-layout{
     margin: 0;
     font-weight: 300;
     font-family: "Bebas Neue", sans-serif;
+    font-size: 35px; /* Adjust the font size */
 }
 
 .cartTab .btn{
@@ -1114,7 +1121,9 @@ body.showCart .product-layout{
     cursor: pointer;
     font-family: "Bebas Neue", sans-serif;
     font-size: 20px;
-}
+    width: 100%; /* Ensure the button takes full width */
+    padding: 10px; /* Add padding for better touch targets */
+    box-sizing: border-box; /* Ensure padding doesn't affect the button width */}
 
 .cartTab .shopbtn .close{
     background-color: bisque;
@@ -1419,10 +1428,17 @@ body.showCart .product-layout{
 
 .cartTab .listCart .item {
     display: grid;
-    grid-template-columns: 70px 150px 50px 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr 60px; /* Adjust the layout to be responsive */
+    gap: 0px;
     text-align: center;
     align-items: center;
+    padding-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .cartTab .listCart .item {
+        grid-template-columns: 142px 141px 60px 1fr; /* Original layout for larger screens */
+    }
 }
 
 .listCart .quantity {
@@ -1511,7 +1527,24 @@ body.showCart .product-layout{
     position: relative;
     overflow: hidden; /* Prevent overflow */
 }
+@media (max-width: 576px) {
+    .cartTab {
+        inset: 0 -100% 0 auto; /* Adjust position for smaller screens */
+        width: 100%; /* Full width for small screens */
+    }
 
+    .cartTab .listCart .item {
+        grid-template-columns: 1fr !important; /* Stack items vertically */
+    }
+
+    .cartTab .btn button {
+        font-size: 18px; /* Adjust font size for smaller screens */
+    }
+
+    .cartTab h1 {
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+}
 @media (max-width: 992px) {
     .header {
         padding: 15px 15px; /* Adjust padding */
@@ -1674,7 +1707,7 @@ body.showCart .product-layout{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 6px;
 }
 
 .listCart .quantity span {

@@ -101,10 +101,12 @@
 @media only screen and (max-width: 1250px) {
     .header_demo{
         padding-top: 10px;
+        padding-right: 15px;
     }
     .hamburger {
         display: block;
         cursor: pointer;}
+        
 
     .hamburger .line {
         width: 30px;
@@ -157,11 +159,12 @@
 @media only screen and (max-width: 1100px) {
     .header_demo{
         padding-top: 10px;
+        width: 101%;
     }
     .hamburger {
         display: block;
         cursor: pointer;
-        right: 30px ;}
+        right: 20px ;}
 
     .hamburger .line {
         width: 30px;
@@ -339,6 +342,7 @@
     border-radius: inherit;
     object-fit: cover;
 }
+
 @media (max-width: 1800px){
     .flexbox-container {
         display: flex;
@@ -356,8 +360,8 @@
     }
 
     .img-deg{
-        max-width: 103%;
-        width: 1060px;
+        max-width: 100%;
+        width: 65.2%;
         float: left;
         margin-right: 30px;
         margin-top: 0%;
@@ -490,6 +494,8 @@
     
     .text h1 {
         font-size: 30px;             /* Adjust font size */
+        padding-top: 300px;
+        
     }
 
     .text p {
@@ -528,7 +534,7 @@
 
     .Typeface-box{
         display: block;
-        width: 110%;
+        width: 100%;
         height: auto;
         padding-top: 40px;
         padding-left: 0px;
@@ -553,6 +559,14 @@
         font-size: 18px;             /* Adjust font size */
         padding-top: 20px;           /* Adjust padding */
     }
+    .img-deg {
+        width: 104%;
+        margin-right: 30px;
+        margin-top: 0%;
+        height: 450px;
+        max-width: 103%;
+    }
+
 }
 @media (max-width: 1335px) {
     .flexbox-container a {
@@ -573,9 +587,18 @@
         padding-top: 19px;           /* Adjust padding */
     }
 }
+
 @media (min-width: 1100px) and (max-width: 1355px){
     .img-deg {
         width: 100%;
+        margin-right: 30px;
+        margin-top: 0%;
+        height: 450px;
+    }
+}
+@media (min-width: 706px) and (max-width: 1099px){
+    .img-deg {
+        width: 102%;
         margin-right: 30px;
         margin-top: 0%;
         height: 450px;
@@ -593,12 +616,24 @@
 
     .text p {
         font-size: 24px;             /* Adjust font size */
-        padding-top: 40px;           /* Adjust padding */
+        padding-top: 30px;           /* Adjust padding */
     }
 
     .text h3 {
         font-size: 20px;             /* Adjust font size */
         padding-top: 19px;           /* Adjust padding */
+    }
+}
+@media (max-width: 576px){
+    .text h1 {
+        font-size: 40px;             /* Adjust font size */
+        padding-top: 364px !important;
+    }
+}
+@media (max-width: 1348px){
+    .text h1 {
+        font-size: 40px;             /* Adjust font size */
+        padding-top: 465px;
     }
 }
 
