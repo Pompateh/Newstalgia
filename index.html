@@ -12,9 +12,11 @@
 
 <body>
     <div class="container">
-        <div class="header_demo">
+        <div class="page-width header_demo">
             <div class="logo">
-                <img src="./assets/logo-01.png" alt="">
+                <a href="index.html">
+                    <img src="./assets/logo-01.png" alt="Logo">
+                </a>
             </div>
             <div class="hamburger">
                 <div class="line"></div>
@@ -24,45 +26,61 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="Typeface.html">
+                            <span>Typeface</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="Typeface.html">Typeface</a>
+                        <a href="Brand.html">
+                            <span>Brand</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="Brand.html">Brand</a>
+                        <a href="#">
+                            <span>Colab</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="">Colab</a>
+                        <a href="shop.html">
+                            <span>Shop</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="shop.html">Shop</a>
+                        <a href="aboutus.html">
+                            <span>About US</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="aboutus.html">About US</a>
-                    </li>
-                    <li>
-                        <a href="">Contact</a>
+                        <a href="#">
+                            <span>Contact</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
         </div>
-            <img src="./assets/image/NEWSTALGIA WEB-01.png" width ="100%" alt="Example Image" class="mainimg" id="responsive-img">
+
+        <div class="page-width">
+            <div class="main-index-image">
+                <img src="./assets/image/NEWSTALGIA WEB-01.png" alt="Example Image" class="mainimg" id="responsive-img">
+            </div>
         </div>
-        
     </div>
-    <div class="title">
-        <div class="title1">
-            <h1>Brand</h1>
-            <p>Product is work in progress <br> Release in <br> 5th,November, 2024</p>
-        </div>
-        <div class="title2">
-            <h2>Apple Lamp</h2>
-            <p>Lorem ipsum dolos et assumenda corrupti ea, eius nobis <br>dignissimos magni quidem quos quibusdam perspiciatis deleniti <br> repellendus, recusandae iste facilis rem.</p>
+    <div class="index-footer">
+        <div class="page-width">
+            <div class="index-footer-items">
+                <div class="footer-item">
+                    <h1 class="h1">Brand</h1>
+                    <p>Product is work in progress Release in 5th,November, 2024</p>
+                </div>
+                <div class="footer-item footer-item-last">
+                    <h2 class="h1">Apple Lamp</h2>
+                    <p>Lorem ipsum dolos et assumenda corrupti ea, eius nobis dignissimos magni quidem quos quibusdam perspiciatis deleniti  repellendus, recusandae iste facilis rem.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    
+    <script type="text/javascript" src="js/header.js"></script>
     <script>
         function updateImage() {
             const img = document.getElementById('responsive-img');
@@ -84,6 +102,7 @@
         hamburger.onclick = function() {
             navBar = document.querySelector(".nav-bar");
             navBar.classList.toggle("active");
+            hamburger.classList.toggle("active");
         }
     </script>
 </body>
