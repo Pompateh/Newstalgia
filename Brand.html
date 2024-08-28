@@ -12,9 +12,11 @@
 
 <body>
     <div class="container">
-        <div class="header_demo">
+        <div class="page-width header_demo">
             <div class="logo">
-                <img src="./assets/logo-01.png" alt="">
+                <a href="index.html">
+                    <img src="./assets/logo-01.png" alt="Logo">
+                </a>
             </div>
             <div class="hamburger">
                 <div class="line"></div>
@@ -24,78 +26,95 @@
             <nav class="nav-bar">
                 <ul>
                     <li>
-                        <a href="index.html" >Home</a>
+                        <a href="Typeface.html">
+                            <span>Typeface</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="Typeface.html">Typeface</a>
+                        <a class="active" href="Brand.html">
+                            <span>Brand</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="Brand.html" class="active">Brand</a>
+                        <a href="#">
+                            <span>Colab</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="">Colab</a>
+                        <a href="shop.html">
+                            <span>Shop</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="shop.html">Shop</a>
+                        <a href="aboutus.html">
+                            <span>About US</span>
+                        </a>
                     </li>
                     <li>
-                        <a href="aboutus.html">About US</a>
-                    </li>
-                    <li>
-                        <a href="">Contact</a>
+                        <a href="#">
+                            <span>Contact</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
         </div>
-    <div class="img-container1">
-        <div class="card"><a href=""></a><img src="./assets/image/NEWSTALGIA WEB-19.png" alt="">
-            <div class="card-content">
-                <h1>Fratelli Chiaverini</h1>
-        </div>
-        
-        </div>
-        <div class="card"><a href=""></a><img src="./assets/image/NEWSTALGIA WEB-18.png" alt="">
-            <div class="card-content">
-                <h1>Nanu's Stylish<h1>
+    </div>
+
+    <div class="page-width">
+        <div class="img-container">
+            <div class="card">
+                <a href="#">
+                    <img src="./assets/image/NEWSTALGIA WEB-19.png" alt="">
+                </a>
+                <div class="card-content">
+                    <h1>Fratelli Chiaverini</h1>
+                </div>
             </div>
-        </div>
-        <div class="card"><a href=""></a><img src="./assets/image/NEWSTALGIA WEB-16.png" alt="">
-            <div class="card-content">
-                <h1>Grace & Green</h1>
+
+            <div class="card">
+                <a href="#">
+                    <img src="./assets/image/NEWSTALGIA WEB-18.png" alt="">
+                </a>
+                <div class="card-content">
+                    <h1>Nanu's Stylish</h1>
+                </div>
             </div>
-        </div>
-        <div class="img-container2">
-            <div class="card"><a href=""></a><img src="./assets/image/NEWSTALGIA WEB-17.png" alt="">
+
+            <div class="card">
+                <a href="#">
+                    <img src="./assets/image/NEWSTALGIA WEB-16.png" alt="">
+                </a>
+                <div class="card-content">
+                    <h1>Grace & Green</h1>
+                </div>
+            </div>
+
+            <div class="card">
+                <a href="#">
+                    <img src="./assets/image/NEWSTALGIA WEB-17.png" alt="">
+                </a>
                 <div class="card-content">
                     <h1>Mosh</h1>
+                </div>
             </div>
-            
-            </div>
-            <div class="card"><a href=""></a><img src="./assets/image/NEWSTALGIA WEB-15.png" alt="">
+            <div class="card">
+                <a href="#">
+                    <img src="./assets/image/NEWSTALGIA WEB-15.png" alt="">
+                </a>
                 <div class="card-content">
                     <h1>Verist<h1>
                 </div>
             </div>
-            <div class="card"><a href=""></a><img src="./assets/image/NEWSTALGIA WEB-13.png" alt="">
+            <div class="card">
+                <a href="#">
+                    <img src="./assets/image/NEWSTALGIA WEB-13.png" alt="">
+                </a>
                 <div class="card-content">
                     <h1>Toastea</h1>
                 </div>
-            </div>    
-
-      
-                
             </div>
-
         </div>
     </div>
-   
-
-    <script>
-        hamburger = document.querySelector(".hamburger");
-        hamburger.onclick = function() {
-            navBar = document.querySelector(".nav-bar");
-            navBar.classList.toggle("active");
-        }
-    </script>
+    <script type="text/javascript" src="js/header.js"></script>
 </body>
 </html>

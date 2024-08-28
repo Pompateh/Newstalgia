@@ -8,19 +8,6 @@
 
 }
 
-/* Ensure the body and html take the full viewport height */
-html,
-body {
-    height: 100%;
-}
-
-/* Flex container for the page */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 .page-width {
     padding: 0 20px;
 }
@@ -45,7 +32,7 @@ body {
     display: flex;
     font-family: "Literata", serif;
     font-weight: 500;
-    gap: 20px;
+    gap: 24px;
 }
 
 .nav-bar ul li a {
@@ -79,11 +66,13 @@ body {
     transition: 0.5s ease-in-out;
 }
 
-.nav-bar ul li a:hover {
+.nav-bar ul li a:hover,
+.nav-bar ul li a.active {
     color: #FFFFFF;
 }
 
-.nav-bar ul li a:hover::before {
+.nav-bar ul li a:hover::before,
+.nav-bar ul li a.active::before {
     opacity: 1;
     visibility: visible;
 }
@@ -428,37 +417,24 @@ body {
 
 
 /* Brand CSS*/
-.img-container1,
-.img-container2 {
+.img-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     flex-wrap: wrap;
     margin: 0;
     width: 100%;
     font-family: "Literata", serif;
-    gap: 0px;
-    /* Adds space between cards */
-    padding: 0 5px;
-    /* Adds padding for better alignment */
-}
-
-.img-container1 {
-    margin-top: 30px;
+    gap: 22px;
 }
 
 /* Base styling for cards */
 .card {
-    flex: 1 1 300px;
-    /* Flex-grow, flex-shrink, and minimum width for responsive layout */
     max-width: 100%;
     box-sizing: border-box;
     border-radius: 8px;
     overflow: hidden;
-    margin: 10px;
     background: #fff;
-    /* Background color for cards */
     transition: transform 0.2s;
-    /* Animation for hover effect */
     cursor: pointer;
 }
 
@@ -485,13 +461,15 @@ body {
 
 /* Heading within card content */
 .card-content h1 {
-    font-size: 1.75em;
-    /* Use em for responsive font size */
-    margin: 0;
+    font-family: "Literata", serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.2px;
     text-align: center;
-    /* Centers the text */
-    font-weight: 300;
-    /* Uses lighter font weight */
+    min-height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -502,15 +480,6 @@ body {
     margin-right: 30px;
     margin-top: 0%;
     height: 450px;
-}
-
-.Typeface-box {
-    display: block;
-    width: 100%;
-    height: auto;
-    padding-top: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .text h1 {
@@ -628,16 +597,6 @@ body {
         /* Stretch items to full width */
     }
 
-    .Typeface-box {
-        display: block;
-        width: 100%;
-        height: auto;
-        padding-top: 40px;
-        padding-left: 0px;
-        padding-right: 0px;
-
-    }
-
     .flexbox-container a {
         width: 100%;
         /* Full width */
@@ -681,15 +640,6 @@ body {
     .flexbox-container {
         justify-content: space-around;
         /* Space around items */
-    }
-
-    .Typeface-box {
-        display: block;
-        width: 100%;
-        height: auto;
-        padding-top: 40px;
-        padding-left: 0px;
-
     }
 
     .flexbox-container a {
@@ -1927,6 +1877,77 @@ img {
     transform: rotate(-135deg);
 }
 
+.typeface-top {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.typeface-top-image img {
+    width: 100%;
+}
+
+.typeface-top-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.typeface-top-content h2 {
+    font-family: "Literata", serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 47.52px;
+}
+
+.typeface-top-content p {
+    flex-grow: 1;
+    font-family: "Literata", serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+
+}
+
+.typeface-top-content .date {
+    font-family: "Literata", serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: right;
+}
+
+.typeface-grid {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+.typeface-grid img {
+    width: 100%;
+}
+
+@media (min-width: 641px) {
+    .img-container .card {
+        width: calc(50% - 11px);
+    }
+}
+
+@media (min-width: 768px) {
+    .typeface-grid,
+    .img-container {
+        flex-direction: row;
+    }
+
+    .typeface-grid-item {
+        width: calc(33.33% - 14px);
+    }
+}
+
 @media (min-width: 992px) {
     .header_demo.page-width {
         padding-top: 40px;
@@ -1946,10 +1967,6 @@ img {
         width: calc("50% -32px");
         flex-direction: row;
         align-items: center;
-    }
-
-    .footer-item-last .h1 {
-        text-align: center;
     }
 
     .footer-item .h1 {
@@ -1972,11 +1989,51 @@ img {
         object-fit: cover;
         object-position: center;
     }
+
+    .footer-item p {
+        max-width: 308px;
+    }
+
+    .footer-item-last .h1 {
+        flex-grow: revert;
+    }
+
+    .footer-item-last p {
+        flex-grow: 1;
+    }
+
+    .typeface-top {
+        flex-direction: row;
+    }
+
+    .typeface-top-image {
+        width: calc(100% - 350px);
+    }
+
+    .typeface-top-content {
+        width: 350px;
+    }
 }
 
 @media (min-width: 1025px) {
     .index-footer-items {
         flex-wrap: nowrap;
+    }
+
+    .typeface-top-image {
+        width: calc(100% - 420px);
+    }
+
+    .typeface-top-content {
+        width: 400px;
+    }
+
+    .typeface-grid {
+        margin-top: 55px;
+    }
+
+    .img-container .card {
+        width: calc(33.33% - 15px);
     }
 }
 
@@ -1985,7 +2042,6 @@ img {
         padding: 0 40px;
     }
 
-    .index-footer-items,
     .footer-item {
         gap: 65px;
     }
@@ -2006,6 +2062,14 @@ img {
 
     .nav-bar ul li a {
         font-size: 24px;
+    }
+
+    .typeface-top-image {
+        width: calc(100% - 40% - 20px);
+    }
+
+    .typeface-top-content {
+        width: 40%;
     }
 }
 
@@ -2035,12 +2099,15 @@ img {
 
     .nav-bar ul {
         flex-direction: column;
+        gap: 8px;
     }
 
     .nav-bar ul li a::before {
         display: none;
     }
-    .nav-bar ul li a:hover {
+
+    .nav-bar ul li a:hover,
+    .nav-bar ul li a.active {
         background-color: #000;
     }
 }
