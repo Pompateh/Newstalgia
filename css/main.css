@@ -767,47 +767,35 @@
 }
 
 .intro_img img {
-    max-width: 20%;
+    max-width: 369px;
+    width: 100%;
     height: auto;
 }
 
 
 .about_header {
     display: flex;
-    /* Use flexbox */
     justify-content: space-between;
-    /* Space items evenly */
     align-items: center;
-    /* Center items vertically */
-    padding: 10px;
-    /* Add padding for spacing */
+    padding: 30px 0 25px 0;
 }
 
-.head1 {
-    display: flex;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+.head1 h1 {
     font-family: "Bebas Neue", sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 72px;
+    letter-spacing: 0.04em;
     text-align: center;
-    padding-right: 100px;
 }
 
 .intro_p {
-    display: flex;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    margin-top: 25px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 0 10px;
     font-family: "Literata", serif;
-
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 35.64px;
+    text-align: center;
+    padding: 27px 0 47px 0;
 }
 
 .about_img {
@@ -816,154 +804,13 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    margin-top: 20px;
-
+    margin: 0 0 40px 0;
 }
 
 .about_img img {
     max-width: 100%;
     height: auto;
-
 }
-
-/* General Styles */
-.whatwedo,
-.contact_info,
-.clients_cons {
-    text-align: center;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 40px;
-    margin-top: 15px;
-    padding: 0 10px;
-}
-
-/* Job and Address Sections */
-.jobs,
-.addresse,
-.clients {
-    display: flex;
-    justify-content: center;
-    gap: 2%;
-    /* Adjust spacing between items */
-    margin-top: 10px;
-    flex-wrap: wrap;
-    padding: 0 10px;
-    box-sizing: border-box;
-    font-family: "Literata", serif;
-    font-weight: 600;
-    font-size: 20px;
-}
-
-/* Individual Job and Address Boxes */
-.job,
-.address,
-.client {
-    font-size: larger;
-    padding: 15px 20px;
-    text-align: center;
-    font-family: "Literata", serif;
-    width: 100%;
-    box-sizing: border-box;
-    flex: 1 1 200px;
-    min-width: 200px;
-    max-width: 45%;
-    /* Allow up to 45% width on larger screens */
-    margin: 0 0 10px 0;
-    /* Margin bottom for spacing */
-}
-
-.client {
-    max-width: 200px;
-    /* Adjust width of each client box */
-}
-
-/* Client Image Styling */
-.client img {
-    max-width: 100%;
-    height: auto;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-/* End Image Section */
-.end_img {
-    width: 100%;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    margin: 80px 0;
-}
-
-.end_img img {
-    max-width: 20%;
-    height: auto;
-}
-
-/* Media queries for responsiveness */
-
-/* Small screens (mobile devices) */
-@media (max-width: 576px) {
-
-    .whatwedo,
-    .contact_info,
-    .clients_cons {
-        font-size: 24px;
-        /* Adjust font size for smaller screens */
-    }
-
-    .jobs,
-    .addresse,
-    .clients {
-        justify-content: space-around;
-        /* Space around items */
-        font-size: 16px;
-    }
-
-    .job,
-    .address,
-    .client {
-        max-width: 100%;
-        /* Full width */
-    }
-
-    .end_img img {
-        max-width: 80%;
-        /* Larger image width on small screens */
-    }
-}
-
-/* Medium screens (tablets and small desktops) */
-@media (min-width: 577px) and (max-width: 992px) {
-
-    .whatwedo,
-    .contact_info,
-    .clients_cons {
-        font-size: 32px;
-        /* Adjust font size for medium screens */
-    }
-
-    .jobs,
-    .addresse,
-    .clients {
-        justify-content: space-between;
-        /* Space between items */
-    }
-
-    .job,
-    .address,
-    .client {
-        max-width: 45%;
-        /* Adjust to 45% width */
-    }
-
-    .end_img img {
-        max-width: 50%;
-        /* Moderate image width on medium screens */
-    }
-}
-
-
-
 
 .shop_back {
     display: inline-flex;
@@ -985,7 +832,7 @@
 .back_btn_1 {
     display: inline-flex;
     align-items: center;
-    padding: 20px 20px;
+    padding: 0;
     font-size: 1.5em;
     font-weight: 500;
     text-decoration: none;
@@ -1931,6 +1778,87 @@ img {
     width: 100%;
 }
 
+.about-items {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.whatwedo h1,
+.contact_info h1,
+.clients_cons h1 {
+    margin-bottom: 25px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 72px;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+.clients_cons h1 {
+    margin-bottom: 0;
+}
+
+.jobs,
+.addresse {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.job,
+.address {
+    font-family: "Literata", serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 35.64px;
+    text-align: center;
+}
+
+.clients {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.client {
+    width: 210px;
+    max-width: 100%;
+}
+
+.client img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.client div {
+    font-family: "Literata", serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 35.64px;
+    text-align: center;
+}
+
+.end_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.end_img img {
+    max-width: 369px;
+    width: 100%;
+}
+
+.whatwedo {
+    margin-bottom: 30px;
+}
+
 @media (min-width: 641px) {
     .img-container .card {
         width: calc(50% - 11px);
@@ -1943,8 +1871,33 @@ img {
         flex-direction: row;
     }
 
+    .img-container {
+        row-gap: 0;
+    }
+
     .typeface-grid-item {
         width: calc(33.33% - 14px);
+    }
+
+    .jobs,
+    .addresse {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .job,
+    .address {
+        width: 33.33%;
+        text-align: center;
+    }
+
+    .whatwedo h1,
+    .contact_info h1 {
+        margin-bottom: 40px;
+    }
+
+    .about_img {
+        margin-bottom: 70px;
     }
 }
 
@@ -2052,6 +2005,10 @@ img {
 
     .nav-bar {
         display: block;
+    }
+
+    .about-items {
+        gap: 60px;
     }
 }
 
