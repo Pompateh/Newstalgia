@@ -1300,6 +1300,14 @@ body.showCart .product-layout{
     justify-content: flex-end;
 }
 
+.icon_cart_inner {
+    width: 45px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .shop_end, .detail_end {
     display: flex;
     align-items: center;
@@ -1456,9 +1464,8 @@ body.showCart .product-layout{
     bottom: 0;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     color: #FFF;
-    width: 43px;
     text-align: center;
 }
 
