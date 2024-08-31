@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newstalgia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/task.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-width header_demo">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./assets/logo-01.png" alt="Logo">
+                </a>
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li>
+                        <a href="Typeface.html">
+                            <span>Task</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Brand.html">
+                            <span>Timeline</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Contract</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="shop.html">
+                            <span>Quotation</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="body_container">
+            <div class="you-have-no-time">
+                YOU HAVE NO TIME !
+            </div>
+            <div id="task-container">
+                <div id="no-task">No task available</div>
+            </div>
+        
+            <div id="task-form" class="hidden">
+                <h2>Create a Task</h2>
+                <label for="task-name">Job Name:</label> 
+                <input type="text" id="task-name">
+                <label for="task-desc">Description:</label>
+                <textarea id="task-desc"></textarea>
+                <label for="task-date">Due Date:</label>
+                <input type="date" id="task-date">
+                <button id="save-task-btn">Save</button>
+            </div>
+            <button id="create-task-btn">Create Task</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+ document.addEventListener('DOMContentLoaded', loadTasks);
+
+document.getElementById('create-task-btn').addEventListener('click', function() {
+    document.getElementById('task-form').classList.remove('hidden');
+});
+
+document.getElementById('save-task-btn').addEventListener('click', function() {
+    const taskName = document.getElementById('task-name').value;
+    const taskDesc = document.getElementById('task-desc').value;
+    const taskDate = document.getElementById('task-date').value;
+
+    if (taskName && taskDesc && taskDate) {
+        const taskBox = document.createElement('div');
+        taskBox.className = 'task-box';
+        taskBox.innerHTML = `
+            <h1>${taskName}</h1>
+            <button class="delete-btn"></button>
+            <p>${taskDesc}</p>
+            <h3 class="task-date">Due: ${taskDate}</h3>
+        `;
+        taskBox.querySelector('.delete-btn').addEventListener('click', function() {
+            taskBox.remove();
+            saveTasks();
+            checkNoTasks();
+        });
+
+        document.getElementById('task-container').appendChild(taskBox);
+        document.getElementById('task-form').classList.add('hidden');
+        document.getElementById('no-task').style.display = 'none';
+        saveTasks();
+    }
+});
+
+function saveTasks() {
+    const tasks = Array.from(document.getElementsByClassName('task-box')).map(taskBox => {
+        return {
+            name: taskBox.querySelector('h1').textContent,
+            desc: taskBox.querySelector('p').textContent,
+            date: taskBox.querySelector('.task-date').textContent.replace('Due: ', '')
+        };
+    });
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasks() {
+    const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+    tasks.forEach(task => {
+        const taskBox = document.createElement('div');
+        taskBox.className = 'task-box';
+        taskBox.innerHTML = `
+            <h1>${task.name}</h1>
+            <button class="delete-btn"></button>
+            <p>${task.desc}</p>
+            <h3 class="task-date">Due: ${task.date}</h3>
+        `;
+        taskBox.querySelector('.delete-btn').addEventListener('click', function() {
+            taskBox.remove();
+            saveTasks();
+            checkNoTasks();
+        });
+
+        document.getElementById('task-container').appendChild(taskBox);
+    });
+    checkNoTasks();
+    updateTaskDates();
+}
+
+function checkNoTasks() {
+    const taskBoxes = document.getElementsByClassName('task-box');
+    if (taskBoxes.length === 0) {
+        document.getElementById('no-task').style.display = 'block';
+    } else {
+        document.getElementById('no-task').style.display = 'none';
+    }
+}
+
+function updateTaskDates() {
+    const taskDates = document.getElementsByClassName('task-date');
+    const today = new Date();
+    Array.from(taskDates).forEach(dateElement => {
+        const dueDate = new Date(dateElement.textContent.replace('Due: ', ''));
+        const timeDiff = dueDate - today;
+        const dayDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+        if (dayDiff <= 1) {
+            dateElement.style.color = 'red';
+        }
+    });
+}
+
+
+    </script>
+</body>
+</html>
