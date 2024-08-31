@@ -2075,22 +2075,36 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 40px 20px 40px;
+    padding: 0px 40px 20px 40px;
     width: 100%;
     box-sizing: border-box;
 }
-.you-have-no-time {
-    margin: 0 1px 19.5px 0;
-    display: inline-block;
-    overflow-wrap: break-word;
-    font-family: var(--h-11-font-family, 'Bebas Neue');
-    font-weight: var(--h-11-font-weight, 400);
-    font-size: var(--h-11-font-size, 96px);
-    letter-spacing: var(--h-11-letter-spacing, 3.8px);
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(#000000, #000000);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+.marquee {
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    height: 200px;
+    overflow-x: hidden;
+  }
+  
+.track {
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 10s linear infinite;
+  }
+.marquee_content{
+    color: black;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 114px;
+ 
+}
+  
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
 .body_container .card_task {
