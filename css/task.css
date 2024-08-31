@@ -2086,7 +2086,7 @@ img {
     height: 200px;
     overflow-x: hidden;
   }
-  
+ 
 .track {
     position: absolute;
     white-space: nowrap;
@@ -2099,6 +2099,7 @@ img {
     font-style: normal;
     font-weight: 400;
     font-size: 114px;
+    letter-spacing: 0.04em;
  
 }
   
