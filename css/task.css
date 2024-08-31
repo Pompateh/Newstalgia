@@ -2075,7 +2075,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 20px 40px 20px 40px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -2110,9 +2110,8 @@ img {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Gap between tasks */
-    margin: 0 -40px; /* Negative margin to offset the left and right padding */
-    padding: 0 40px; /* Margin on left and right */
+    gap: 26px; /* Gap between tasks */
+    padding: 0px; /* Margin on left and right */
 }
 
 #no-task {
@@ -2139,7 +2138,7 @@ img {
     border-radius: 20px;
     cursor: pointer;
     text-align: center;
-    width: 325px;
+    width: 360px;
     height: 248px;
     position: relative;flex: 1 1 calc(25% - 20px); /* 4 tasks per row with gap adjustment */
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
