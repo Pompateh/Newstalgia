@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newstalgia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/job_detail.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-width header_demo">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./assets/logo-01.png" alt="Logo">
+                </a>
+            </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li>
+                        <a href="task.html">
+                            <span>Task</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Brand.html">
+                            <span>Timeline</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Contract</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="shop.html">
+                            <span>Quotation</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div style="
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    ">
+        <div style="
+            margin: 0 1px 19.5px 0;
+            display: inline-block;
+            overflow-wrap: break-word;
+            font-family: 'Bebas Neue';
+            font-weight: var(--h-11-font-weight, 400);
+            font-size: 96px;
+            letter-spacing: var(--h-11-letter-spacing, 3.8px);
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+            background-clip: text;
+            -webkit-background-clip: text;
+        ">
+            THANKS GOD WE HAVE JOB
+        </div>
+    </div>
+    <div class="task-container">
+        <div class="task-details">
+            <div class="project-type">Project Type: Custom Project</div>
+            <div class="job-name">
+                <span id="task-name">[Job Name]</span>
+            </div>
+            <div class="job-completion">
+                Completion: [Percentage Script]
+            </div>
+            <div class="due-date">
+                Due Date: <span id="due-date">[Due Date]</span>
+            </div>
+        </div>
+        <div class="project-image">
+            <img src="./assets/image/NEWSTALGIA WEB-01.png" alt="Project Image">
+        </div>
+    </div>
+
+    <script>
+        // Function to retrieve query parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Populate the task box with the inherited task name and due date
+        document.getElementById('task-name').textContent = getQueryParam('name');
+        document.getElementById('due-date').textContent = getQueryParam('date');
+    </script>
+    
+
+    
+</body>
+</html>
