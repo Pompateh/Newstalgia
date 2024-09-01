@@ -76,7 +76,7 @@
     </div>
 
     <script>
- document.addEventListener('DOMContentLoaded', loadTasks);
+document.addEventListener('DOMContentLoaded', loadTasks);
 
 document.getElementById('create-task-btn').addEventListener('click', function() {
     document.getElementById('task-form').classList.remove('hidden');
@@ -100,6 +100,10 @@ document.getElementById('save-task-btn').addEventListener('click', function() {
             taskBox.remove();
             saveTasks();
             checkNoTasks();
+        });
+
+        taskBox.addEventListener('click', function() {
+            navigateToTaskBox(taskName, taskDate);
         });
 
         document.getElementById('task-container').appendChild(taskBox);
@@ -137,6 +141,10 @@ function loadTasks() {
             checkNoTasks();
         });
 
+        taskBox.addEventListener('click', function() {
+            navigateToTaskBox(task.name, task.date);
+        });
+
         document.getElementById('task-container').appendChild(taskBox);
     });
     checkNoTasks();
@@ -165,7 +173,11 @@ function updateTaskDates() {
     });
 }
 
-
+// Function to navigate to the task box page with task details
+function navigateToTaskBox(taskName, taskDate) {
+    const url = `job_detail.html?name=${encodeURIComponent(taskName)}&date=${encodeURIComponent(taskDate)}`;
+    window.location.href = url;
+}
     </script>
 </body>
 </html>
