@@ -2103,6 +2103,22 @@ img {
     font-size: 32px;
     color: #F8F8F8;
 }
+
+.project-type-input {
+    font-family: 'Literata', serif !important;
+    margin: 0 0 52.5px 0;
+    display: inline-block;
+    word-wrap: break-word;
+    font-weight: 400;
+    font-size: 32px;
+    color: black;
+    background: none;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
 .job-name {
     margin: 0 0 19px 0;
     display: inline-block;
