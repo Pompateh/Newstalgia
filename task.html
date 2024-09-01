@@ -66,6 +66,8 @@
                 <textarea id="task-desc"></textarea>
                 <label for="task-date">Due Date:</label>
                 <input type="date" id="task-date">
+                <label for="project-type">Project Type</label>
+                <input type="type" id="project-type">
                 <button id="save-task-btn">Save</button>
             </div>
             <button id="create-task-btn">Create Task</button>
@@ -86,11 +88,13 @@ document.getElementById('save-task-btn').addEventListener('click', function() {
     const taskName = document.getElementById('task-name').value;
     const taskDesc = document.getElementById('task-desc').value;
     const taskDate = document.getElementById('task-date').value;
+    const taskType = document.getElementById('project-type').value;
 
-    if (taskName && taskDesc && taskDate) {
+    if (taskName && taskDesc && taskDate && taskType) {
         const taskBox = document.createElement('div');
         taskBox.className = 'task-box';
         taskBox.innerHTML = `
+            <h2>${taskType}</h2>
             <h1>${taskName}</h1>
             <button class="delete-btn"></button>
             <p>${taskDesc}</p>
@@ -103,8 +107,9 @@ document.getElementById('save-task-btn').addEventListener('click', function() {
         });
 
         taskBox.addEventListener('click', function() {
-            navigateToTaskBox(taskName, taskDate);
+            navigateToTaskBox(taskName, taskDate, taskType);
         });
+
 
         document.getElementById('task-container').appendChild(taskBox);
         document.getElementById('task-form').classList.add('hidden');
@@ -116,6 +121,7 @@ document.getElementById('save-task-btn').addEventListener('click', function() {
 function saveTasks() {
     const tasks = Array.from(document.getElementsByClassName('task-box')).map(taskBox => {
         return {
+            type: taskBox.querySelector('h2').textContent,
             name: taskBox.querySelector('h1').textContent,
             desc: taskBox.querySelector('p').textContent,
             date: taskBox.querySelector('.task-date').textContent.replace('Due: ', '')
@@ -130,6 +136,7 @@ function loadTasks() {
         const taskBox = document.createElement('div');
         taskBox.className = 'task-box';
         taskBox.innerHTML = `
+            <h2>${task.type}</h2>
             <h1>${task.name}</h1>
             <button class="delete-btn"></button>
             <p>${task.desc}</p>
@@ -142,14 +149,16 @@ function loadTasks() {
         });
 
         taskBox.addEventListener('click', function() {
-            navigateToTaskBox(task.name, task.date);
+             navigateToTaskBox(task.name, task.date, task.type);
         });
+
 
         document.getElementById('task-container').appendChild(taskBox);
     });
     checkNoTasks();
     updateTaskDates();
 }
+
 
 function checkNoTasks() {
     const taskBoxes = document.getElementsByClassName('task-box');
@@ -174,10 +183,11 @@ function updateTaskDates() {
 }
 
 // Function to navigate to the task box page with task details
-function navigateToTaskBox(taskName, taskDate) {
-    const url = `job_detail.html?name=${encodeURIComponent(taskName)}&date=${encodeURIComponent(taskDate)}`;
+function navigateToTaskBox(taskName, taskDate, taskType) {
+    const url = `job_detail.html?name=${encodeURIComponent(taskName)}&date=${encodeURIComponent(taskDate)}&type=${encodeURIComponent(taskType)}`;
     window.location.href = url;
 }
+
     </script>
 </body>
 </html>

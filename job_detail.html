@@ -48,57 +48,52 @@
                 </ul>
             </nav>
         </div>
-        <div style="
-        display: flex;
-        justify-content: center;
-        text-align: center;
-    ">
-        <div style="
-            margin: 0 1px 19.5px 0;
-            display: inline-block;
-            overflow-wrap: break-word;
-            font-family: 'Bebas Neue';
-            font-weight: var(--h-11-font-weight, 400);
-            font-size: 96px;
-            letter-spacing: var(--h-11-letter-spacing, 3.8px);
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-            background-clip: text;
-            -webkit-background-clip: text;
-        ">
-            THANKS GOD WE HAVE JOB
+        <div style="display: flex; justify-content: center; text-align: center;">
+            <div style="
+                margin: 0 1px 19.5px 0;
+                display: inline-block;
+                overflow-wrap: break-word;
+                font-family: 'Bebas Neue';
+                font-weight: var(--h-11-font-weight, 400);
+                font-size: 96px;
+                letter-spacing: var(--h-11-letter-spacing, 3.8px);
+                background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+                background-clip: text;
+                -webkit-background-clip: text;
+            ">
+                THANKS GOD WE HAVE JOB
+            </div>
         </div>
+        <div class="task-container">
+            <div class="task-details">
+                <div class="project-type" id="project-type"></div>
+                <div class="job-name">
+                    <span id="task-name">[Job Name]</span>
+                </div>
+                <div class="job-completion">
+                    Completion: [Percentage Script]
+                </div>
+                <div class="due-date">
+                    Due Date: <span id="due-date">[Due Date]</span>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="./assets/image/NEWSTALGIA WEB-01.png" alt="Project Image">
+            </div>
+        </div>
+
+        <script>
+            // Function to retrieve query parameters
+            function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
+            // Populate the task box with the inherited task name, due date, and project type
+            document.getElementById('task-name').textContent = getQueryParam('name');
+            document.getElementById('due-date').textContent = getQueryParam('date');
+            document.getElementById('project-type').textContent = getQueryParam('type');
+        </script>
     </div>
-    <div class="task-container">
-        <div class="task-details">
-            <div class="project-type">Project Type: Custom Project</div>
-            <div class="job-name">
-                <span id="task-name">[Job Name]</span>
-            </div>
-            <div class="job-completion">
-                Completion: [Percentage Script]
-            </div>
-            <div class="due-date">
-                Due Date: <span id="due-date">[Due Date]</span>
-            </div>
-        </div>
-        <div class="project-image">
-            <img src="./assets/image/NEWSTALGIA WEB-01.png" alt="Project Image">
-        </div>
-    </div>
-
-    <script>
-        // Function to retrieve query parameters
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        // Populate the task box with the inherited task name and due date
-        document.getElementById('task-name').textContent = getQueryParam('name');
-        document.getElementById('due-date').textContent = getQueryParam('date');
-    </script>
-    
-
-    
 </body>
 </html>
