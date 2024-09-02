@@ -2094,6 +2094,7 @@ img {
     height: 100%;
     box-sizing: border-box;
 }
+
 .project-type {
     font-family: 'Literata', serif !important;
     margin: 0 0 52.5px 0;
@@ -2101,24 +2102,9 @@ img {
     word-wrap: break-word;
     font-weight: 400; /* Adjust as needed */
     font-size: 32px;
-    color: #F8F8F8;
+    color: #000000; /* Change text color to black */
 }
 
-.project-type-input {
-    font-family: 'Literata', serif !important;
-    margin: 0 0 52.5px 0;
-    display: inline-block;
-    word-wrap: break-word;
-    font-weight: 400;
-    font-size: 32px;
-    color: black;
-    background: none;
-    border: none;
-    outline: none;
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-}
 .job-name {
     margin: 0 0 19px 0;
     display: inline-block;
@@ -2128,29 +2114,25 @@ img {
     font-size: 96px;
     letter-spacing: 3.8px; /* Adjust based on your CSS variable if needed */
     background: linear-gradient(#F8F8F8, #F8F8F8);
-    color: transparent;
+    color: #000000; /* Change text color to black */
     background-clip: text;
     -webkit-background-clip: text; /* For WebKit browsers */
 }
+
 .task-details div {
     font-family: 'Bebas Neue', sans-serif;
-    color: #333;
+    color: #333333; /* Change text color to black */
 }
 
 .job-completion {
     margin: 0 0 90.5px 0;
     display: inline-block;
     word-wrap: break-word;
-
     font-weight: 400; /* Adjust based on your CSS variable if needed */
-    font-size: 96px;
+    font-size: 83px; /* Reduced font size */
     letter-spacing: 3.8px; /* Adjust based on your CSS variable if needed */
-    background: linear-gradient(#F8F8F8, #F8F8F8);
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text; /* For WebKit browsers */
+    color: #000000; /* Change text color to black */
 }
-
 
 .due-date {
     font-family: 'Literata', serif !important;
@@ -2158,7 +2140,7 @@ img {
     font-weight: 300; /* Adjust based on your CSS variable if needed */
     font-size: 16px;
     line-height: 1.2; /* Adjust based on your CSS variable if needed */
-    color: #F8F8F8;
+    color: #000000; /* Change text color to black */
 }
 
 .project-image {
