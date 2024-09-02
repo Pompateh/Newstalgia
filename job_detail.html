@@ -83,16 +83,18 @@
         </div>
 
         <script>
-            // Function to retrieve query parameters
-            function getQueryParam(param) {
-                const urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get(param);
-            }
+// Function to retrieve task details from localStorage
+function getTaskDetails() {
+    const taskDetails = JSON.parse(localStorage.getItem('taskDetails'));
+    return taskDetails ? taskDetails : { name: '', date: '', type: '' };
+}
 
-            // Populate the task box with the inherited task name, due date, and project type
-            document.getElementById('task-name').textContent = getQueryParam('name');
-            document.getElementById('due-date').textContent = getQueryParam('date');
-            document.getElementById('project-type').textContent = getQueryParam('type');
+// Populate the task box with the inherited task name, due date, and project type
+const taskDetails = getTaskDetails();
+document.getElementById('task-name').textContent = taskDetails.name;
+document.getElementById('due-date').textContent = taskDetails.date;
+document.getElementById('project-type').textContent = taskDetails.type;
+
         </script>
     </div>
 </body>

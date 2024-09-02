@@ -58,21 +58,24 @@
                 <div id="no-task">No task available</div>
             </div>
         
-            <div id="task-form" class="hidden">
-                <h2>Create a Task</h2>
-                <label for="task-name">Job Name:</label> 
-                <input type="text" id="task-name">
-                <label for="task-desc">Description:</label>
-                <textarea id="task-desc"></textarea>
-                <label for="task-date">Due Date:</label>
-                <input type="date" id="task-date">
-                <label for="project-type">Project Type</label>
-                <input type="type" id="project-type">
-                <button id="save-task-btn">Save</button>
-            </div>
-            <button id="create-task-btn">Create Task</button>
+            <div id="task-popup" class="hidden">
+                <div id="task-form">
+                    <button id="close-task-btn" class="close-btn">&times;</button>
+                    <h2>Create a Task</h2>
+                    <label for="task-name">Job Name:</label> 
+                    <input type="text" id="task-name">
+                    <label for="task-desc">Description:</label>
+                    <textarea id="task-desc"></textarea>
+                    <label for="task-date">Due Date:</label>
+                    <input type="date" id="task-date">
+                    <label for="project-type">Project Type:</label>
+                    <input type="text" id="project-type">
+                    <button id="save-task-btn">Save</button>
                 </div>
             </div>
+
+            <button id="create-task-btn">Create Task</button>
+        </div>
         </div>
 
     </div>
@@ -81,14 +84,18 @@
 document.addEventListener('DOMContentLoaded', loadTasks);
 
 document.getElementById('create-task-btn').addEventListener('click', function() {
-    document.getElementById('task-form').classList.remove('hidden');
+    document.getElementById('task-popup').classList.remove('hidden');
+});
+
+document.getElementById('close-task-btn').addEventListener('click', function() {
+    document.getElementById('task-popup').classList.add('hidden');
 });
 
 document.getElementById('save-task-btn').addEventListener('click', function() {
-    const taskName = document.getElementById('task-name').value;
-    const taskDesc = document.getElementById('task-desc').value;
-    const taskDate = document.getElementById('task-date').value;
-    const taskType = document.getElementById('project-type').value;
+    const taskName = document.getElementById('task-name').value.trim();
+    const taskDesc = document.getElementById('task-desc').value.trim();
+    const taskDate = document.getElementById('task-date').value.trim();
+    const taskType = document.getElementById('project-type').value.trim();
 
     if (taskName && taskDesc && taskDate && taskType) {
         const taskBox = document.createElement('div');
@@ -100,23 +107,29 @@ document.getElementById('save-task-btn').addEventListener('click', function() {
             <p>${taskDesc}</p>
             <h3 class="task-date">Due: ${taskDate}</h3>
         `;
-        taskBox.querySelector('.delete-btn').addEventListener('click', function() {
+
+        // Delete button functionality
+        taskBox.querySelector('.delete-btn').addEventListener('click', function(e) {
+            e.stopPropagation();  // Prevents click event from triggering navigation
             taskBox.remove();
             saveTasks();
             checkNoTasks();
         });
 
+        // Task box click event to navigate
         taskBox.addEventListener('click', function() {
             navigateToTaskBox(taskName, taskDate, taskType);
         });
 
-
         document.getElementById('task-container').appendChild(taskBox);
-        document.getElementById('task-form').classList.add('hidden');
+        document.getElementById('task-popup').classList.add('hidden');
         document.getElementById('no-task').style.display = 'none';
-        saveTasks();
+        saveTasks();  // Save the task after creation
+    } else {
+        alert("Please fill in all fields before saving the task.");
     }
 });
+
 
 function saveTasks() {
     const tasks = Array.from(document.getElementsByClassName('task-box')).map(taskBox => {
@@ -142,51 +155,42 @@ function loadTasks() {
             <p>${task.desc}</p>
             <h3 class="task-date">Due: ${task.date}</h3>
         `;
-        taskBox.querySelector('.delete-btn').addEventListener('click', function() {
+
+        // Delete button functionality
+        taskBox.querySelector('.delete-btn').addEventListener('click', function(e) {
+            e.stopPropagation();  // Prevents click event from triggering navigation
             taskBox.remove();
             saveTasks();
             checkNoTasks();
         });
 
+        // Task box click event to navigate
         taskBox.addEventListener('click', function() {
-             navigateToTaskBox(task.name, task.date, task.type);
+            navigateToTaskBox(task.name, task.date, task.type);
         });
-
 
         document.getElementById('task-container').appendChild(taskBox);
     });
-    checkNoTasks();
-    updateTaskDates();
-}
 
+    checkNoTasks();
+}
 
 function checkNoTasks() {
-    const taskBoxes = document.getElementsByClassName('task-box');
-    if (taskBoxes.length === 0) {
-        document.getElementById('no-task').style.display = 'block';
-    } else {
-        document.getElementById('no-task').style.display = 'none';
-    }
+    const taskContainer = document.getElementById('task-container');
+    const noTask = document.getElementById('no-task');
+    noTask.style.display = taskContainer.children.length > 1 ? 'none' : 'block';
 }
 
-function updateTaskDates() {
-    const taskDates = document.getElementsByClassName('task-date');
-    const today = new Date();
-    Array.from(taskDates).forEach(dateElement => {
-        const dueDate = new Date(dateElement.textContent.replace('Due: ', ''));
-        const timeDiff = dueDate - today;
-        const dayDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-        if (dayDiff <= 1) {
-            dateElement.style.color = 'red';
-        }
-    });
+function navigateToTaskBox(name, date, type) {
+    const taskDetails = {
+        name: name,
+        date: date,
+        type: type
+    };
+    localStorage.setItem('taskDetails', JSON.stringify(taskDetails));  
+    window.location.href = 'job_detail.html';  
 }
 
-// Function to navigate to the task box page with task details
-function navigateToTaskBox(taskName, taskDate, taskType) {
-    const url = `job_detail.html?name=${encodeURIComponent(taskName)}&date=${encodeURIComponent(taskDate)}&type=${encodeURIComponent(taskType)}`;
-    window.location.href = url;
-}
 
     </script>
 </body>
