@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/task.css">
 </head>
-
 <body>
     <div class="container">
         <div class="page-width header_demo">
@@ -25,39 +24,22 @@
             </div>
             <nav class="nav-bar">
                 <ul>
-                    <li>
-                        <a href="Typeface.html">
-                            <span>Task</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Brand.html">
-                            <span>Timeline</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span>Contract</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="shop.html">
-                            <span>Quotation</span>
-                        </a>
-                    </li>
+                    <li><a href="Typeface.html"><span>Task</span></a></li>
+                    <li><a href="Brand.html"><span>Timeline</span></a></li>
+                    <li><a href="#"><span>Contract</span></a></li>
+                    <li><a href="shop.html"><span>Quotation</span></a></li>
                 </ul>
             </nav>
         </div>
         <div class="body_container">
             <div class="marquee">
                 <div class="track">
-                  <div class="marquee_content">&nbsp;You have no time! You have no time! You have no time! You have no time! You have no time! You have no time!</div>
+                    <div class="marquee_content">&nbsp;You have no time! You have no time! You have no time! You have no time! You have no time! You have no time!</div>
                 </div>
-              </div>
+            </div>
             <div id="task-container">
                 <div id="no-task">No task available</div>
             </div>
-        
             <div id="task-popup" class="hidden">
                 <div id="task-form">
                     <button id="close-task-btn" class="close-btn">&times;</button>
@@ -73,11 +55,8 @@
                     <button id="save-task-btn">Save</button>
                 </div>
             </div>
-
             <button id="create-task-btn">Create Task</button>
         </div>
-        </div>
-
     </div>
 
     <script>
@@ -96,6 +75,11 @@ document.getElementById('save-task-btn').addEventListener('click', function() {
     const taskDesc = document.getElementById('task-desc').value.trim();
     const taskDate = document.getElementById('task-date').value.trim();
     const taskType = document.getElementById('project-type').value.trim();
+
+    console.log('Task Name:', taskName);
+    console.log('Task Description:', taskDesc);
+    console.log('Task Date:', taskDate);
+    console.log('Task Type:', taskType);
 
     if (taskName && taskDesc && taskDate && taskType) {
         const taskBox = document.createElement('div');
@@ -129,7 +113,6 @@ document.getElementById('save-task-btn').addEventListener('click', function() {
         alert("Please fill in all fields before saving the task.");
     }
 });
-
 
 function saveTasks() {
     const tasks = Array.from(document.getElementsByClassName('task-box')).map(taskBox => {
@@ -178,7 +161,7 @@ function loadTasks() {
 function checkNoTasks() {
     const taskContainer = document.getElementById('task-container');
     const noTask = document.getElementById('no-task');
-    noTask.style.display = taskContainer.children.length > 1 ? 'none' : 'block';
+    noTask.style.display = taskContainer.children.length > 0 ? 'none' : 'block';
 }
 
 function navigateToTaskBox(name, date, type) {
@@ -190,7 +173,6 @@ function navigateToTaskBox(name, date, type) {
     localStorage.setItem('taskDetails', JSON.stringify(taskDetails));  
     window.location.href = 'job_detail.html';  
 }
-
 
     </script>
 </body>
