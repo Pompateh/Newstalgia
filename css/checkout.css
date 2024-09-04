@@ -41,7 +41,7 @@ body::before {
     padding: 20px 0; /* Remove side padding to ensure full-width table */
     position: relative;
     z-index: 1; /* Ensure it's above the blurred background */
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .checkout-content, .qr-content {
