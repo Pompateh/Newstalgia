@@ -85,12 +85,13 @@ body::before {
 .cart-table {
     width: 100%; /* Table takes full width */
     border-collapse: collapse;
-    margin: 0; /* No margin to ensure full width */
+    margin-top: -10px;
     table-layout: auto; /* Adjusts to content */
     font-family: "Bebas Neue", sans-serif;
     font-size: x-large;
     font-weight: lighter;
     letter-spacing: 1px;
+    
     
 }
 
