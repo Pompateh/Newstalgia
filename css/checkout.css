@@ -48,8 +48,11 @@ body::before {
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Allow scrolling if content overflows */
     padding: 0 ; /* Side padding for the content */
+}
+
+#checkout-total-price {
+    font-family: "Literata", serif !important;
 }
 
 .checkout-header, .qr-header {
