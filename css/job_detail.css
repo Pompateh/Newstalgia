@@ -2074,12 +2074,52 @@ img {
     justify-content: center;
     align-items: center;
     width: calc(100% - 80px); /* Full width minus 40px margin on both sides */
-    margin: 40px auto;
-    height: 670px; /* Set the height of the rectangle */
+    margin: 80px auto; /* Margin to avoid overlapping with header */
+    height: 600px; /* Adjust the height as needed */
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    border-collapse: collapse;
+    perspective: 1000px; /* Ensure perspective for 3D effect */
+}
+
+.flip-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    display: flex;
+
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide backface of the card */
+    display: flex;
+}
+
+.flip-card-front {
+    z-index: 2; /* Front card should be above */
+    transform: rotateY(0deg); /* Default position */
+}
+
+.flip-card-back {
+    transform: rotateY(180deg); /* Back card hidden by default */
+    z-index: 1; /* Back card behind front card */
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg); /* Rotate to show the back */
 }
 
 .task-details {
@@ -2087,10 +2127,10 @@ img {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background-color: #f0f0f0; /* Example background, customizable */
+    background-color: #f0f0f0;
     padding: 20px 0;
     width: 50%; /* Adjust as needed */
-    gap: 20px; /* 20px gap between elements */
+    gap: 20px;
     height: 100%;
     box-sizing: border-box;
 }
@@ -2100,9 +2140,9 @@ img {
     margin: 0 0 52.5px 0;
     display: inline-block;
     word-wrap: break-word;
-    font-weight: 400; /* Adjust as needed */
+    font-weight: 400;
     font-size: 32px;
-    color: #000000; /* Change text color to black */
+    color: #000000;
 }
 
 .job-name {
@@ -2110,37 +2150,32 @@ img {
     display: inline-block;
     word-wrap: break-word;
     font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400; /* Adjust based on your CSS variable if needed */
+    font-weight: 400;
     font-size: 96px;
-    letter-spacing: 3.8px; /* Adjust based on your CSS variable if needed */
+    letter-spacing: 3.8px;
     background: linear-gradient(#F8F8F8, #F8F8F8);
-    color: #000000; /* Change text color to black */
+    color: #000000;
     background-clip: text;
-    -webkit-background-clip: text; /* For WebKit browsers */
-}
-
-.task-details div {
-    font-family: 'Bebas Neue', sans-serif;
-    color: #333333; /* Change text color to black */
+    -webkit-background-clip: text;
 }
 
 .job-completion {
     margin: 0 0 90.5px 0;
     display: inline-block;
     word-wrap: break-word;
-    font-weight: 400; /* Adjust based on your CSS variable if needed */
-    font-size: 83px; /* Reduced font size */
-    letter-spacing: 3.8px; /* Adjust based on your CSS variable if needed */
-    color: #000000; /* Change text color to black */
+    font-weight: 400;
+    font-size: 83px;
+    letter-spacing: 3.8px;
+    color: #000000;
 }
 
 .due-date {
     font-family: 'Literata', serif !important;
     word-wrap: break-word;
-    font-weight: 300; /* Adjust based on your CSS variable if needed */
+    font-weight: 300;
     font-size: 16px;
-    line-height: 1.2; /* Adjust based on your CSS variable if needed */
-    color: #000000; /* Change text color to black */
+    line-height: 1.2;
+    color: #000000;
 }
 
 .project-image {
@@ -2148,17 +2183,177 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Ensures any part of the image outside the container is hidden */
-    width: 670px; /* Set the width of the container */
-    height: 100%; /* Or specify a fixed height if necessary */
-    border-radius: 8px; /* Optional: if you want the container to have rounded corners */
+    overflow: hidden;
+    width: 670px;
+    height: 100%;
+    border-radius: 8px;
 }
 
 .project-image img {
-    width: 100%; /* Makes the image fill the container’s width */
-    height: 100%; /* Makes the image fill the container’s height */
-    object-fit: cover; /* Ensures the image covers the entire container, cropping if necessary */
-    border-radius: 8px; /* Optional: if you want the image to also have rounded corners */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.calendar-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 105px; /* Adjust height as needed */
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.calendar-day.empty {
+    background-color: #f0f0f0;
+}
+
+.calendar-day.has-task {
+    background-color: lightgreen;
+}
+
+/* Task details inline */
+.task-details-inline {
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+    border-radius: 3px;
+    font-size: 0.85em;
+    color: #333;
+    text-align: center;
+    width: 100%;
+}
+
+/* Ensure buttons are correctly styled */
+.mark-as-done, .delete-task {
+    display: none;
+    font-size: 0.75em;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.mark-as-done {
+    background-color: #4CAF50;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.delete-task {
+    background-color: #f44336;
+    color: #fff;
+    margin-top: 5px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+/* Modal styling for consistency */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+#calendar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #4CAF50;
+}
+
+/* Previous and next buttons */
+.calendar-nav button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.calendar-nav button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Month label styling */
+.calendar-nav span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    overflow: auto; /* Add this if needed to handle overflow */
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.calendar-day.empty {
+    display: none; /* Hides empty days */
+}
+
+.calendar-day.selected {
+    background-color: lightblue; /* Or any color that indicates selection */
+    border: 2px solid blue;
 }
 
 
