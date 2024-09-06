@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,91 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/job_detail.css">
+    <style>
+        /* Additional styles for the calendar */
+        #calendar {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 670px;
+        height: 100%;
+        border-radius: 8px;
+        background-color: #f5f5f5;
+    }
+
+    .calendar-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .calendar-day {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: calc(100% / 7);
+        height: calc(100% / 6);
+        margin: 0px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .calendar-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #ddd;
+        border-bottom: 1px solid #ccc;
+        border-radius: 8px 8px 0 0;
+        width: 100%;
+    }
+
+    .calendar-nav button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+        .calendar-day:hover {
+            transform: scale(1.05);
+        }
+
+        .calendar-day.inactive {
+            background-color: #e0e0e0;
+            color: #aaa;
+        }
+
+        .calendar-day.active {
+            background-color: #cce5ff;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1000;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,54 +134,416 @@
                 </ul>
             </nav>
         </div>
-        <div style="display: flex; justify-content: center; text-align: center;">
-            <div style="
-                margin: 0 1px 19.5px 0;
-                display: inline-block;
-                overflow-wrap: break-word;
-                font-family: 'Bebas Neue';
-                font-weight: var(--h-11-font-weight, 400);
-                font-size: 96px;
-                letter-spacing: var(--h-11-letter-spacing, 3.8px);
-                background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-                background-clip: text;
-                -webkit-background-clip: text;
-            ">
-                THANKS GOD WE HAVE JOB
-            </div>
-        </div>
-        <div class="task-container">
-            <div class="task-details">
-                <div class="project-type" id="project-type"></div>
-                <div class="job-name">
-                    <span id="task-name">[Job Name]</span>
-                </div>
-                <div class="job-completion">
-                    Completion: [Percentage Script]
-                </div>
-                <div class="due-date">
-                    Due Date: <span id="due-date">[Due Date]</span>
-                </div>
-            </div>
-            <div class="project-image">
-                <img src="./assets/image/NEWSTALGIA WEB-01.png" alt="Project Image">
-            </div>
-        </div>
 
-        <script>
-// Function to retrieve task details from localStorage
-function getTaskDetails() {
-    const taskDetails = JSON.parse(localStorage.getItem('taskDetails'));
-    return taskDetails ? taskDetails : { name: '', date: '', type: '' };
+        <div class="task-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="task-details">
+                            <div class="project-type" id="project-type"></div>
+                            <div class="job-name">
+                                <span id="task-name">[Job Name]</span>
+                            </div>
+                            <div class="job-completion">
+                                Completion: <span id="completionPercentage">0%</span>
+                            </div>
+                            <div class="due-date">
+                                Due Date: <span id="due-date">[Due Date]</span>
+                            </div>
+                        </div>
+                        <div class="project-image">
+                            <img src="./assets/image/NEWSTALGIA WEB-01.png" alt="Project Image">
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="task-details">
+                            <div class="project-type" id="project-type"></div>
+                            <div class="job-name">
+                                <span id="task-name">[Job Name]</span>
+                            </div>
+                            <div class="job-completion">
+                                Completion: <span id="completionPercentageBack">0%</span>
+                            </div>
+                            <div class="due-date">
+                                Due Date: <span id="due-date-back">[Due Date]</span>
+                            </div>
+                        </div>
+                        <div id="calendar" class="calendar-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="taskModal" class="modal">
+        <h2>Task for <span id="modal-date"></span></h2>
+        <input type="text" id="taskDescription" placeholder="Task Description">
+        <input type="text" id="responsiblePerson" placeholder="Responsible Person">
+        <div class="modal-buttons">
+            <button id="addTask">Add Task</button>
+            <button id="markAsDone" style="display:none;">Mark as Done</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const taskId = getTaskIdFromUrl(); // Get taskId from the URL or local storage
+    if (taskId) {
+        loadTaskDetails(taskId); // Load task details based on the taskId
+        loadCalendarForTask(taskId); // Load calendar specific to the taskId
+    } else {
+        console.error('Task ID not found');
+    }
+
+    // Add event listeners for navigation buttons
+    const prevMonthButton = document.getElementById('prevMonth');
+    const nextMonthButton = document.getElementById('nextMonth');
+
+    prevMonthButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent card flipping
+        navigateMonth(-1); // Go to previous month
+    });
+
+    nextMonthButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent card flipping
+        navigateMonth(1); // Go to next month
+    });
+});
+
+    // Flip card functionality
+    document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', function(event) {
+            event.stopPropagation();
+            this.classList.toggle('flipped');
+        });
+});
+
+function getTaskIdFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('taskId'); // Example: "job_details.html?taskId=123"
 }
 
-// Populate the task box with the inherited task name, due date, and project type
-const taskDetails = getTaskDetails();
-document.getElementById('task-name').textContent = taskDetails.name;
-document.getElementById('due-date').textContent = taskDetails.date;
-document.getElementById('project-type').textContent = taskDetails.type;
+function loadTaskDetails(taskId) {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const task = tasks.find(t => t.id === taskId);
 
-        </script>
-    </div>
+    if (task) {
+        const taskNameElement = document.getElementById('task-name');
+        const dueDateElement = document.getElementById('due-date');
+        const projectTypeElement = document.getElementById('project-type');
+
+        // Ensure the elements exist before trying to set their textContent
+        if (taskNameElement) {
+            taskNameElement.textContent = task.name || 'No Name';
+        }
+        if (dueDateElement) {
+            dueDateElement.textContent = task.date || 'No Date';
+        }
+        if (projectTypeElement) {
+            projectTypeElement.textContent = task.type || 'No Type';
+        }
+
+        // Clone details to the back of the card (ensure they exist first)
+        const backTaskDetails = document.querySelector('.flip-card-back .task-details');
+        if (backTaskDetails) {
+            const backTaskName = backTaskDetails.querySelector('#task-name');
+            const backDueDate = backTaskDetails.querySelector('#due-date-back');
+            const backProjectType = backTaskDetails.querySelector('#project-type-back');
+
+            if (backTaskName) {
+                backTaskName.textContent = task.name || 'No Name';
+            }
+            if (backDueDate) {
+                backDueDate.textContent = task.date || 'No Date';
+            }
+            if (backProjectType) {
+                backProjectType.textContent = task.type || 'No Type';
+            }
+        }
+    } else {
+        console.error('Task not found for taskId:', taskId);
+    }
+}
+
+// Load calendar based on the specific taskId
+function loadCalendarForTask(taskId) {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const task = tasks.find(t => t.id === taskId);
+
+    if (task && task.date) {
+        selectedDate = new Date(task.date); // Set calendar to the task's date
+
+
+    // Ensure that selectedDate is not set to a day that doesn't exist in the current month
+    const lastDayOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0).getDate();
+if (selectedDate.getDate() > lastDayOfMonth) {
+    selectedDate.setDate(lastDayOfMonth);  // Correct invalid dates like 31st in February
+}
+
+
+    loadCalendar(); // Reload the calendar with the new date
+}
+
+}
+const today = new Date();
+let selectedDate = new Date();
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+function loadCalendar() {
+    const calendarContainer = document.getElementById('calendar');
+    if (!calendarContainer) return; // If the calendar container doesn't exist, stop
+
+    // Clear previous content in the calendar container
+    calendarContainer.innerHTML = '';
+
+    // Create the navigation container for Prev/Next buttons
+    const navContainer = document.createElement('div');
+    navContainer.className = 'calendar-nav';
+
+    const prevButton = document.createElement('button');
+    prevButton.innerHTML = '&#9664;';
+    prevButton.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent card flipping
+    selectedDate.setMonth(selectedDate.getMonth() - 1); // Go to the previous month
+    loadCalendar(); // Re-load the calendar for the new month
+});
+navContainer.appendChild(prevButton);
+
+    const monthLabel = document.createElement('span');
+    monthLabel.textContent = selectedDate.toLocaleDateString('default', {
+        month: 'long',
+        year: 'numeric'
+    });
+    navContainer.appendChild(monthLabel);
+
+    const nextButton = document.createElement('button');
+    nextButton.innerHTML = '&#9654;'; // Right arrow symbol
+    nextButton.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent card flipping
+    selectedDate.setMonth(selectedDate.getMonth() + 1); // Go to the next month
+    loadCalendar(); // Re-load the calendar for the new month
+});
+navContainer.appendChild(nextButton);
+
+calendarContainer.appendChild(navContainer);
+
+    // Create the grid for the days in the month
+    const calendarGrid = document.createElement('div');
+    // Determine the first and last day of the selected month
+    const startOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
+    const endOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0);
+    
+    const daysInMonth = [];
+    let day = new Date(startOfMonth);
+
+    // Fill the daysInMonth array with all days in the current month
+    while (day <= endOfMonth) {
+        daysInMonth.push(new Date(day));
+        day.setDate(day.getDate() + 1);
+    }
+
+    // Get the day of the week the month starts on (Sunday = 0, Monday = 1, etc.)
+    const firstDayOfWeek = startOfMonth.getDay();
+    
+    // Create empty cells for days before the start of the month
+    for (let i = 0; i < firstDayOfWeek; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'calendar-day empty';
+        calendarGrid.appendChild(emptyCell);
+    }
+
+    // Populate the calendar grid with actual days
+    daysInMonth.forEach(day => {
+    const dayElement = document.createElement('div');
+    dayElement.className = 'calendar-day';
+    dayElement.textContent = day.getDate();
+
+    // Check if the day matches any task
+    const existingTask = tasks.find(task => {
+        const taskDate = new Date(task.date);
+        return taskDate.getFullYear() === day.getFullYear() &&
+            taskDate.getMonth() === day.getMonth() &&
+            taskDate.getDate() === day.getDate();
+    });
+
+    if (existingTask) {
+        dayElement.style.backgroundColor = 'lightgreen'; // Highlight task date
+        const taskDetailsInline = document.createElement('div');
+        taskDetailsInline.className = 'task-details-inline';
+        taskDetailsInline.textContent = `${existingTask.description || existingTask.responsible}`
+        dayElement.appendChild(taskDetailsInline);
+    }
+    calendarGrid.appendChild(dayElement);
+
+
+
+        if (existingTask) {
+            dayElement.classList.add('has-task');
+            const taskDetailsInline = document.createElement('div');
+            taskDetailsInline.className = 'task-details-inline';
+            taskDetailsInline.textContent = `${existingTask.responsible || ''}`;
+            dayElement.appendChild(taskDetailsInline);
+
+            const markAsDoneButton = document.createElement('button');
+            markAsDoneButton.className = 'mark-as-done';
+            markAsDoneButton.textContent = 'Mark as Done';
+            markAsDoneButton.style.display = 'none'; // Initially hidden
+            markAsDoneButton.onclick = (event) => {
+                event.stopPropagation();
+                markTaskAsDone(day, dayElement, markAsDoneButton, deleteTaskButton);
+            };
+            dayElement.appendChild(markAsDoneButton);
+
+            const deleteTaskButton = document.createElement('button');
+            deleteTaskButton.className = 'delete-task';
+            deleteTaskButton.textContent = 'X';
+            deleteTaskButton.style.display = 'none'; // Initially hidden
+            deleteTaskButton.onclick = (event) => {
+                event.stopPropagation();
+                deleteTask(existingTask.taskId); // Pass the taskId for deletion
+};
+deleteTaskButton.style.position = 'absolute';
+deleteTaskButton.style.top = '5px';
+deleteTaskButton.style.right = '5px';
+dayElement.appendChild(deleteTaskButton);
+
+            dayElement.addEventListener('click', (event) => {
+                handleDateClick(event, day, markAsDoneButton, deleteTaskButton);
+            });
+
+            if (existingTask.done) {
+                applyDoneStyles(dayElement);
+                markAsDoneButton.style.display = 'none';
+                deleteTaskButton.style.display = 'none';
+            }
+        } else {
+            dayElement.classList.add('inactive');
+            dayElement.addEventListener('click', (event) => {
+                event.stopPropagation();
+                openTaskModal(day);
+            });
+        }
+
+        dayElement.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+
+        calendarContainer.appendChild(dayElement);
+    });
+
+    const lastDayOfWeek = endOfMonth.getDay();
+    const totalDays = firstDayOfWeek + daysInMonth.length;
+    const daysToFill = 42 - totalDays;
+    for (let i = 0; i < daysToFill; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'calendar-day empty';
+        calendarGrid.appendChild(emptyCell);
+    }
+
+    updateCompletionPercentage();
+}
+
+function handleDateClick(event, day, markAsDoneButton, deleteTaskButton) {
+    event.stopPropagation();
+    selectedDate = day;
+    const existingTask = tasks.find(task => new Date(task.date).toDateString() === day.toDateString());
+
+    if (existingTask) {
+        markAsDoneButton.style.display = 'block';
+        deleteTaskButton.style.display = 'block';
+    }
+}
+
+function openTaskModal(day) {
+    const modal = document.getElementById('taskModal');
+    document.getElementById('modal-date').textContent = day.toDateString();
+
+    document.getElementById('addTask').onclick = () => addTask(day);
+    modal.style.display = 'flex';
+}
+
+function addTask(day) {
+    const description = document.getElementById('taskDescription').value;
+    const responsible = document.getElementById('responsiblePerson').value;
+
+    const taskId = Date.now(); // Create a unique taskId using timestamp
+    const newTask = { taskId, date: day.toISOString(), description, responsible, done: false };
+
+    // Add the new task to the tasks array
+    tasks.push(newTask);
+
+    // Save the updated tasks array to localStorage
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+    closeModal();  // Assuming you have a function to close the modal
+    loadCalendar();  // Reload the calendar to show the new task
+}
+
+function markTaskAsDone(day, dayElement, markAsDoneButton, deleteTaskButton) {
+    const task = tasks.find(task => new Date(task.date).toDateString() === day.toDateString());
+    if (task) {
+        task.done = true;  // Mark task as done
+        localStorage.setItem('tasks', JSON.stringify(tasks)); // Update local storage
+
+        applyDoneStyles(dayElement);  // Update UI to reflect the task is done
+        markAsDoneButton.style.display = 'none'; // Hide the 'Mark as Done' button
+        deleteTaskButton.style.display = 'none'; // Optionally hide the delete button too
+        updateCompletionPercentage();
+    }
+}
+
+
+function deleteTask(taskId) {
+    // Filter out the task with the matching taskId
+    tasks = tasks.filter(task => task.taskId !== taskId);
+
+    // Update local storage with the modified tasks array
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+
+    // Reload the calendar or any relevant UI component
+    loadCalendar();
+}
+
+function applyDoneStyles(dayElement) {
+    dayElement.style.backgroundColor = '#377C3C';
+    dayElement.style.color = '#FFFFFF';
+}
+
+function closeModal() {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => modal.style.display = 'none');
+}
+
+function updateCompletionPercentage() {
+    const totalTasks = tasks.filter(task => new Date(task.date).getMonth() === selectedDate.getMonth()).length;
+    const doneTasks = tasks.filter(task => new Date(task.date).getMonth() === selectedDate.getMonth() && task.done).length;
+
+    const percentage = totalTasks === 0 ? 0 : (doneTasks / totalTasks) * 100;
+    document.getElementById('completionPercentage').textContent = `${percentage.toFixed(0)}%`;
+}
+
+
+
+function showMonth(year, month) {
+    selectedDate = new Date(year, month, 1);
+    loadCalendar();
+}
+
+function navigateMonth(direction) {
+    selectedDate.setMonth(selectedDate.getMonth() + direction);
+
+    // Ensure selectedDate doesn't point to invalid days like 31st in months that don't have it
+    const lastDayOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0).getDate();
+    if (selectedDate.getDate() > lastDayOfMonth) {
+        selectedDate.setDate(lastDayOfMonth);  // Correct invalid date
+    }
+
+    loadCalendar();  // Re-load calendar after changing month
+}
+
+
+    </script>
 </body>
+
 </html>
