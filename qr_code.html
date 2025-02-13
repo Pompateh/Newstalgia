@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/qr_content.css">
+</head>
+<body>
+    <div class="qr-container">
+        <button class="close-button" id="close-button" title="Close">&times;</button>
+        <header class="qr-header">
+            <img src="./assets/logo-01.png" alt="Logo" class="logo">
+            <p id="paymentMessage"></p>
+        </header>
+        <div class="qr-content">
+            <img src="./assets/image/QR_code.png" alt="QR Code" class="qr-image">
+            <form id="email-form">
+                <input type="email" name="email" id="qr-email" class="qr-email" placeholder="Enter your email" required>
+                <input type="text" name="order-details" id="order-details" class="order-details" placeholder="Enter order details" required>
+                <input type="submit" value="Submit" class="send-button" id="submit">
+            </form>
+        </div>
+        <footer class="qr-footer">
+            <p>Fill in your email to receive your file.</p>
+            <p>We will send the file after receiving your payment.</p>
+            <p>(Please send the screenshot of digital payment)</p>
+        </footer>
+    </div>
+    <div id="toast" class="toast">Your order has been received!</div>
+    <div id="loading" class="loading-indicator">Processing...</div>
+    
+    <script src="js/common.js"></script>
+    <script>
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'toast show';
+            setTimeout(() => {
+                toast.className = toast.className.replace('show', '');
+            }, 3000);
+        }
+
+        function showLoading(show) {
+            const loadingIndicator = document.getElementById('loading');
+            loadingIndicator.style.display = show ? 'block' : 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('email-form');
+            const paymentMessage = document.getElementById('paymentMessage');
+            const qrEmailInput = document.getElementById('qr-email');
+            const orderDetailsInput = document.getElementById('order-details');
+
+            // Function to retrieve total amount and other details from URL query parameters
+            const getQueryParam = (param) => {
+                const searchParams = new URLSearchParams(window.location.search);
+                return searchParams.has(param) ? searchParams.get(param) : ''; // Default to empty string if not found
+            };
+
+            const totalAmount = getQueryParam('total');
+            const email = getQueryParam('email');
+            const orderDetails = getQueryParam('order');
+
+            paymentMessage.textContent = `Please pay the total of ${totalAmount} to complete payment`;
+            qrEmailInput.value = email;
+            orderDetailsInput.value = orderDetails;
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                showLoading(true);
+
+                const formData = new FormData(form);
+
+                fetch('https://script.google.com/macros/s/AKfycby98xa-011WDiw8ycxQMuunYESZ0ZeqZL89cS2dfHrnwLRNJF8ltLh0SdBx-SQaGEv7/exec', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    showLoading(false);
+                    if (data.result === 'success') {
+                        showToast('Thank you! Your order has been received.');
+                        form.reset(); // Optionally clear the form
+                        try {
+                            clearCart(); // Clear the cart after a successful submission
+                        } catch (error) {
+                            console.error('Error clearing cart:', error);
+                        }
+                    } else {
+                        showToast('Error: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    showLoading(false);
+                    console.error('Error:', error);
+                    showToast('An error occurred. Please try again.');
+                });
+            });
+
+            document.getElementById('close-button').addEventListener('click', function() {
+                window.location.href = 'check_out.html';
+            });
+        });
+    </script>
+</body>
+</html>
