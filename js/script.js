@@ -145,7 +145,7 @@ const adjustCartQuantity = (product_id, change) => {
 
 // Initialize the app and fetch products
 const initApp = () => {
-    fetch('products.json')  // Adjust this path based on your structure
+    fetch('../data/products.json')  // Adjust this path based on your structure
         .then(response => response.json())
         .then(data => {
             listProducts = data;
