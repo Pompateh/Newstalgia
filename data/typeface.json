@@ -9,7 +9,9 @@
       "updateDate": "12/01/2023",
       "story": "Bitchin was created to embody the spirit of rebellion and energy. Its bold strokes and dynamic curves make it perfect for designs that need to stand out and make a statement.",
       "image1": "./assets/image/bitchin-detail-1.png",
-      "image2": "./assets/image/bitchin-detail-2.png"
+      "image2": "./assets/image/bitchin-detail-2.png",
+      "features": "Glyph set: 394 / Uppercase & lowercase / Alternates / Numbers & fractions / Punctuation / Diacritics / Symbols & arrows / Currency Symbols / Ligatures / En & Vi / Variable"
+      
     },
     {
       "id": "2",
