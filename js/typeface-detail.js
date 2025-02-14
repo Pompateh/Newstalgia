@@ -47,6 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="${currentTypeface.image1}" alt="${currentTypeface.name} Detail 1">
             <img src="${currentTypeface.image2}" alt="${currentTypeface.name} Detail 2">
         </div>
+                <div class="typeface_features">
+            <h3>Features:</h3>
+            <p>${currentTypeface.features || 'Glyph set: 394 / Uppercase & lowercase / Alternates / Numbers & fractions / Punctuation / Diacritics / Symbols & arrows / Currency Symbols / Ligatures / En & Vi / Variable'}</p>
+        </div>
     </div>
     <div class="detail_end">
         <a href="#" id="prevTypefaceBottom">Back</a>
