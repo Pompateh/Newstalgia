@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="detail_end">
-                    <a href="illustration.html">Back</a>
-                    <a href="illustration.html">All Illustrations</a>
+                    <a href="Illustration.html">Back</a>
+                    <a href="Illustration.html">All Illustrations</a>
                     <a href="#" id="nextIllustration">Next</a>
                 </div>
             `;
