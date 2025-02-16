@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchTypefaces = async () => {
         try {
-            const response = await fetch('../data/typeface.json'); // Changed to match the actual file name
+            const response = await fetch('./data/typeface.json'); // Changed to match the actual file name
             typefaces = await response.json();
             initializeTypeface();
         } catch (error) {
