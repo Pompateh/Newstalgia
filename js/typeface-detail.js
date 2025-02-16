@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <div class="detail_end">
         <a href="#" id="prevTypefaceBottom">Back</a>
-        <a href="typeface.html">All Typefaces</a>
+        <a href="Typeface.html">All Typefaces</a>
         <a href="#" id="nextTypefaceBottom">Next</a>
     </div>
             `;
