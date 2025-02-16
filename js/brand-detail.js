@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="detail_end">
                     <a href="#" id="prevBrandBottom">Back</a>
-                    <a href="brand.html">All Brands</a>
+                    <a href="/Newstalgia/brand.html">All Brands</a>
                     <a href="#" id="nextBrandBottom">Next</a>
                 </div>
             `;
