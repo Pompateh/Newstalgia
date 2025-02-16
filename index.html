@@ -18,34 +18,69 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
             z-index: 9999;
         }
-
+    
+        .preloader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
         #preloader img {
             width: 200px;
-            animation: fadeZoom 2s ease-in-out forwards;
+            animation: fadeZoom 2.5s ease-in-out forwards;
+            margin-bottom: 20px; /* Add space between logo and spinner */
         }
-
+    
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #FED400;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+    
         @keyframes fadeZoom {
             0% {
                 opacity: 0;
                 transform: scale(0.8);
             }
-            50% {
+            40% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            80% {
                 opacity: 1;
                 transform: scale(1);
             }
             100% {
                 opacity: 0;
-                transform: scale(1.2);
+                transform: scale(1.1);
             }
         }
-
+    
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    
         /* Hide preloader after animation */
         .hide-preloader {
             opacity: 0;
             visibility: hidden;
+        }
+    
+        /* Main content transition */
+        #main-content {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+    
+        #main-content.show {
+            opacity: 1;
         }
     </style>
 </head>
@@ -53,9 +88,13 @@
 <body style="background-color: #FED400;">
     
     <!-- Preloader -->
-    <div id="preloader">
+<!-- Preloader -->
+<div id="preloader">
+    <div class="preloader-content">
         <img src="./assets/logo-02.png" alt="Logo">
+        <div class="spinner"></div>
     </div>
+</div>
 
     <!-- Main Content -->
     <div class="container" id="main-content" style="display: none;">
@@ -114,18 +153,21 @@
 
     <script type="text/javascript" src="js/header.js"></script>
     <script>
-        window.addEventListener("load", function () {
-            let preloader = document.getElementById("preloader");
-            let mainContent = document.getElementById("main-content");
+    window.addEventListener("load", function () {
+        let preloader = document.getElementById("preloader");
+        let mainContent = document.getElementById("main-content");
 
+        setTimeout(() => {
+            preloader.classList.add("hide-preloader");
             setTimeout(() => {
-                preloader.classList.add("hide-preloader");
+                preloader.style.display = "none";
+                mainContent.style.display = "block";
                 setTimeout(() => {
-                    preloader.style.display = "none";
-                    mainContent.style.display = "block";
-                }, 500);
-            }, 2000);
-        });
+                    mainContent.classList.add("show");
+                }, 50);
+            }, 800);
+        }, 2500);
+    });
 
         function updateImage() {
             const img = document.getElementById('responsive-img');
