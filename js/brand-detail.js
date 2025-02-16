@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentBrand) {
             brandDetailContainer.innerHTML = `
                 <div class="detail_head">
-                    <div class="detail_back"><a href="brand.html" id="prevBrand">Back</a></div>
+                    <div class="detail_back"><a href="Brand.html" id="prevBrand">Back</a></div>
                     <div class="brand_name">${currentBrand.name}</div>
                     <div class="detail_next"><a href="#" id="nextBrand">Next</a></div>
                 </div>
