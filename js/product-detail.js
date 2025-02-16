@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await fetch('../data/products.json');
+            const response = await fetch('./data/products.json');
             products = await response.json();
             initializeProduct();
         } catch (error) {
