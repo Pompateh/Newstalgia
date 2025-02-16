@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
 
     // Fetch the typeface data
-    fetch('../data/typeface.json')  // Changed to match the correct file name and path
+    fetch('./data/typeface.json')  // Changed to match the correct file name and path
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
