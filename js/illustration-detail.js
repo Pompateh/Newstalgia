@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentIllustration) {
             illustrationDetailContainer.innerHTML = `
                 <div class="detail_head">
-                    <div class="detail_back"><a href="illustration.html">Back</a></div>
+                    <div class="detail_back"><a href="Illustration.html">Back</a></div>
                     <div class="illustration_name">${currentIllustration.name}</div>
                     <div class="detail_next"><a href="#" id="nextIllustration">Next</a></div>
                 </div>
