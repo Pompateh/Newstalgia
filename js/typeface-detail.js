@@ -33,30 +33,30 @@ document.addEventListener('DOMContentLoaded', () => {
         <h2>DETAIL</h2>
 <div class="detail_character">
     <div class="metric_diagram">
-        <svg width="400" height="400" viewBox="0 0 400 400" id="metricSvg">
-            <!-- Cap Height -->
-            <text x="0" y="30" font-size="14" fill="white">Cap Height</text>
-            <line x1="0" y1="50" x2="400" y2="50" stroke="white" stroke-width="1"/>
-            <text x="380" y="30" font-size="14" fill="white" text-anchor="end">${currentTypeface.capHeight || '716'}</text>
+<svg width="400" height="400" viewBox="0 0 400 400" id="metricSvg">
+    <!-- Cap Height -->
+    <line x1="0" y1="50" x2="400" y2="50" stroke="white" stroke-width="1" data-metric-line="capHeight"/>
+    <text x="5" y="45" font-size="14" fill="white" data-metric="capHeight">Cap Height</text>
+    <text x="395" y="45" font-size="14" fill="white" text-anchor="end" data-metric-value="capHeight">716</text>
 
-            <!-- X-Height -->
-            <text x="0" y="130" font-size="14" fill="white">X Height</text>
-            <line x1="0" y1="150" x2="400" y2="150" stroke="white" stroke-width="1"/>
-            <text x="380" y="130" font-size="14" fill="white" text-anchor="end">${currentTypeface.xHeight || '484'}</text>
+    <!-- X-Height -->
+    <line x1="0" y1="150" x2="400" y2="150" stroke="white" stroke-width="1" data-metric-line="xHeight"/>
+    <text x="5" y="145" font-size="14" fill="white" data-metric="xHeight">X Height</text>
+    <text x="395" y="145" font-size="14" fill="white" text-anchor="end" data-metric-value="xHeight">484</text>
 
-            <!-- Base Line -->
-            <text x="0" y="280" font-size="14" fill="white">Base Line</text>
-            <line x1="0" y1="300" x2="400" y2="300" stroke="white" stroke-width="1"/>
-            <text x="380" y="280" font-size="14" fill="white" text-anchor="end">${currentTypeface.baseLine || '0'}</text>
+    <!-- Base Line -->
+    <line x1="0" y1="300" x2="400" y2="300" stroke="white" stroke-width="1" data-metric-line="baseLine"/>
+    <text x="5" y="295" font-size="14" fill="white" data-metric="baseLine">Base Line</text>
+    <text x="395" y="295" font-size="14" fill="white" text-anchor="end" data-metric-value="baseLine">0</text>
 
-            <!-- Descender -->
-            <text x="0" y="350" font-size="14" fill="white">Descender</text>
-            <line x1="0" y1="370" x2="400" y2="370" stroke="white" stroke-width="1"/>
-            <text x="380" y="350" font-size="14" fill="white" text-anchor="end">${currentTypeface.descender || '-211'}</text>
+    <!-- Descender -->
+    <line x1="0" y1="370" x2="400" y2="370" stroke="white" stroke-width="1" data-metric-line="descender"/>
+    <text x="5" y="365" font-size="14" fill="white" data-metric="descender">Descender</text>
+    <text x="395" y="365" font-size="14" fill="white" text-anchor="end" data-metric-value="descender">-211</text>
 
-            <!-- Sample character -->
-            <text x="200" y="300" font-size="250" text-anchor="middle" fill="white" class="imported-font" id="sampleChar">A</text>
-        </svg>
+    <!-- Sample character -->
+    <text x="200" y="300" font-size="250" text-anchor="middle" fill="white" class="imported-font" id="sampleChar">P</text>
+</svg>
     </div>
     <div id="characterInput" contenteditable="true" class="imported-font">P</div>
 </div>
@@ -144,12 +144,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const lowercaseBtn = document.getElementById('lowercaseBtn');
     
             
-            // Set up the character input event listener
-            characterInput.addEventListener('input', (e) => {
-                const inputChar = e.target.textContent.charAt(0) || 'P';
-                sampleChar.textContent = inputChar;
-                characterInput.textContent = inputChar;
-            });
+// Set up the character input event listener
+characterInput.addEventListener('input', (e) => {
+    const inputChar = e.target.textContent.charAt(0) || 'P';
+    sampleChar.textContent = inputChar;
+    characterInput.textContent = inputChar;
+
+    // Calculate metrics and update SVG
+    const metrics = calculateMetrics(inputChar, currentTypeface.name, 250);
+    updateSVGDiagram(metrics);
+});
     
             // Set up other event listeners
             uppercaseBtn.addEventListener('click', () => {
@@ -200,6 +204,64 @@ if (currentTypeface.images && currentTypeface.images.length > 2) {
         }
     };
     
+    const updateSVGDiagram = (metrics) => {
+        const svgHeight = 400;
+        const baseLine = 300;
+        const staticDescenderY = 370; // Static position for descender line
+    
+        // Update Cap Height, X-Height, and Baseline
+        ['capHeight', 'xHeight', 'baseLine'].forEach(metric => {
+            const line = document.querySelector(`[data-metric-line='${metric}']`);
+            const label = document.querySelector(`[data-metric='${metric}']`);
+            const value = document.querySelector(`[data-metric-value='${metric}']`);
+            
+            let yPosition;
+            if (metric === 'baseLine') {
+                yPosition = baseLine;
+            } else {
+                yPosition = baseLine - metrics[metric];
+            }
+    
+            line.setAttribute("y1", yPosition);
+            line.setAttribute("y2", yPosition);
+            label.setAttribute("y", yPosition - 5);
+            value.setAttribute("y", yPosition - 5);
+            value.textContent = Math.round(metrics[metric]);
+        });
+    
+        // Update descender (static position)
+        const descenderLine = document.querySelector(`[data-metric-line='descender']`);
+        const descenderLabel = document.querySelector(`[data-metric='descender']`);
+        const descenderValue = document.querySelector(`[data-metric-value='descender']`);
+    
+        descenderLine.setAttribute("y1", staticDescenderY);
+        descenderLine.setAttribute("y2", staticDescenderY);
+        descenderLabel.setAttribute("y", staticDescenderY - 5);
+        descenderValue.setAttribute("y", staticDescenderY - 5);
+        descenderValue.textContent = Math.round(metrics.descender);
+    
+        // Update sample character position
+        const sampleChar = document.getElementById('sampleChar');
+        sampleChar.setAttribute("y", baseLine);
+    };
+    
+    const calculateMetrics = (char, fontFamily, fontSize) => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        ctx.font = `${fontSize}px '${fontFamily}'`;
+        
+        // Measure text size
+        const metrics = ctx.measureText(char);
+    
+        const capHeight = metrics.actualBoundingBoxAscent;
+        const descender = metrics.actualBoundingBoxDescent;
+        const baseLine = capHeight; // Baseline is where ascent stops
+        const xHeight = capHeight * 0.6; // Rough estimate
+    
+        return { capHeight, xHeight, baseLine, descender };
+    };
+    
+
     const navigateToNext = (e) => {
         e.preventDefault();
         const currentIndex = typefaces.findIndex(typeface => typeface.id === currentTypeface.id);
