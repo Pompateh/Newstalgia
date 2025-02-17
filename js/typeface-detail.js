@@ -32,49 +32,53 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="detail_left">
         <h2>DETAIL</h2>
 <div class="detail_character">
-    <div class="metric_diagram">
-<svg width="400" height="400" viewBox="0 0 400 400" id="metricSvg">
-    <!-- Cap Height -->
-    <line x1="0" y1="50" x2="400" y2="50" stroke="white" stroke-width="1" data-metric-line="capHeight"/>
-    <text x="5" y="45" font-size="14" fill="white" data-metric="capHeight">Cap Height</text>
-    <text x="395" y="45" font-size="14" fill="white" text-anchor="end" data-metric-value="capHeight">716</text>
+         <div class="metric_diagram">
+<svg width="100%" height="100%" viewBox="0 0 670 382" id="metricSvg">
+ <!-- Cap Height -->
+    <line x1="0" y1="50" x2="670" y2="50" stroke="white" stroke-width="1" data-metric-line="capHeight"/>
+    <text x="10" y="45" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" data-metric="capHeight">Cap Height</text>
+    <text x="660" y="45" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" text-anchor="end" data-metric-value="capHeight">716</text>
 
     <!-- X-Height -->
-    <line x1="0" y1="150" x2="400" y2="150" stroke="white" stroke-width="1" data-metric-line="xHeight"/>
-    <text x="5" y="145" font-size="14" fill="white" data-metric="xHeight">X Height</text>
-    <text x="395" y="145" font-size="14" fill="white" text-anchor="end" data-metric-value="xHeight">484</text>
+    <line x1="0" y1="150" x2="670" y2="150" stroke="white" stroke-width="1" data-metric-line="xHeight"/>
+    <text x="10" y="145" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" data-metric="xHeight">X Height</text>
+    <text x="660" y="145" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" text-anchor="end" data-metric-value="xHeight">484</text>
 
     <!-- Base Line -->
-    <line x1="0" y1="300" x2="400" y2="300" stroke="white" stroke-width="1" data-metric-line="baseLine"/>
-    <text x="5" y="295" font-size="14" fill="white" data-metric="baseLine">Base Line</text>
-    <text x="395" y="295" font-size="14" fill="white" text-anchor="end" data-metric-value="baseLine">0</text>
+    <line x1="0" y1="300" x2="670" y2="300" stroke="white" stroke-width="1" data-metric-line="baseLine"/>
+    <text x="10" y="295" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" data-metric="baseLine">Base Line</text>
+    <text x="660" y="295" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" text-anchor="end" data-metric-value="baseLine">0</text>
 
     <!-- Descender -->
-    <line x1="0" y1="370" x2="400" y2="370" stroke="white" stroke-width="1" data-metric-line="descender"/>
-    <text x="5" y="365" font-size="14" fill="white" data-metric="descender">Descender</text>
-    <text x="395" y="365" font-size="14" fill="white" text-anchor="end" data-metric-value="descender">-211</text>
+    <line x1="0" y1="350" x2="670" y2="350" stroke="white" stroke-width="1" data-metric-line="descender"/>
+    <text x="10" y="345" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" data-metric="descender">Descender</text>
+    <text x="660" y="345" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" text-anchor="end" data-metric-value="descender">-211</text>
+
 
     <!-- Sample character -->
-    <text x="200" y="300" font-size="250" text-anchor="middle" fill="white" class="imported-font" id="sampleChar">P</text>
+    <text x="335" y="300" font-size="350" text-anchor="middle" fill="white" class="imported-font" id="sampleChar">P</text>
 </svg>
-    </div>
-    <div id="characterInput" contenteditable="true" class="imported-font">P</div>
+        </div>
+    <div class="character-input-container">
+    <div class="search-label">SEARCH</div>
+    <div class="input-wrapper">
+        <div id="characterInput" contenteditable="true" class="imported-font">P</div>
+    </div></div>
 </div>
     </div>
                 <div class="detail_right">
                     <h2>GLYPHS</h2>
-                    <div class="glyphs_content imported-font">
-                        <div class="alphabet">
-                            Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm
-                            Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
-                        </div>
-                        <div class="numbers">
-                            0 1 2 3 4 5 6 7 8 9
-                        </div>
-                        <div class="symbols">
-                            ! @ # $ % ^ & * ( ) { } [ ] _ + = | \\ : " ' < > , . / ?
-                        </div>
-                    </div>
+<div class="glyphs_content imported-font">
+    <div class="alphabet">
+        ${['Aa', 'Bb', 'Cc', 'Dd', 'Ee', 'Ff', 'Gg', 'Hh', 'Ii', 'Jj', 'Kk', 'Ll', 'Mm', 'Nn', 'Oo', 'Pp', 'Qq', 'Rr', 'Ss', 'Tt', 'Uu', 'Vv', 'Ww', 'Xx', 'Yy', 'Zz'].map(char => `<span>${char}</span>`).join(' ')}
+    </div>
+    <div class="numbers">
+        ${['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'].map(num => `<span>${num}</span>`).join(' ')}
+    </div>
+    <div class="symbols">
+        ${['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '_', '+', '=', '|', '\\', ':', '"', "'", '<', '>', ',', '.', '/', '?'].map(sym => `<span>${sym}</span>`).join(' ')}
+    </div>
+</div>
             <div class="preview_section">
                 <h2>PREVIEW</h2>
                 <div id="previewText" class="imported-font">
@@ -205,9 +209,9 @@ if (currentTypeface.images && currentTypeface.images.length > 2) {
     };
     
     const updateSVGDiagram = (metrics) => {
-        const svgHeight = 400;
+        const svgHeight = 382;
         const baseLine = 300;
-        const staticDescenderY = 370; // Static position for descender line
+        const staticDescenderY = 350; // Adjusted static position for descender line
     
         // Update Cap Height, X-Height, and Baseline
         ['capHeight', 'xHeight', 'baseLine'].forEach(metric => {
@@ -244,7 +248,7 @@ if (currentTypeface.images && currentTypeface.images.length > 2) {
         const sampleChar = document.getElementById('sampleChar');
         sampleChar.setAttribute("y", baseLine);
     };
-    
+
     const calculateMetrics = (char, fontFamily, fontSize) => {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
@@ -253,14 +257,22 @@ if (currentTypeface.images && currentTypeface.images.length > 2) {
         // Measure text size
         const metrics = ctx.measureText(char);
     
-        const capHeight = metrics.actualBoundingBoxAscent;
-        const descender = metrics.actualBoundingBoxDescent;
-        const baseLine = capHeight; // Baseline is where ascent stops
-        const xHeight = capHeight * 0.6; // Rough estimate
+        const actualCapHeight = metrics.actualBoundingBoxAscent;
+        const actualDescender = metrics.actualBoundingBoxDescent;
+        
+        // Scale factors
+        const svgHeight = 382;
+        const desiredCapHeight = 250; // Adjust this value to control the size of the character in the SVG
+        const scaleFactor = desiredCapHeight / actualCapHeight;
+    
+        // Scale metrics
+        const capHeight = actualCapHeight * scaleFactor;
+        const descender = actualDescender * scaleFactor;
+        const baseLine = 300; // Fixed baseline position
+        const xHeight = capHeight * 0.7; // Rough estimate for x-height
     
         return { capHeight, xHeight, baseLine, descender };
     };
-    
 
     const navigateToNext = (e) => {
         e.preventDefault();
