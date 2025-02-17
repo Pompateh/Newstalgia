@@ -65,16 +65,6 @@
     transition: 0.5s ease-in-out;
 }
 
-.nav-bar ul li a:hover,
-.nav-bar ul li a.active {
-    color: #FFFFFF;
-}
-
-.nav-bar ul li a:hover::before,
-.nav-bar ul li a.active::before {
-    opacity: 1;
-    visibility: visible;
-}
 
 .image-grid {
     display: grid;
@@ -634,12 +624,6 @@
 }
 
 
-/* Hover effect for anchor */
-.flexbox-container a:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    /* Enhanced shadow on hover */
-}
 
 /* Image container styling */
 .flexbox-img {
@@ -813,11 +797,6 @@
     padding: 10px 20px;
 }
 
-.get_btn a:hover {
-    color: bisque;
-}
-
-
 .static_brand a {
     background-color: grey;
     color: greenyellow;
@@ -939,11 +918,6 @@
     fill: currentColor;
 }
 
-.shop_back:hover {
-    background-color: black;
-    color: white;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
 
 .shop_back:active {
     background-color: green;
@@ -2169,10 +2143,6 @@ img {
         display: none;
     }
 
-    .nav-bar ul li a:hover,
-    .nav-bar ul li a.active {
-        background-color: #000;
-    }
 }
 
 
