@@ -2,17 +2,25 @@
     {
       "id": "1",
       "name": "Bitchin",
-      "image": "./assets/image/NEWSTALGIA WEB-03.png",
       "designer": "Hieu Le",
       "publicOn": "12/12/2015",
       "version": "0.1",
       "updateDate": "12/01/2023",
       "story": "Bitchin was created to embody the spirit of rebellion and energy. Its bold strokes and dynamic curves make it perfect for designs that need to stand out and make a statement.",
-      "image1": "./assets/image/bitchin-detail-1.png",
-      "image2": "./assets/image/bitchin-detail-2.png",
-      "features": "Glyph set: 394 / Uppercase & lowercase / Alternates / Numbers & fractions / Punctuation / Diacritics / Symbols & arrows / Currency Symbols / Ligatures / En & Vi / Variable"
-      
-    },
+      "features": "Glyph set: 394 / Uppercase & lowercase / Alternates / Numbers & fractions / Punctuation / Diacritics / Symbols & arrows / Currency Symbols / Ligatures / En & Vi / Variable",
+      "weights": ["Light", "Regular", "Medium", "Bold", "Black"],
+  "fontFile": "./assets/font/Cham.otf",
+  "images": [
+    "./assets/image/NEWSTALGIA WEB-04.png",
+    "./assets/image/NEWSTALGIA WEB-04.png",
+    "./assets/image/NEWSTALGIA WEB-04.png",
+    "./assets/image/NEWSTALGIA WEB-04.png",
+    "./assets/image/NEWSTALGIA WEB-03.png"],
+    "capHeight": "718",
+    "xHeight": "484",
+    "baseLine": "0",
+    "descender": "-212"},
+    
     {
       "id": "2",
       "name": "Tidy",
