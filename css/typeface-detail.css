@@ -1,9 +1,11 @@
 body{
     margin: 40px;
+    background-color: #000;
+    color: #fff;
 }
 .detail_back a, .detail_next a {
     text-decoration: none;
-    color: #000000;
+    color: white;
     font-weight: 400;
     text-transform: uppercase;
     font-size: 30px;
@@ -23,20 +25,6 @@ body{
     font-family: "Bebas Neue", sans-serif;
 }
 
-.detail_main_img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    margin: 10px 0px;
-}
-
-.detail_main_img img {
-    width: 100%;
-    height: 717px;
-    border-radius: 15px;
-}
 .typeface_name {
     font-size: 45px;
     font-weight: 400;
@@ -45,15 +33,250 @@ body{
 }
 
 .detail_img_grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+
+.img-carousel {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.img-container {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.img-container img {
+    width: calc(50% - 10px);
+    height: 449px;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.detail_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail_content h2{
+    font-family: 'Bebas Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 45px;
+line-height: 54px;
+text-align: center;
+letter-spacing: 0.04em; 
+margin: 0;
+}
+
+.detail_left, .detail_right {
+    width: 48%;
+}
+
+.detail_left{
+    position: relative;
+}
+
+.detail_character {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+.metric_diagram {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character_input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.glyphs_content .symbols{
+    margin-bottom: 0px;
+}
+#metricSvg {
+    width: 100%;
+    height: 100%;
+    max-height: calc(100vh - 300px); /* Adjust this value as needed */
+}
+
+.imported-font {
+    font-family: var(--imported-font), sans-serif !important
+}
+
+.character-input-container {
+    display: flex;
+    align-items: center;
+    background-color: #000;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.search-label {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 15px;
+    text-transform: uppercase;
+}
+
+.input-wrapper {
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 15px;
+}
+
+#characterInput {
+    border: none;
+    outline: none;
+    font-size: 24px;
+    width: 100%;
+    font-family: var(--imported-font), sans-serif;
+    color: #000;
+    display: flex; /* Use flexbox for vertical centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.character_input label {
+    color: white;
+    font-size: 18px;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.glyphs_content {
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.alphabet {
+    margin-bottom: 20px;
+}
+
+.numbers {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.symbols {
+    font-size: 36px;
+}
+
+.glyphs_content .alphabet,
+.glyphs_content .numbers,
+.glyphs_content .symbols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    font-size: 30px;
+    
+}
+
+.glyphs_content .alphabet span,
+.glyphs_content .numbers span,
+.glyphs_content .symbols span {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.glyphs_content .alphabet span:hover,
+.glyphs_content .numbers span:hover,
+.glyphs_content .symbols span:hover {
+    color: #ccc;
+    cursor: pointer;
+}
+.preview_section {
+    margin-top: 40px;
+}
+
+#previewText {
+    font-size: 30px;
+    line-height: 45px;
+    display: flex;
+    margin-top: 5px;
+}
+
+.preview_controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
     gap: 20px;
 }
 
-.detail_img_grid img {
-    width: 100%;
-    height: 449px;
+.alphabet, .numbers, .symbols {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.preview_controls button {
+    flex: 1; /* This makes the buttons grow to fill available space */
+    padding: 15px 10px; /* Increased vertical padding for larger buttons */
+    font-size: 18px; /* Slightly increased font size */
+    cursor: pointer;
+    background-color: white;
     border-radius: 15px;
+    font-family: 'Literata', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflowing text */
+    text-overflow: ellipsis; /* Adds ellipsis for overflowing text */
+    min-width: 0; /* Allows buttons to shrink below their content size */
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    border: none;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.next-arrow {
+    right: 20px;
+}
+
+.next-arrow::after {
+    content: '›';
+    font-size: 36px;
+    line-height: 1;
 }
 
 .detail_end {
@@ -68,7 +291,7 @@ body{
 
 .detail_end a {
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: 400;
     font-size: 30px;
     line-height: 36px;
@@ -76,7 +299,7 @@ body{
 }
 
 .home_btn a {
-    color: black;
+    color: white;
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
@@ -98,7 +321,7 @@ body{
     font-weight: 400;
     font-size: 45px;
     line-height: 54px;
-    color: #000;
+    color: white;
     margin: 0;
     white-space: nowrap;
     text-transform: uppercase;
@@ -111,14 +334,14 @@ body{
     font-weight: 400;
     font-size: 20px;
     line-height: 130%;
-    color: #000;
+    color: white;
     margin: 0;
     flex: 1;
     padding-left: 20px;
 }
 
 .detail_content {
-    margin: 20px 0px;
+    margin: 40px 0px;
 }
 
 .typeface_info {
@@ -143,6 +366,8 @@ body{
 .info_value {
     font-weight: normal;
 }
+
+
 
 
 
