@@ -64,6 +64,8 @@ body{
 .detail_content {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+    gap: 10px; /* Add gap between left and right sections */
 }
 
 .detail_content h2{
@@ -71,24 +73,43 @@ body{
 font-style: normal;
 font-weight: 400;
 font-size: 45px;
-line-height: 54px;
 text-align: center;
 letter-spacing: 0.04em; 
 margin: 0;
+margin-bottom: 10px;
 }
 
 .detail_left, .detail_right {
-    width: 48%;
+    width: 48% !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
-.detail_left{
-    position: relative;
+.detail_right {
+    height: 100%;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 1700px) {
+    .detail_right {
+        gap: 61px; /* Add vertical gap between items in detail_right for big screens */
+    }
+}
+
+
+.detail_left {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    justify-content: space-between;
 }
 
 .detail_character {
-    background-color: black;
+    flex-grow: 1; /* Allow it to grow and fill available space */
     display: flex;
     flex-direction: column;
+    color: #000;
 }
 .metric_diagram {
     width: 100%;
@@ -98,20 +119,17 @@ margin: 0;
     justify-content: center;
 }
 
-.character_input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
+
 
 .glyphs_content .symbols{
     margin-bottom: 0px;
 }
 #metricSvg {
+    position: relative;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    max-height: calc(100vh - 300px); /* Adjust this value as needed */
 }
 
 .imported-font {
@@ -123,7 +141,14 @@ margin: 0;
     align-items: center;
     background-color: #000;
     padding: 15px;
-    margin-top: 20px;
+    margin-top: 24px;
+}
+
+.metric_diagram_container {
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    height: auto;
 }
 
 .search-label {
@@ -136,14 +161,14 @@ margin: 0;
 .input-wrapper {
     flex-grow: 1;
     background-color: #fff;
-    padding: 10px 15px;
+    padding: 16px 10px;
     border-radius: 15px;
 }
 
 #characterInput {
     border: none;
     outline: none;
-    font-size: 24px;
+    font-size: 20px;
     width: 100%;
     font-family: var(--imported-font), sans-serif;
     color: #000;
@@ -165,7 +190,11 @@ margin: 0;
     font-size: 30px;
     line-height: 1.5;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add gap between alphabet, numbers, and symbols */
 }
+
 
 .alphabet {
     margin-bottom: 20px;
@@ -205,20 +234,28 @@ margin: 0;
     cursor: pointer;
 }
 .preview_section {
-    margin-top: 40px;
+    margin-top: 0; /* Remove top margin */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add gap between preview text and controls */
 }
 
 #previewText {
     font-size: 30px;
     line-height: 45px;
     display: flex;
-    margin-top: 5px;
+    margin-top: 0px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    justify-items: center;
 }
 
 .preview_controls {
     display: flex;
     justify-content: space-between;
-    margin-top: 45px;
+    margin-top: auto;
     gap: 20px;
 }
 
@@ -231,7 +268,7 @@ margin: 0;
 .preview_controls button {
     flex: 1; /* This makes the buttons grow to fill available space */
     padding: 15px 10px; /* Increased vertical padding for larger buttons */
-    font-size: 18px; /* Slightly increased font size */
+    font-size: 20px; /* Slightly increased font size */
     cursor: pointer;
     background-color: white;
     border-radius: 15px;
@@ -243,6 +280,8 @@ margin: 0;
     overflow: hidden; /* Hides overflowing text */
     text-overflow: ellipsis; /* Adds ellipsis for overflowing text */
     min-width: 0; /* Allows buttons to shrink below their content size */
+    border: none;
+    
 }
 
 .carousel-arrow {
