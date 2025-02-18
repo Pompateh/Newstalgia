@@ -29,43 +29,44 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="detail_next"><a href="#" id="nextTypeface">Next</a></div>
                 </div>
 <div class="detail_content">
-    <div class="detail_left">
-        <h2>DETAIL</h2>
-<div class="detail_character">
-         <div class="metric_diagram">
-<svg width="100%" height="100%" viewBox="0 0 670 382" id="metricSvg">
- <!-- Cap Height -->
-    <line x1="0" y1="50" x2="670" y2="50" stroke="white" stroke-width="1" data-metric-line="capHeight"/>
-    <text x="10" y="45" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" data-metric="capHeight">Cap Height</text>
-    <text x="660" y="45" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" text-anchor="end" data-metric-value="capHeight">716</text>
+<div class="detail_left">
+    <h2>DETAIL</h2>
+    <div class="detail_character">
+        <div class="metric_diagram_container">
+            <svg width="100%" height="auto" viewBox="0 0 670 382" preserveAspectRatio="xMinYMin meet" id="metricSvg">
 
-    <!-- X-Height -->
-    <line x1="0" y1="150" x2="670" y2="150" stroke="white" stroke-width="1" data-metric-line="xHeight"/>
-    <text x="10" y="145" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" data-metric="xHeight">X Height</text>
-    <text x="660" y="145" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" text-anchor="end" data-metric-value="xHeight">484</text>
+                <!-- Cap Height -->
+                <line x1="0" y1="50" x2="670" y2="50" stroke="white" stroke-width="1" data-metric-line="capHeight"/>
+                <text x="10" y="45" font-family="Literata" font-style="normal" font-weight="400" font-size="16" fill="white" data-metric="capHeight">Cap Height</text>
+                <text x="660" y="45" font-family="Literata" font-style="normal" font-weight="400" font-size="16" fill="white" text-anchor="end" data-metric-value="capHeight">716</text>
 
-    <!-- Base Line -->
-    <line x1="0" y1="300" x2="670" y2="300" stroke="white" stroke-width="1" data-metric-line="baseLine"/>
-    <text x="10" y="295" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" data-metric="baseLine">Base Line</text>
-    <text x="660" y="295" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" text-anchor="end" data-metric-value="baseLine">0</text>
+                <!-- X-Height -->
+                <line x1="0" y1="150" x2="670" y2="150" stroke="white" stroke-width="1" data-metric-line="xHeight"/>
+                <text x="10" y="145" font-family="Literata" font-style="normal" font-weight="400" font-size="16" fill="white" data-metric="xHeight">X Height</text>
+                <text x="660" y="145" font-family="Literata" font-style="normal" font-weight="400" font-size="16" fill="white" text-anchor="end" data-metric-value="xHeight">484</text>
 
-    <!-- Descender -->
-    <line x1="0" y1="350" x2="670" y2="350" stroke="white" stroke-width="1" data-metric-line="descender"/>
-    <text x="10" y="345" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" data-metric="descender">Descender</text>
-    <text x="660" y="345" font-family="Literata" font-style="normal" font-weight="400" font-size="16" line-height="120%" fill="white" text-anchor="end" data-metric-value="descender">-211</text>
+                <!-- Base Line -->
+                <line x1="0" y1="300" x2="670" y2="300" stroke="white" stroke-width="1" data-metric-line="baseLine"/>
+                <text x="10" y="295" font-family="Literata" font-style="normal" font-weight="400" font-size="16" fill="white" data-metric="baseLine">Base Line</text>
+                <text x="660" y="295" font-family="Literata" font-style="normal" font-weight="400" font-size="16" fill="white" text-anchor="end" data-metric-value="baseLine">0</text>
 
+                <!-- Descender -->
+                <line x1="0" y1="350" x2="670" y2="350" stroke="white" stroke-width="1" data-metric-line="descender"/>
+                <text x="10" y="345" font-family="Literata" font-style="normal" font-weight="400" font-size="16" fill="white" data-metric="descender">Descender</text>
+                <text x="660" y="345" font-family="Literata" font-style="normal" font-weight="400" font-size="16" fill="white" text-anchor="end" data-metric-value="descender">-211</text>
 
-    <!-- Sample character -->
-    <text x="335" y="300" font-size="350" text-anchor="middle" fill="white" class="imported-font" id="sampleChar">P</text>
-</svg>
+                <!-- Sample character -->
+                <text x="335" y="300" font-size="250" text-anchor="middle" fill="white" class="imported-font" id="sampleChar">P</text>
+            </svg>
         </div>
-    <div class="character-input-container">
-    <div class="search-label">SEARCH</div>
-    <div class="input-wrapper">
-        <div id="characterInput" contenteditable="true" class="imported-font">P</div>
-    </div></div>
-</div>
+        <div class="character-input-container">
+            <div class="search-label">SEARCH</div>
+            <div class="input-wrapper">
+                <div id="characterInput" contenteditable="true" class="imported-font">P</div>
+            </div>
+        </div>
     </div>
+</div>
                 <div class="detail_right">
                     <h2>GLYPHS</h2>
 <div class="glyphs_content imported-font">
