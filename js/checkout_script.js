@@ -229,18 +229,37 @@ document.addEventListener('DOMContentLoaded', function() {
                 showNotification('Please enter a valid email address before proceeding.');
                 return;
             }
-    
+        
             const cart = getCartFromLocalStorage();
             const orderDetails = cart.map(item => `${item.quantity}x ${listProducts.find(p => p.id === item.product_id).name}`).join(', ');
             const totalAmount = checkoutTotalPrice.textContent.trim();
-    
-            window.location.href = `qr_code.html?order=${encodeURIComponent(orderDetails)}&total=${encodeURIComponent(totalAmount)}&email=${encodeURIComponent(customerEmail)}`;
+        
+            // Show QR code section
+            const qrContainer = document.querySelector('.qr-container');
+            qrContainer.style.display = 'block';
+        
+            // Update payment message
+            const paymentMessage = document.getElementById('paymentMessage');
+            paymentMessage.textContent = `Please pay the total of ${totalAmount} to complete payment`;
+        
+            // Pre-fill email and order details
+            document.getElementById('qr-email').value = customerEmail;
+            document.getElementById('order-details').value = orderDetails;
+        
+            // Hide the main checkout content
+            document.querySelector('.checkout-container').style.display = 'none';
         });
-    
+        
+        // Add this new event listener for the close button in the QR section
+        document.getElementById('close-button').addEventListener('click', () => {
+            document.querySelector('.qr-container').style.display = 'none';
+            document.querySelector('.checkout-container').style.display = 'block';
+        });
+        
         closeButton.addEventListener('click', () => {
             window.location.href = 'shop.html';
         });
-    
+        
         renderCartItems();
         validateEmail(); // Initial validation to set the correct state of the buttons
     });
