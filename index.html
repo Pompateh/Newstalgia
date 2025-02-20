@@ -34,14 +34,6 @@
             margin-bottom: 20px; /* Add space between logo and spinner */
         }
     
-        .spinner {
-            width: 60px;
-            height: 60px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top: 3px solid #FED400;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
     
         @keyframes fadeZoom {
             0% {
@@ -75,27 +67,29 @@
     
         /* Main content transition */
         #main-content {
-            opacity: 0;
-            transition: opacity 1s ease-in;
-        }
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
     
         #main-content.show {
             opacity: 1;
         }
+
+        #main-content.instant-show {
+        opacity: 1;
+        transition: none;
+    }
     </style>
 </head>
 
 <body style="background-color: #FED400;">
     
-    <!-- Preloader -->
 <!-- Preloader -->
-<div id="preloader">
+<div id="preloader" style="display: none;">
     <div class="preloader-content">
         <img src="./assets/logo-02.png" alt="Logo">
-        <div class="spinner"></div>
     </div>
 </div>
-
     <!-- Main Content -->
     <div class="container" id="main-content" style="display: none;">
         <div class="page-width header_demo">
@@ -153,26 +147,46 @@
 
     <script type="text/javascript" src="js/header.js"></script>
     <script>
-    window.addEventListener("load", function () {
-        let preloader = document.getElementById("preloader");
-        let mainContent = document.getElementById("main-content");
+window.addEventListener("load", function () {
+    let preloader = document.getElementById("preloader");
+    let mainContent = document.getElementById("main-content");
 
+    // Check if preloader has been shown before
+    if (!localStorage.getItem('preloaderShown')) {
+        preloader.style.display = "flex";
         setTimeout(() => {
             preloader.classList.add("hide-preloader");
             setTimeout(() => {
                 preloader.style.display = "none";
-                mainContent.style.display = "block";
-                setTimeout(() => {
-                    mainContent.classList.add("show");
-                }, 50);
+                showMainContent(false);
+                // Set flag in localStorage
+                localStorage.setItem('preloaderShown', 'true');
             }, 800);
         }, 2500);
-    });
+    } else {
+        // If preloader has been shown before, show main content immediately
+        showMainContent(true);
+    }
+});
 
+function showMainContent(instant) {
+    let mainContent = document.getElementById("main-content");
+    mainContent.style.display = "block";
+    
+    if (instant) {
+        mainContent.classList.add("instant-show");
+    } else {
+        mainContent.style.opacity = "0";
+        setTimeout(() => {
+            mainContent.classList.add("show");
+        }, 50);
+    }
+}
+        
         function updateImage() {
             const img = document.getElementById('responsive-img');
             const width = window.innerWidth;
-
+        
             if (width <= 768) {
                 img.src = './assets/image/NEWSTALGIA WEB-10.png';
             } else if (width <= 1440) {
@@ -181,9 +195,27 @@
                 img.src = './assets/image/NEWSTALGIA WEB-01.png';
             }
         }
-
+        
         window.addEventListener('resize', updateImage);
         window.addEventListener('load', updateImage);
-    </script>
+        
+        // Add this function to handle page transitions
+        function handlePageTransition() {
+            let mainContent = document.getElementById("main-content");
+            mainContent.style.opacity = "0";
+            setTimeout(() => {
+                // This timeout allows the fade-out effect to complete before navigating
+                window.location.href = this.getAttribute('href');
+            }, 500);
+        }
+        
+        // Add click event listeners to all internal links
+        document.querySelectorAll('a[href^="/"]:not([href^="//"])').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                handlePageTransition.call(this);
+            });
+        });
+        </script>
 </body>
 </html>
