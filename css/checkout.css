@@ -85,7 +85,7 @@ body::before {
 .cart-table {
     width: 100%; /* Table takes full width */
     border-collapse: collapse;
-    margin-top: -20px;
+    margin-top: -5px;
     table-layout: auto; /* Adjusts to content */
     font-family: "Bebas Neue", sans-serif;
     font-size: x-large;
@@ -93,6 +93,14 @@ body::before {
     letter-spacing: 1px;
     
     
+}
+
+.cart-table-container {
+    max-height: 250px; /* Adjust this value as needed */
+    overflow-y: auto;
+    margin-bottom: 5px; /* Add some space between the scrollable area and the total */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
 #cart-items{
@@ -109,8 +117,11 @@ body::before {
 }
 
 .cart-table th {
-    background-color: black;
-    color: white;
+        background-color: black;
+        color: white;
+        position: sticky;
+        top: -1px;
+        z-index: 10;
 }
 
 .total-label {
